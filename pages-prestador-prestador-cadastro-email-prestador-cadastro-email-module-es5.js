@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>prestador-cadastro-email</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>\r\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>prestador-cadastro-email</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n";
     /***/
   },
 
@@ -254,7 +254,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.navCtrl.setRoot(MeuIgrejaPage);
             }
             loader.dismiss();
-              })
+             })
           .catch(e => {
             HandlerError.handler(loader,e, this.toastCtrl);
           })*/
