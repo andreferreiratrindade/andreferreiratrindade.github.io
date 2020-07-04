@@ -35,6 +35,10 @@ const routes = [
     {
         path: '',
         component: _prestador_cadastro_page__WEBPACK_IMPORTED_MODULE_3__["PrestadorCadastroPage"]
+    },
+    {
+        path: 'prestador-cadastro-form1',
+        loadChildren: () => __webpack_require__.e(/*! import() | prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module */ "prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module").then(__webpack_require__.bind(null, /*! ../prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module.ts")).then(m => m.PrestadorCadastroForm1PageModule)
     }
 ];
 let PrestadorCadastroPageRoutingModule = class PrestadorCadastroPageRoutingModule {

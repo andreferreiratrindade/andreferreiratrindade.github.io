@@ -72,6 +72,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var routes = [{
       path: '',
       component: _prestador_cadastro_page__WEBPACK_IMPORTED_MODULE_3__["PrestadorCadastroPage"]
+    }, {
+      path: 'prestador-cadastro-form1',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module */
+        "prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module").then(__webpack_require__.bind(null,
+        /*! ../prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module */
+        "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module.ts")).then(function (m) {
+          return m.PrestadorCadastroForm1PageModule;
+        });
+      }
     }];
 
     var PrestadorCadastroPageRoutingModule = function PrestadorCadastroPageRoutingModule() {

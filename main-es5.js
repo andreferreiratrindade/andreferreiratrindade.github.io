@@ -166,7 +166,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n        <ion-list id=\"inbox-list\">\n          <ion-list-header>Inbox</ion-list-header>\n          <ion-note>seu@email.com</ion-note>\n\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n\n        <ion-list id=\"labels-list\">\n          <ion-list-header>Labels</ion-list-header>\n\n          <ion-item *ngFor=\"let label of labels\" lines=\"none\">\n            <ion-icon slot=\"start\" ios=\"bookmark-outline\" md=\"bookmark-sharp\"></ion-icon>\n            <ion-label>{{ label }}</ion-label>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n";
+    __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n        <ion-list id=\"inbox-list\">\n          <ion-list-header>Inbox</ion-list-header>\n          <ion-note>seu@email.com</ion-note>\n\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/mensagem-validacao/mensagem-validacao.component.html":
+  /*!***********************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/mensagem-validacao/mensagem-validacao.component.html ***!
+    \***********************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsMensagemValidacaoMensagemValidacaoComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"error-container\">\n  <ng-container *ngFor=\"let validation of validation_messages_object\">\n    <div class=\"error-message\" *ngIf=\"form.get(nomeCampo).hasError(validation.type) && (form.get(nomeCampo).dirty || form.get(nomeCampo).touched)\">\n      <ion-icon name=\"information-circle-outline\"></ion-icon>\n      <span>{{ validation.message }}</span>\n    </div>\n  </ng-container>\n</div>";
     /***/
   },
 
@@ -272,7 +292,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | pages-sign-up-sign-up-module */
-        [__webpack_require__.e("default~firebase-auth~pages-sign-up-sign-up-module"), __webpack_require__.e("pages-sign-up-sign-up-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~firebase-auth~pages-gerenciarIgreja-criar-igreja-criar-igreja-module~pages-sign-up-sign-up-module"), __webpack_require__.e("default~pages-gerenciarIgreja-criar-igreja-criar-igreja-module~pages-sign-up-sign-up-module"), __webpack_require__.e("pages-sign-up-sign-up-module")]).then(__webpack_require__.bind(null,
         /*! ./pages/sign-up/sign-up.module */
         "./src/app/pages/sign-up/sign-up.module.ts")).then(function (m) {
           return m.SignUpPageModule;
@@ -287,6 +307,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /*! ./pages/profile/profile.module */
         "./src/app/pages/profile/profile.module.ts")).then(function (m) {
           return m.ProfilePageModule;
+        });
+      }
+    }, {
+      path: 'criar-igreja',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-gerenciarIgreja-criar-igreja-criar-igreja-module */
+        [__webpack_require__.e("default~firebase-auth~pages-gerenciarIgreja-criar-igreja-criar-igreja-module~pages-sign-up-sign-up-module"), __webpack_require__.e("default~pages-gerenciarIgreja-criar-igreja-criar-igreja-module~pages-sign-up-sign-up-module"), __webpack_require__.e("pages-gerenciarIgreja-criar-igreja-criar-igreja-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/gerenciarIgreja/criar-igreja/criar-igreja.module */
+        "./src/app/pages/gerenciarIgreja/criar-igreja/criar-igreja.module.ts")).then(function (m) {
+          return m.CriarIgrejaPageModule;
         });
       }
     }];
@@ -385,6 +416,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.appPages = [{
           title: 'Seja um Prestador',
           url: 'sign-up',
+          icon: 'warning'
+        }, {
+          title: 'Adicione sua Igreja',
+          url: 'criar-igreja',
           icon: 'warning'
         }];
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
@@ -537,6 +572,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_environments_environment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! src/environments/environment */
     "./src/environments/environment.ts");
+    /* harmony import */
+
+
+    var _components_components_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! ./components/components.module */
+    "./src/app/components/components.module.ts");
+    /* harmony import */
+
+
+    var _providers_base_provider_base_provider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ./providers/base-provider/base-provider */
+    "./src/app/providers/base-provider/base-provider.ts");
+    /* harmony import */
+
+
+    var _providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! ./providers/buscaCEP/buscar-cep.service */
+    "./src/app/providers/buscaCEP/buscar-cep.service.ts");
+    /* harmony import */
+
+
+    var _angular_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! @angular/http */
+    "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -545,14 +610,207 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
       entryComponents: [],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_9__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_12__["environment"].firebase), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuthModule"]],
-      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_11__["FirebaseAuthService"], {
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"], _angular_http__WEBPACK_IMPORTED_MODULE_16__["HttpModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_13__["ComponentsModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_9__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_12__["environment"].firebase), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuthModule"]],
+      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_11__["FirebaseAuthService"], _providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_15__["BuscarCEPService"], _providers_base_provider_base_provider__WEBPACK_IMPORTED_MODULE_14__["BaseProvider"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
+  },
+
+  /***/
+  "./src/app/components/components.module.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/components/components.module.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ComponentsModule */
+
+  /***/
+  function srcAppComponentsComponentsModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ComponentsModule", function () {
+      return ComponentsModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _mensagem_validacao_mensagem_validacao_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./mensagem-validacao/mensagem-validacao.component */
+    "./src/app/components/mensagem-validacao/mensagem-validacao.component.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+
+    var PAGES_COMPONENTS = [_mensagem_validacao_mensagem_validacao_component__WEBPACK_IMPORTED_MODULE_3__["MensagemValidacaoComponent"]];
+
+    var ComponentsModule = function ComponentsModule() {
+      _classCallCheck(this, ComponentsModule);
+    };
+
+    ComponentsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot()],
+      declarations: [PAGES_COMPONENTS],
+      exports: [PAGES_COMPONENTS],
+      entryComponents: []
+    })], ComponentsModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/mensagem-validacao/mensagem-validacao.component.scss":
+  /*!*********************************************************************************!*\
+    !*** ./src/app/components/mensagem-validacao/mensagem-validacao.component.scss ***!
+    \*********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsMensagemValidacaoMensagemValidacaoComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbWVuc2FnZW0tdmFsaWRhY2FvL21lbnNhZ2VtLXZhbGlkYWNhby5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/mensagem-validacao/mensagem-validacao.component.ts":
+  /*!*******************************************************************************!*\
+    !*** ./src/app/components/mensagem-validacao/mensagem-validacao.component.ts ***!
+    \*******************************************************************************/
+
+  /*! exports provided: MensagemValidacaoComponent */
+
+  /***/
+  function srcAppComponentsMensagemValidacaoMensagemValidacaoComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MensagemValidacaoComponent", function () {
+      return MensagemValidacaoComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var MensagemValidacaoComponent = function MensagemValidacaoComponent() {
+      _classCallCheck(this, MensagemValidacaoComponent);
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], MensagemValidacaoComponent.prototype, "form", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], MensagemValidacaoComponent.prototype, "nomeCampo", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], MensagemValidacaoComponent.prototype, "validation_messages_object", void 0);
+    MensagemValidacaoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-mensagem-validacao',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./mensagem-validacao.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/mensagem-validacao/mensagem-validacao.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./mensagem-validacao.component.scss */
+      "./src/app/components/mensagem-validacao/mensagem-validacao.component.scss"))["default"]]
+    })], MensagemValidacaoComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/config.ts":
+  /*!***************************!*\
+    !*** ./src/app/config.ts ***!
+    \***************************/
+
+  /*! exports provided: Config */
+
+  /***/
+  function srcAppConfigTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Config", function () {
+      return Config;
+    });
+
+    var Config = /*#__PURE__*/function () {
+      function Config() {
+        _classCallCheck(this, Config);
+      }
+
+      _createClass(Config, null, [{
+        key: "getUserId",
+        value: function getUserId() {
+          return this._user != null ? this._user.uid : null;
+        }
+      }, {
+        key: "loginAtivo",
+        value: function loginAtivo() {
+          return this._user != null;
+        }
+      }, {
+        key: "user",
+        set: function set(u) {
+          this._user = u;
+        },
+        get: function get() {
+          return this._user;
+        }
+      }]);
+
+      return Config;
+    }();
+    /***/
+
   },
 
   /***/
@@ -580,6 +838,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
     /***/
 
+  },
+
+  /***/
+  "./src/app/providers/base-provider/base-provider.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/providers/base-provider/base-provider.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: BaseProvider */
+
+  /***/
+  function srcAppProvidersBaseProviderBaseProviderTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "BaseProvider", function () {
+      return BaseProvider;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/http */
+    "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
+
+    var BaseProvider = /*#__PURE__*/function () {
+      function BaseProvider(http) {
+        _classCallCheck(this, BaseProvider);
+
+        this.http = http;
+      }
+
+      _createClass(BaseProvider, [{
+        key: "apiGet",
+        value: function apiGet(url) {
+          return this.http.get(url).toPromise().then(function (data) {
+            return data.json();
+          })["catch"](this.handleError);
+        }
+      }, {
+        key: "apiPost",
+        value: function apiPost(url, obj) {// return this.http
+          //   .post(Config.apiUrl + url, obj, this.getRequestOptions())
+          //   .toPromise()
+          //   .then(data => {
+          //     return data.json();
+          //   })
+          //   .catch(this.handleError);
+        }
+      }, {
+        key: "getRequestOptions",
+        value: function getRequestOptions() {
+          var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]();
+          headers.append('Content-Type', 'application/json');
+          headers.append('Access-Control-Allow-Origin', '*');
+          headers.append('X-Requested-With', 'XMLHttpRequest'); // headers.append('Authentication', Config.token);
+
+          return new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({
+            headers: headers
+          });
+        }
+      }, {
+        key: "handleError",
+        value: function handleError(error) {
+          console.error(error); // return Observable.throw(error.json() || 'Server error');
+        }
+      }, {
+        key: "extractData",
+        value: function extractData(res) {
+          var body = res.json();
+          return body || {};
+        }
+      }]);
+
+      return BaseProvider;
+    }();
+
+    BaseProvider.ctorParameters = function () {
+      return [{
+        type: _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]
+      }];
+    };
+
+    BaseProvider = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()], BaseProvider);
+    /***/
   },
 
   /***/
@@ -647,6 +1005,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_pages_profile_profile_model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/pages/profile/profile.model */
     "./src/app/pages/profile/profile.model.ts");
+    /* harmony import */
+
+
+    var src_app_config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/config */
+    "./src/app/config.ts");
 
     var FirebaseAuthService = /*#__PURE__*/function () {
       function FirebaseAuthService(angularFire, platform) {
@@ -661,9 +1025,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (user) {
             // User is signed in.
             _this2.currentUser = user;
+            src_app_config__WEBPACK_IMPORTED_MODULE_7__["Config"].user = user;
           } else {
             // No user is signed in.
             _this2.currentUser = null;
+            src_app_config__WEBPACK_IMPORTED_MODULE_7__["Config"].user = null;
           }
         }); // when using signInWithRedirect, this listens for the redirect results
 
@@ -806,6 +1172,71 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     FirebaseAuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()], FirebaseAuthService);
+    /***/
+  },
+
+  /***/
+  "./src/app/providers/buscaCEP/buscar-cep.service.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/providers/buscaCEP/buscar-cep.service.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: BuscarCEPService */
+
+  /***/
+  function srcAppProvidersBuscaCEPBuscarCepServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "BuscarCEPService", function () {
+      return BuscarCEPService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _base_provider_base_provider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../base-provider/base-provider */
+    "./src/app/providers/base-provider/base-provider.ts");
+
+    var BuscarCEPService = /*#__PURE__*/function () {
+      function BuscarCEPService(baseProvider) {
+        _classCallCheck(this, BuscarCEPService);
+
+        this.baseProvider = baseProvider;
+      }
+
+      _createClass(BuscarCEPService, [{
+        key: "buscarCEP",
+        value: function buscarCEP(cep) {
+          return this.baseProvider.apiGet("https://viacep.com.br/ws/" + cep + "/json/");
+        }
+      }]);
+
+      return BuscarCEPService;
+    }();
+
+    BuscarCEPService.ctorParameters = function () {
+      return [{
+        type: _base_provider_base_provider__WEBPACK_IMPORTED_MODULE_2__["BaseProvider"]
+      }];
+    };
+
+    BuscarCEPService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()], BuscarCEPService);
     /***/
   },
 
