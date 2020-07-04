@@ -483,6 +483,10 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | pages-sign-in-sign-in-module */ "pages-sign-in-sign-in-module").then(__webpack_require__.bind(null, /*! ./pages/sign-in/sign-in.module */ "./src/app/pages/sign-in/sign-in.module.ts")).then(m => m.SignInPageModule)
     },
     {
+        path: 'sign-up',
+        loadChildren: () => Promise.all(/*! import() | pages-sign-up-sign-up-module */[__webpack_require__.e("default~firebase-auth~pages-sign-up-sign-up-module"), __webpack_require__.e("pages-sign-up-sign-up-module")]).then(__webpack_require__.bind(null, /*! ./pages/sign-up/sign-up.module */ "./src/app/pages/sign-up/sign-up.module.ts")).then(m => m.SignUpPageModule)
+    },
+    {
         path: 'profile',
         loadChildren: () => __webpack_require__.e(/*! import() | pages-profile-profile-module */ "pages-profile-profile-module").then(__webpack_require__.bind(null, /*! ./pages/profile/profile.module */ "./src/app/pages/profile/profile.module.ts")).then(m => m.ProfilePageModule)
     }
@@ -544,7 +548,7 @@ let AppComponent = class AppComponent {
         this.appPages = [
             {
                 title: 'Seja um Prestador',
-                url: 'sign-in',
+                url: 'sign-up',
                 icon: 'warning'
             }
         ];

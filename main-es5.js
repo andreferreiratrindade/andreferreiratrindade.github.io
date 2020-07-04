@@ -268,6 +268,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
       }
     }, {
+      path: 'sign-up',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-sign-up-sign-up-module */
+        [__webpack_require__.e("default~firebase-auth~pages-sign-up-sign-up-module"), __webpack_require__.e("pages-sign-up-sign-up-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/sign-up/sign-up.module */
+        "./src/app/pages/sign-up/sign-up.module.ts")).then(function (m) {
+          return m.SignUpPageModule;
+        });
+      }
+    }, {
       path: 'profile',
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
@@ -373,7 +384,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.selectedIndex = 0;
         this.appPages = [{
           title: 'Seja um Prestador',
-          url: 'sign-in',
+          url: 'sign-up',
           icon: 'warning'
         }];
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
