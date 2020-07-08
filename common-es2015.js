@@ -435,6 +435,411 @@ const openURL = async (url, ev, direction, animation) => {
 
 
 
+/***/ }),
+
+/***/ "./src/app/helpers/handlerError.ts":
+/*!*****************************************!*\
+  !*** ./src/app/helpers/handlerError.ts ***!
+  \*****************************************/
+/*! exports provided: HandlerError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HandlerError", function() { return HandlerError; });
+/* harmony import */ var _toastCustom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toastCustom */ "./src/app/helpers/toastCustom.ts");
+
+class HandlerError {
+    static handler(err, toastCtrl) {
+        var data = err;
+        let message = data.error ? data.error.message : data;
+        _toastCustom__WEBPACK_IMPORTED_MODULE_0__["ToastCustom"].errorToast(message, toastCtrl);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/helpers/loadingContr.ts":
+/*!*****************************************!*\
+  !*** ./src/app/helpers/loadingContr.ts ***!
+  \*****************************************/
+/*! exports provided: LoadingContr */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingContr", function() { return LoadingContr; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+
+let LoadingContr = class LoadingContr {
+    /**
+     *
+     */
+    constructor(loadingController) {
+        this.loadingController = loadingController;
+    }
+    static getLoadingContent() {
+        return { content: 'Processando.' };
+    }
+    showLoader() {
+        this.loadingController.create({
+            message: 'Processando...'
+        }).then((res) => {
+            res.present();
+        });
+    }
+    // Hide the loader if already created otherwise return error
+    hideLoader() {
+        this.loadingController.dismiss().then((res) => {
+            console.log('Loading dismissed!', res);
+        }).catch((error) => {
+            console.log('error', error);
+        });
+    }
+};
+LoadingContr.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"] }
+];
+LoadingContr = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+    })
+], LoadingContr);
+
+
+
+/***/ }),
+
+/***/ "./src/app/helpers/toastCustom.ts":
+/*!****************************************!*\
+  !*** ./src/app/helpers/toastCustom.ts ***!
+  \****************************************/
+/*! exports provided: ToastCustom */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ToastCustom", function() { return ToastCustom; });
+class ToastCustom {
+    static errorToast(msg, toastCtrl) {
+        toastCtrl.create({
+            message: msg,
+            duration: 4000,
+            color: "danger"
+        }).then(x => {
+            x.present();
+        });
+    }
+    static SucessoToast(toastCtrl) {
+        toastCtrl.create({
+            message: "Operação realizada com sucesso.",
+            duration: 4000,
+            color: "success"
+        }).then(x => {
+            x.present();
+        });
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/providers/igreja/igreja.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/providers/igreja/igreja.service.ts ***!
+  \****************************************************/
+/*! exports provided: IgrejaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IgrejaService", function() { return IgrejaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/repository/igreja/igreja-rep.service */ "./src/app/repository/igreja/igreja-rep.service.ts");
+
+
+
+let IgrejaService = class IgrejaService {
+    constructor(igrejaRepService) {
+        this.igrejaRepService = igrejaRepService;
+    }
+    AdicionarNovaIgreja(obj) {
+        return this.igrejaRepService.add(obj, null);
+    }
+    RecuperaIgrejasPorCidade(cidade) {
+        return this.igrejaRepService.RecuperaIgrejasPorCidade(cidade);
+    }
+    RecuperaNomeIgreja(igrejas) {
+        return this.igrejaRepService.RecuperaNomeIgreja(igrejas);
+    }
+};
+IgrejaService.ctorParameters = () => [
+    { type: src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__["IgrejaRepService"] }
+];
+IgrejaService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], IgrejaService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/providers/prestador/prestador.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/providers/prestador/prestador.service.ts ***!
+  \**********************************************************/
+/*! exports provided: PrestadorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorService", function() { return PrestadorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/repository/prestador/prestador-rep-service.service */ "./src/app/repository/prestador/prestador-rep-service.service.ts");
+
+
+
+let PrestadorService = class PrestadorService {
+    /**
+     *
+     */
+    constructor(prestadorRepService) {
+        this.prestadorRepService = prestadorRepService;
+    }
+    RecuperaUfPrestadorDisponiveis() {
+        return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
+    }
+    AdicionarNovoPrestador(prestador) {
+        return this.prestadorRepService.AdicionaPrestador(prestador);
+    }
+    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+        return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado);
+    }
+    RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+        return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
+    }
+};
+PrestadorService.ctorParameters = () => [
+    { type: src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__["PrestadorRepServiceService"] }
+];
+PrestadorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PrestadorService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/repository/igreja/igreja-rep.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/repository/igreja/igreja-rep.service.ts ***!
+  \*********************************************************/
+/*! exports provided: IgrejaRepService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IgrejaRepService", function() { return IgrejaRepService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../repository-interface/Repository-Base */ "./src/app/repository/repository-interface/Repository-Base.ts");
+
+
+
+let IgrejaRepService = class IgrejaRepService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    constructor() {
+        super();
+        this._collectionName = "igreja";
+    }
+    RecuperaIgrejasPorCidade(cidade) {
+        return this.find({ elemento: "cidade", tipoComparacao: "==", comparacao: cidade });
+    }
+    RecuperaNomeIgreja(igrejas) {
+        // return this.db.collection("igreja").where(firebase.firestore.FieldPath.documentId(),"array-contains",igrejas).get()
+        return this.find({ elemento: "id", tipoComparacao: "in", comparacao: igrejas });
+    }
+};
+IgrejaRepService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], IgrejaRepService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/repository/prestador/prestador-rep-service.service.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/repository/prestador/prestador-rep-service.service.ts ***!
+  \***********************************************************************/
+/*! exports provided: PrestadorRepServiceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorRepServiceService", function() { return PrestadorRepServiceService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../repository-interface/Repository-Base */ "./src/app/repository/repository-interface/Repository-Base.ts");
+/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+
+
+
+
+let PrestadorRepServiceService = class PrestadorRepServiceService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+        return new Promise((resolve, reject) => {
+            var query = this.db.collectionGroup("prestador")
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .where("uf", "==", ufSelecionado);
+            if (cidadeSelecionado) {
+                query.where("cidade", "==", cidadeSelecionado);
+            }
+            query.get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
+            });
+        });
+    }
+    RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("uf", "==", ufSelecionado)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    console.log(doc.data());
+                    if (!lst.includes(doc.data().cidade)) {
+                        lst.push(doc.data().cidade);
+                    }
+                });
+                resolve(lst);
+            });
+        });
+    }
+    recuperaUfPrestadorDisponiveis() {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    console.log(doc.data());
+                    if (!lst.includes(doc.data().uf)) {
+                        lst.push(doc.data().uf);
+                    }
+                });
+                resolve(lst);
+            });
+        });
+    }
+    AdicionaPrestador(prestador) {
+        return this.db.collection("usuario").doc(prestador.uid).collection("prestador").doc().set(Object.assign({}, prestador));
+    }
+};
+PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PrestadorRepServiceService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/utils/constants.ts":
+/*!************************************!*\
+  !*** ./src/app/utils/constants.ts ***!
+  \************************************/
+/*! exports provided: Constants */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Constants", function() { return Constants; });
+var Constants;
+(function (Constants) {
+    class TipoSituacaoPrestador {
+    }
+    TipoSituacaoPrestador.Form1 = 0;
+    TipoSituacaoPrestador.Form2 = 1;
+    TipoSituacaoPrestador.Form3 = 2;
+    TipoSituacaoPrestador.PendenteAutorizacao = 3;
+    TipoSituacaoPrestador.Ativo = 4;
+    TipoSituacaoPrestador.Suspenso = 5;
+    TipoSituacaoPrestador.Cancelado = 6;
+    Constants.TipoSituacaoPrestador = TipoSituacaoPrestador;
+    class TipoMinisterio {
+    }
+    TipoMinisterio.louvor = 1;
+    TipoMinisterio.educacao = 2;
+    TipoMinisterio.infantil = 3;
+    Constants.TipoMinisterio = TipoMinisterio;
+    ;
+    ;
+    class TipoPessoaIgreja {
+    }
+    TipoPessoaIgreja.admin = 1;
+    TipoPessoaIgreja.participante = 2;
+    TipoPessoaIgreja.pendente = 3;
+    TipoPessoaIgreja.naoSolicitado = 4;
+    TipoPessoaIgreja.naoAceito = 5;
+    Constants.TipoPessoaIgreja = TipoPessoaIgreja;
+    ;
+    class TipoPessoaMinisterio {
+    }
+    TipoPessoaMinisterio.admin = 7;
+    TipoPessoaMinisterio.adminSecundario = 1;
+    TipoPessoaMinisterio.pessoa = 2;
+    TipoPessoaMinisterio.pendente = 3;
+    TipoPessoaMinisterio.naoSolicitado = 4;
+    TipoPessoaMinisterio.naoAceito = 5;
+    Constants.TipoPessoaMinisterio = TipoPessoaMinisterio;
+    ;
+    class TipoFuncaoPessoaEquipe {
+    }
+    TipoFuncaoPessoaEquipe.guitarra = 7;
+    TipoFuncaoPessoaEquipe.vocal = 1;
+    TipoFuncaoPessoaEquipe.violao = 2;
+    TipoFuncaoPessoaEquipe.teclado = 3;
+    TipoFuncaoPessoaEquipe.dataShow = 4;
+    TipoFuncaoPessoaEquipe.bateria = 5;
+    TipoFuncaoPessoaEquipe.baixo = 6;
+    Constants.TipoFuncaoPessoaEquipe = TipoFuncaoPessoaEquipe;
+    ;
+    class TipoLinkMusica {
+    }
+    TipoLinkMusica.youtube = 0;
+    TipoLinkMusica.cifra = 1;
+    TipoLinkMusica.letra = 2;
+    TipoLinkMusica.outro = 3;
+    Constants.TipoLinkMusica = TipoLinkMusica;
+    ;
+    class TipoPeriodoMinistracao {
+    }
+    TipoPeriodoMinistracao.manha = 1;
+    TipoPeriodoMinistracao.tarde = 2;
+    TipoPeriodoMinistracao.noite = 3;
+    Constants.TipoPeriodoMinistracao = TipoPeriodoMinistracao;
+})(Constants || (Constants = {}));
+
+
 /***/ })
 
 }]);

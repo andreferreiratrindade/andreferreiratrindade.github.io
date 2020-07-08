@@ -1,3 +1,23 @@
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -652,6 +672,684 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _ref3.apply(this, arguments);
       };
     }();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/helpers/handlerError.ts":
+  /*!*****************************************!*\
+    !*** ./src/app/helpers/handlerError.ts ***!
+    \*****************************************/
+
+  /*! exports provided: HandlerError */
+
+  /***/
+  function srcAppHelpersHandlerErrorTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "HandlerError", function () {
+      return HandlerError;
+    });
+    /* harmony import */
+
+
+    var _toastCustom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./toastCustom */
+    "./src/app/helpers/toastCustom.ts");
+
+    var HandlerError = /*#__PURE__*/function () {
+      function HandlerError() {
+        _classCallCheck(this, HandlerError);
+      }
+
+      _createClass(HandlerError, null, [{
+        key: "handler",
+        value: function handler(err, toastCtrl) {
+          var data = err;
+          var message = data.error ? data.error.message : data;
+
+          _toastCustom__WEBPACK_IMPORTED_MODULE_0__["ToastCustom"].errorToast(message, toastCtrl);
+        }
+      }]);
+
+      return HandlerError;
+    }();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/helpers/loadingContr.ts":
+  /*!*****************************************!*\
+    !*** ./src/app/helpers/loadingContr.ts ***!
+    \*****************************************/
+
+  /*! exports provided: LoadingContr */
+
+  /***/
+  function srcAppHelpersLoadingContrTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoadingContr", function () {
+      return LoadingContr;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var LoadingContr = /*#__PURE__*/function () {
+      /**
+       *
+       */
+      function LoadingContr(loadingController) {
+        _classCallCheck(this, LoadingContr);
+
+        this.loadingController = loadingController;
+      }
+
+      _createClass(LoadingContr, [{
+        key: "showLoader",
+        value: function showLoader() {
+          this.loadingController.create({
+            message: 'Processando...'
+          }).then(function (res) {
+            res.present();
+          });
+        } // Hide the loader if already created otherwise return error
+
+      }, {
+        key: "hideLoader",
+        value: function hideLoader() {
+          this.loadingController.dismiss().then(function (res) {
+            console.log('Loading dismissed!', res);
+          })["catch"](function (error) {
+            console.log('error', error);
+          });
+        }
+      }], [{
+        key: "getLoadingContent",
+        value: function getLoadingContent() {
+          return {
+            content: 'Processando.'
+          };
+        }
+      }]);
+
+      return LoadingContr;
+    }();
+
+    LoadingContr.ctorParameters = function () {
+      return [{
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
+      }];
+    };
+
+    LoadingContr = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+      providedIn: 'root'
+    })], LoadingContr);
+    /***/
+  },
+
+  /***/
+  "./src/app/helpers/toastCustom.ts":
+  /*!****************************************!*\
+    !*** ./src/app/helpers/toastCustom.ts ***!
+    \****************************************/
+
+  /*! exports provided: ToastCustom */
+
+  /***/
+  function srcAppHelpersToastCustomTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ToastCustom", function () {
+      return ToastCustom;
+    });
+
+    var ToastCustom = /*#__PURE__*/function () {
+      function ToastCustom() {
+        _classCallCheck(this, ToastCustom);
+      }
+
+      _createClass(ToastCustom, null, [{
+        key: "errorToast",
+        value: function errorToast(msg, toastCtrl) {
+          toastCtrl.create({
+            message: msg,
+            duration: 4000,
+            color: "danger"
+          }).then(function (x) {
+            x.present();
+          });
+        }
+      }, {
+        key: "SucessoToast",
+        value: function SucessoToast(toastCtrl) {
+          toastCtrl.create({
+            message: "Operação realizada com sucesso.",
+            duration: 4000,
+            color: "success"
+          }).then(function (x) {
+            x.present();
+          });
+        }
+      }]);
+
+      return ToastCustom;
+    }();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/providers/igreja/igreja.service.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/providers/igreja/igreja.service.ts ***!
+    \****************************************************/
+
+  /*! exports provided: IgrejaService */
+
+  /***/
+  function srcAppProvidersIgrejaIgrejaServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "IgrejaService", function () {
+      return IgrejaService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/repository/igreja/igreja-rep.service */
+    "./src/app/repository/igreja/igreja-rep.service.ts");
+
+    var IgrejaService = /*#__PURE__*/function () {
+      function IgrejaService(igrejaRepService) {
+        _classCallCheck(this, IgrejaService);
+
+        this.igrejaRepService = igrejaRepService;
+      }
+
+      _createClass(IgrejaService, [{
+        key: "AdicionarNovaIgreja",
+        value: function AdicionarNovaIgreja(obj) {
+          return this.igrejaRepService.add(obj, null);
+        }
+      }, {
+        key: "RecuperaIgrejasPorCidade",
+        value: function RecuperaIgrejasPorCidade(cidade) {
+          return this.igrejaRepService.RecuperaIgrejasPorCidade(cidade);
+        }
+      }, {
+        key: "RecuperaNomeIgreja",
+        value: function RecuperaNomeIgreja(igrejas) {
+          return this.igrejaRepService.RecuperaNomeIgreja(igrejas);
+        }
+      }]);
+
+      return IgrejaService;
+    }();
+
+    IgrejaService.ctorParameters = function () {
+      return [{
+        type: src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__["IgrejaRepService"]
+      }];
+    };
+
+    IgrejaService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], IgrejaService);
+    /***/
+  },
+
+  /***/
+  "./src/app/providers/prestador/prestador.service.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/providers/prestador/prestador.service.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: PrestadorService */
+
+  /***/
+  function srcAppProvidersPrestadorPrestadorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PrestadorService", function () {
+      return PrestadorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/repository/prestador/prestador-rep-service.service */
+    "./src/app/repository/prestador/prestador-rep-service.service.ts");
+
+    var PrestadorService = /*#__PURE__*/function () {
+      /**
+       *
+       */
+      function PrestadorService(prestadorRepService) {
+        _classCallCheck(this, PrestadorService);
+
+        this.prestadorRepService = prestadorRepService;
+      }
+
+      _createClass(PrestadorService, [{
+        key: "RecuperaUfPrestadorDisponiveis",
+        value: function RecuperaUfPrestadorDisponiveis() {
+          return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
+        }
+      }, {
+        key: "AdicionarNovoPrestador",
+        value: function AdicionarNovoPrestador(prestador) {
+          return this.prestadorRepService.AdicionaPrestador(prestador);
+        }
+      }, {
+        key: "RecuperaPestadoresPorCidadeEhUF",
+        value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+          return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado);
+        }
+      }, {
+        key: "RecuperaCidadePrestadorDisponiveis",
+        value: function RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+          return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
+        }
+      }]);
+
+      return PrestadorService;
+    }();
+
+    PrestadorService.ctorParameters = function () {
+      return [{
+        type: src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__["PrestadorRepServiceService"]
+      }];
+    };
+
+    PrestadorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], PrestadorService);
+    /***/
+  },
+
+  /***/
+  "./src/app/repository/igreja/igreja-rep.service.ts":
+  /*!*********************************************************!*\
+    !*** ./src/app/repository/igreja/igreja-rep.service.ts ***!
+    \*********************************************************/
+
+  /*! exports provided: IgrejaRepService */
+
+  /***/
+  function srcAppRepositoryIgrejaIgrejaRepServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "IgrejaRepService", function () {
+      return IgrejaRepService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../repository-interface/Repository-Base */
+    "./src/app/repository/repository-interface/Repository-Base.ts");
+
+    var IgrejaRepService = /*#__PURE__*/function (_repository_interface) {
+      _inherits(IgrejaRepService, _repository_interface);
+
+      var _super = _createSuper(IgrejaRepService);
+
+      function IgrejaRepService() {
+        var _this;
+
+        _classCallCheck(this, IgrejaRepService);
+
+        _this = _super.call(this);
+        _this._collectionName = "igreja";
+        return _this;
+      }
+
+      _createClass(IgrejaRepService, [{
+        key: "RecuperaIgrejasPorCidade",
+        value: function RecuperaIgrejasPorCidade(cidade) {
+          return this.find({
+            elemento: "cidade",
+            tipoComparacao: "==",
+            comparacao: cidade
+          });
+        }
+      }, {
+        key: "RecuperaNomeIgreja",
+        value: function RecuperaNomeIgreja(igrejas) {
+          // return this.db.collection("igreja").where(firebase.firestore.FieldPath.documentId(),"array-contains",igrejas).get()
+          return this.find({
+            elemento: "id",
+            tipoComparacao: "in",
+            comparacao: igrejas
+          });
+        }
+      }]);
+
+      return IgrejaRepService;
+    }(_repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"]);
+
+    IgrejaRepService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], IgrejaRepService);
+    /***/
+  },
+
+  /***/
+  "./src/app/repository/prestador/prestador-rep-service.service.ts":
+  /*!***********************************************************************!*\
+    !*** ./src/app/repository/prestador/prestador-rep-service.service.ts ***!
+    \***********************************************************************/
+
+  /*! exports provided: PrestadorRepServiceService */
+
+  /***/
+  function srcAppRepositoryPrestadorPrestadorRepServiceServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PrestadorRepServiceService", function () {
+      return PrestadorRepServiceService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../repository-interface/Repository-Base */
+    "./src/app/repository/repository-interface/Repository-Base.ts");
+    /* harmony import */
+
+
+    var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/utils/constants */
+    "./src/app/utils/constants.ts");
+
+    var PrestadorRepServiceService = /*#__PURE__*/function (_repository_interface2) {
+      _inherits(PrestadorRepServiceService, _repository_interface2);
+
+      var _super2 = _createSuper(PrestadorRepServiceService);
+
+      function PrestadorRepServiceService() {
+        _classCallCheck(this, PrestadorRepServiceService);
+
+        return _super2.apply(this, arguments);
+      }
+
+      _createClass(PrestadorRepServiceService, [{
+        key: "RecuperaPestadoresPorCidadeEhUF",
+        value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+          var _this2 = this;
+
+          return new Promise(function (resolve, reject) {
+            var query = _this2.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
+
+            if (cidadeSelecionado) {
+              query.where("cidade", "==", cidadeSelecionado);
+            }
+
+            query.get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push(doc.data());
+              });
+              resolve(lst);
+            });
+          });
+        }
+      }, {
+        key: "RecuperaCidadePrestadorDisponiveis",
+        value: function RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+          var _this3 = this;
+
+          return new Promise(function (resolve, reject) {
+            _this3.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                console.log(doc.data());
+
+                if (!lst.includes(doc.data().cidade)) {
+                  lst.push(doc.data().cidade);
+                }
+              });
+              resolve(lst);
+            });
+          });
+        }
+      }, {
+        key: "recuperaUfPrestadorDisponiveis",
+        value: function recuperaUfPrestadorDisponiveis() {
+          var _this4 = this;
+
+          return new Promise(function (resolve, reject) {
+            _this4.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                console.log(doc.data());
+
+                if (!lst.includes(doc.data().uf)) {
+                  lst.push(doc.data().uf);
+                }
+              });
+              resolve(lst);
+            });
+          });
+        }
+      }, {
+        key: "AdicionaPrestador",
+        value: function AdicionaPrestador(prestador) {
+          return this.db.collection("usuario").doc(prestador.uid).collection("prestador").doc().set(Object.assign({}, prestador));
+        }
+      }]);
+
+      return PrestadorRepServiceService;
+    }(_repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"]);
+
+    PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], PrestadorRepServiceService);
+    /***/
+  },
+
+  /***/
+  "./src/app/utils/constants.ts":
+  /*!************************************!*\
+    !*** ./src/app/utils/constants.ts ***!
+    \************************************/
+
+  /*! exports provided: Constants */
+
+  /***/
+  function srcAppUtilsConstantsTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Constants", function () {
+      return Constants;
+    });
+
+    var Constants;
+
+    (function (Constants) {
+      var TipoSituacaoPrestador = function TipoSituacaoPrestador() {
+        _classCallCheck(this, TipoSituacaoPrestador);
+      };
+
+      TipoSituacaoPrestador.Form1 = 0;
+      TipoSituacaoPrestador.Form2 = 1;
+      TipoSituacaoPrestador.Form3 = 2;
+      TipoSituacaoPrestador.PendenteAutorizacao = 3;
+      TipoSituacaoPrestador.Ativo = 4;
+      TipoSituacaoPrestador.Suspenso = 5;
+      TipoSituacaoPrestador.Cancelado = 6;
+      Constants.TipoSituacaoPrestador = TipoSituacaoPrestador;
+
+      var TipoMinisterio = function TipoMinisterio() {
+        _classCallCheck(this, TipoMinisterio);
+      };
+
+      TipoMinisterio.louvor = 1;
+      TipoMinisterio.educacao = 2;
+      TipoMinisterio.infantil = 3;
+      Constants.TipoMinisterio = TipoMinisterio;
+      ;
+      ;
+
+      var TipoPessoaIgreja = function TipoPessoaIgreja() {
+        _classCallCheck(this, TipoPessoaIgreja);
+      };
+
+      TipoPessoaIgreja.admin = 1;
+      TipoPessoaIgreja.participante = 2;
+      TipoPessoaIgreja.pendente = 3;
+      TipoPessoaIgreja.naoSolicitado = 4;
+      TipoPessoaIgreja.naoAceito = 5;
+      Constants.TipoPessoaIgreja = TipoPessoaIgreja;
+      ;
+
+      var TipoPessoaMinisterio = function TipoPessoaMinisterio() {
+        _classCallCheck(this, TipoPessoaMinisterio);
+      };
+
+      TipoPessoaMinisterio.admin = 7;
+      TipoPessoaMinisterio.adminSecundario = 1;
+      TipoPessoaMinisterio.pessoa = 2;
+      TipoPessoaMinisterio.pendente = 3;
+      TipoPessoaMinisterio.naoSolicitado = 4;
+      TipoPessoaMinisterio.naoAceito = 5;
+      Constants.TipoPessoaMinisterio = TipoPessoaMinisterio;
+      ;
+
+      var TipoFuncaoPessoaEquipe = function TipoFuncaoPessoaEquipe() {
+        _classCallCheck(this, TipoFuncaoPessoaEquipe);
+      };
+
+      TipoFuncaoPessoaEquipe.guitarra = 7;
+      TipoFuncaoPessoaEquipe.vocal = 1;
+      TipoFuncaoPessoaEquipe.violao = 2;
+      TipoFuncaoPessoaEquipe.teclado = 3;
+      TipoFuncaoPessoaEquipe.dataShow = 4;
+      TipoFuncaoPessoaEquipe.bateria = 5;
+      TipoFuncaoPessoaEquipe.baixo = 6;
+      Constants.TipoFuncaoPessoaEquipe = TipoFuncaoPessoaEquipe;
+      ;
+
+      var TipoLinkMusica = function TipoLinkMusica() {
+        _classCallCheck(this, TipoLinkMusica);
+      };
+
+      TipoLinkMusica.youtube = 0;
+      TipoLinkMusica.cifra = 1;
+      TipoLinkMusica.letra = 2;
+      TipoLinkMusica.outro = 3;
+      Constants.TipoLinkMusica = TipoLinkMusica;
+      ;
+
+      var TipoPeriodoMinistracao = function TipoPeriodoMinistracao() {
+        _classCallCheck(this, TipoPeriodoMinistracao);
+      };
+
+      TipoPeriodoMinistracao.manha = 1;
+      TipoPeriodoMinistracao.tarde = 2;
+      TipoPeriodoMinistracao.noite = 3;
+      Constants.TipoPeriodoMinistracao = TipoPeriodoMinistracao;
+    })(Constants || (Constants = {}));
     /***/
 
   }

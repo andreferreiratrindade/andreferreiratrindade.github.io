@@ -1,22 +1,8 @@
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-gerenciarIgreja-criar-igreja-criar-igreja-module"], {
   /***/
@@ -35,53 +21,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header class=\"ion-no-border\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-up-content\">\n  <h2 class=\"auth-title\">\n    Cadastrar Igreja\n  </h2>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label floating>Igreja:</ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label floating>Cep:</ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n      <button type=\"button\" (click)=\"buscarEnderecoPorCEP()\">Buscar endereço</button>\n\n      <ion-item class=\"input-item\">\n        <ion-label floating>{{enderecoCompleto}}</ion-label>\n      </ion-item>\n     \n    </ion-list>\n\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formData.valid && igrejaEntity.cep.lenght > 0\">Cadastrar</ion-button>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n\n  </form>\n\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Cadastrar Igreja</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"submitError='';salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome Igreja<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n\n      <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n        <ion-label>Buscar Endereço</ion-label>\n        <ion-icon name=\"search-outline\"></ion-icon>\n      </ion-chip>\n      <ion-item class=\"input-item\">\n        <ion-label>\n          <p>{{enderecoParte1}}</p>\n          <p>{{enderecoParte2}} </p>\n        </ion-label>\n\n      <!-- <ion-button color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [submitError]=\"\">Buscar endereço</ion-button> -->\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n\n    \n\n      </ion-item>\n\n      <div class=\"error-container\" *ngIf=\"submitError\">\n        <div class=\"error-message\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon>\n          <span>{{ submitError }}</span>\n        </div>\n      </div>\n    </ion-list>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" [submitError]=\"\" expand=\"block\" [disabled]=\"!formData.valid > 0 \">\n      Cadastrar</ion-button>\n  </form>\n\n\n</ion-content>";
     /***/
-  },
-
-  /***/
-  "./src/app/entity/igrejaEntity.ts":
-  /*!****************************************!*\
-    !*** ./src/app/entity/igrejaEntity.ts ***!
-    \****************************************/
-
-  /*! exports provided: IgrejaEntity */
-
-  /***/
-  function srcAppEntityIgrejaEntityTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "IgrejaEntity", function () {
-      return IgrejaEntity;
-    });
-
-    var IgrejaEntity = /*#__PURE__*/function () {
-      function IgrejaEntity() {
-        _classCallCheck(this, IgrejaEntity);
-
-        this.nomeIgreja = "";
-        this.cep = "";
-        this.uf = "";
-        this.cidade = "";
-        this.bairro = "";
-        this.logradouro = "";
-      }
-
-      _createClass(IgrejaEntity, [{
-        key: "RecuperaEnderecoCompleto",
-        value: function RecuperaEnderecoCompleto() {
-          return this.logradouro + ", " + this.bairro + " - " + this.cidade + "/" + this.uf + " - " + this.cep;
-        }
-      }]);
-
-      return IgrejaEntity;
-    }();
-    /***/
-
   },
 
   /***/
@@ -234,15 +175,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_entity_igrejaEntity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/entity/igrejaEntity */
-    "./src/app/entity/igrejaEntity.ts");
+    var src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/providers/igreja/igreja.service */
+    "./src/app/providers/igreja/igreja.service.ts");
     /* harmony import */
 
 
-    var src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/providers/igreja/igreja.service */
-    "./src/app/providers/igreja/igreja.service.ts");
+    var src_app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/config */
+    "./src/app/config.ts");
     /* harmony import */
 
 
@@ -252,19 +193,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/providers/base-provider/firebase-auth-service.service */
-    "./src/app/providers/base-provider/firebase-auth-service.service.ts");
+    var src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/providers/usuario/usuario.service */
+    "./src/app/providers/usuario/usuario.service.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/helpers/handlerError */
+    "./src/app/helpers/handlerError.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/helpers/toastCustom */
+    "./src/app/helpers/toastCustom.ts");
 
     var CriarIgrejaPage = /*#__PURE__*/function () {
-      function CriarIgrejaPage(buscarCEPService, igrejaService, router, ngZone, fireBaseService) {
+      function CriarIgrejaPage(buscarCEPService, igrejaService, router, toastCtrl, ngZone, usuarioService, loadingControll) {
         _classCallCheck(this, CriarIgrejaPage);
 
         this.buscarCEPService = buscarCEPService;
         this.igrejaService = igrejaService;
         this.router = router;
+        this.toastCtrl = toastCtrl;
         this.ngZone = ngZone;
-        this.fireBaseService = fireBaseService;
+        this.usuarioService = usuarioService;
+        this.loadingControll = loadingControll;
         this.validation_messages = {
           'nomeIgreja': [{
             type: 'required',
@@ -275,7 +242,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             message: 'Campo de preenchimento obrigatório.'
           }]
         };
-        this.igrejaEntity = new src_app_entity_igrejaEntity__WEBPACK_IMPORTED_MODULE_4__["IgrejaEntity"]();
         this.formData = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
           'cep': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])),
           'nomeIgreja': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]))
@@ -284,31 +250,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(CriarIgrejaPage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.loadingControll.showLoader();
+          this.usuarioService.recuperaUsuarioLogado().then(function (x) {
+            if (x == null) {
+              _this.ngZone.run(function () {
+                _this.router.navigate(['sign-in']);
+              });
+            }
+          })["finally"](function () {
+            _this.loadingControll.hideLoader();
+          });
+        }
       }, {
         key: "buscarEnderecoPorCEP",
         value: function buscarEnderecoPorCEP() {
-          var _this = this;
+          var _this2 = this;
+
+          this.igrejaEntity = {}; // this.loadingControll.showLoader()
+
+          if (!this.formData.value['cep'] || this.formData.value['cep'].length != "8") {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", this.toastCtrl);
+            return false;
+          }
 
           this.buscarCEPService.buscarCEP(this.formData.value['cep']).then(function (x) {
-            _this.igrejaEntity.cidade = x.localidade;
-            _this.igrejaEntity.bairro = x.bairro;
-            _this.igrejaEntity.uf = x.uf;
-            _this.igrejaEntity.logradouro = x.logradouro;
-            _this.igrejaEntity.cep = x.cep;
-            _this.enderecoCompleto = _this.igrejaEntity.RecuperaEnderecoCompleto();
+            if (x && !x.erro) {
+              _this2.igrejaEntity.cidade = x.localidade;
+              _this2.igrejaEntity.bairro = x.bairro;
+              _this2.igrejaEntity.uf = x.uf;
+              _this2.igrejaEntity.logradouro = x.logradouro;
+              _this2.igrejaEntity.cep = x.cep;
+              _this2.enderecoParte1 = x.logradouro + ", " + x.bairro;
+              _this2.enderecoParte2 = x.localidade + "/" + x.uf;
+
+              _this2.loadingControll.hideLoader();
+            } else {
+              _this2.loadingControll.hideLoader();
+
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", _this2.toastCtrl);
+            }
           })["catch"](function (x) {
-            _this.igrejaEntity = new src_app_entity_igrejaEntity__WEBPACK_IMPORTED_MODULE_4__["IgrejaEntity"]();
-            _this.enderecoCompleto = "CEP não encontrado.";
+            _this2.loadingControll.hideLoader();
+
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(x, _this2.toastCtrl);
+          })["finally"](function () {
+            _this2.loadingControll.hideLoader();
           });
         }
       }, {
         key: "salvarIgreja",
         value: function salvarIgreja() {
+          var _this3 = this;
+
+          if (!this.igrejaEntity || !this.igrejaEntity.cidade) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", this.toastCtrl);
+            return false;
+          }
+
+          this.loadingControll.showLoader();
           this.igrejaEntity.nomeIgreja = this.formData.value['nomeIgreja'];
-          this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(function (x) {})["catch"](function (error) {
-            // Handle Errors here.
-            console.log(error);
+          this.igrejaEntity.administradores = [{
+            uid: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].recuperaUsuario().uid
+          }];
+          this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(function (x) {
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].SucessoToast(_this3.toastCtrl);
+          })["catch"](function (error) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(error, _this3.toastCtrl);
+          })["finally"](function () {
+            _this3.loadingControll.hideLoader();
           });
         }
       }]);
@@ -320,13 +332,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       return [{
         type: src_app_providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_2__["BuscarCEPService"]
       }, {
-        type: src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_5__["IgrejaService"]
+        type: src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_4__["IgrejaService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
       }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["ToastController"]
+      }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
       }, {
-        type: src_app_providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseAuthService"]
+        type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_7__["UsuarioService"]
+      }, {
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_10__["LoadingContr"]
       }];
     };
 
@@ -339,131 +355,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./criar-igreja.page.scss */
       "./src/app/pages/gerenciarIgreja/criar-igreja/criar-igreja.page.scss"))["default"]]
     })], CriarIgrejaPage);
-    /***/
-  },
-
-  /***/
-  "./src/app/providers/igreja/igreja.service.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/providers/igreja/igreja.service.ts ***!
-    \****************************************************/
-
-  /*! exports provided: IgrejaService */
-
-  /***/
-  function srcAppProvidersIgrejaIgrejaServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "IgrejaService", function () {
-      return IgrejaService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/repository/igreja/igreja-rep.service */
-    "./src/app/repository/igreja/igreja-rep.service.ts");
-
-    var IgrejaService = /*#__PURE__*/function () {
-      function IgrejaService(igrejaRepService) {
-        _classCallCheck(this, IgrejaService);
-
-        this.igrejaRepService = igrejaRepService;
-      }
-
-      _createClass(IgrejaService, [{
-        key: "AdicionarNovaIgreja",
-        value: function AdicionarNovaIgreja(obj) {
-          return this.igrejaRepService.add("igreja/", obj);
-        }
-      }]);
-
-      return IgrejaService;
-    }();
-
-    IgrejaService.ctorParameters = function () {
-      return [{
-        type: src_app_repository_igreja_igreja_rep_service__WEBPACK_IMPORTED_MODULE_2__["IgrejaRepService"]
-      }];
-    };
-
-    IgrejaService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], IgrejaService);
-    /***/
-  },
-
-  /***/
-  "./src/app/repository/igreja/igreja-rep.service.ts":
-  /*!*********************************************************!*\
-    !*** ./src/app/repository/igreja/igreja-rep.service.ts ***!
-    \*********************************************************/
-
-  /*! exports provided: IgrejaRepService */
-
-  /***/
-  function srcAppRepositoryIgrejaIgrejaRepServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "IgrejaRepService", function () {
-      return IgrejaRepService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../repository-interface/Repository-Base */
-    "./src/app/repository/repository-interface/Repository-Base.ts");
-
-    var IgrejaRepService = /*#__PURE__*/function (_repository_interface) {
-      _inherits(IgrejaRepService, _repository_interface);
-
-      var _super = _createSuper(IgrejaRepService);
-
-      function IgrejaRepService() {
-        _classCallCheck(this, IgrejaRepService);
-
-        return _super.apply(this, arguments);
-      }
-
-      return IgrejaRepService;
-    }(_repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"]);
-
-    IgrejaRepService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], IgrejaRepService);
     /***/
   }
 }]);
