@@ -206,6 +206,7 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
         this.loadingContr.showLoader();
         this.usuarioService.recuperaUsuarioLogado().then(x => {
             if (x == null) {
+                this.loadingContr.hideLoader();
                 this.ngZone.run(() => {
                     this.router.navigate(['sign-in']);
                 });

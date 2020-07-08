@@ -256,6 +256,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loadingControll.showLoader();
           this.usuarioService.recuperaUsuarioLogado().then(function (x) {
             if (x == null) {
+              _this.loadingControll.hideLoader();
+
               _this.ngZone.run(function () {
                 _this.router.navigate(['sign-in']);
               });
