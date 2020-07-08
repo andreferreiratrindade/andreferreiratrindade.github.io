@@ -769,26 +769,66 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         _classCallCheck(this, LoadingContr);
 
         this.loadingController = loadingController;
+        this.isLoading = false;
       }
 
       _createClass(LoadingContr, [{
         key: "showLoader",
         value: function showLoader() {
-          this.loadingController.create({
-            message: 'Processando...'
-          }).then(function (res) {
-            res.present();
-          });
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            var _this = this;
+
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    this.isLoading = true;
+                    _context3.next = 3;
+                    return this.loadingController.create({// duration: 5000,
+                    }).then(function (a) {
+                      a.present().then(function () {
+                        if (!_this.isLoading) {
+                          a.dismiss();
+                        }
+                      });
+                    });
+
+                  case 3:
+                    return _context3.abrupt("return", _context3.sent);
+
+                  case 4:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
         } // Hide the loader if already created otherwise return error
 
       }, {
         key: "hideLoader",
         value: function hideLoader() {
-          this.loadingController.dismiss().then(function (res) {
-            console.log('Loading dismissed!', res);
-          })["catch"](function (error) {
-            console.log('error', error);
-          });
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    this.isLoading = false;
+                    _context4.next = 3;
+                    return this.loadingController.dismiss().then(function () {
+                      return console.log('dismissed');
+                    });
+
+                  case 3:
+                    return _context4.abrupt("return", _context4.sent);
+
+                  case 4:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
         }
       }], [{
         key: "getLoadingContent",
@@ -1075,13 +1115,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _super = _createSuper(IgrejaRepService);
 
       function IgrejaRepService() {
-        var _this;
+        var _this2;
 
         _classCallCheck(this, IgrejaRepService);
 
-        _this = _super.call(this);
-        _this._collectionName = "igreja";
-        return _this;
+        _this2 = _super.call(this);
+        _this2._collectionName = "igreja";
+        return _this2;
       }
 
       _createClass(IgrejaRepService, [{
@@ -1172,10 +1212,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _createClass(PrestadorRepServiceService, [{
         key: "RecuperaPestadoresPorCidadeEhUF",
         value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
-          var _this2 = this;
+          var _this3 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this2.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
+            var query = _this3.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
 
             if (cidadeSelecionado) {
               query.where("cidade", "==", cidadeSelecionado);
@@ -1193,10 +1233,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "RecuperaCidadePrestadorDisponiveis",
         value: function RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
-          var _this3 = this;
+          var _this4 = this;
 
           return new Promise(function (resolve, reject) {
-            _this3.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this4.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 console.log(doc.data());
@@ -1212,10 +1252,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "recuperaUfPrestadorDisponiveis",
         value: function recuperaUfPrestadorDisponiveis() {
-          var _this4 = this;
+          var _this5 = this;
 
           return new Promise(function (resolve, reject) {
-            _this4.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this5.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 console.log(doc.data());

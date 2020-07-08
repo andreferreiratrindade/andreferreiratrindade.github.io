@@ -300,6 +300,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this2 = this;
 
           this.loadingContr.showLoader();
+          this.formulario.value['cidade'] = "";
           this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.formulario.value['uf']).then(function (result) {
             _this2.cidadeList = result;
           })["catch"](function (x) {

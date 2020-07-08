@@ -482,23 +482,30 @@ let LoadingContr = class LoadingContr {
      */
     constructor(loadingController) {
         this.loadingController = loadingController;
+        this.isLoading = false;
     }
     static getLoadingContent() {
         return { content: 'Processando.' };
     }
     showLoader() {
-        this.loadingController.create({
-            message: 'Processando...'
-        }).then((res) => {
-            res.present();
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = true;
+            return yield this.loadingController.create({
+            // duration: 5000,
+            }).then(a => {
+                a.present().then(() => {
+                    if (!this.isLoading) {
+                        a.dismiss();
+                    }
+                });
+            });
         });
     }
     // Hide the loader if already created otherwise return error
     hideLoader() {
-        this.loadingController.dismiss().then((res) => {
-            console.log('Loading dismissed!', res);
-        }).catch((error) => {
-            console.log('error', error);
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = false;
+            return yield this.loadingController.dismiss().then(() => console.log('dismissed'));
         });
     }
 };
