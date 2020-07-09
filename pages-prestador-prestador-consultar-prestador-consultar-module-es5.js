@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Consultar Prestador</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n     <ion-list  lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item class=\"input-item\">\n        <ion-label>UF <ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-select class=\"ion-text-end\" name=\"uf\" formControlName=\"uf\" (ionChange)=\"buscarCidades()\" interface=\"popover\" >\n          <ion-select-option *ngFor=\"let item of UfList\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n    \n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n      [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Cidade</ion-label>\n        <ion-select class=\"ion-text-end\" name=\"cidade\" formControlName=\"cidade\"  [disabled]=\"!formulario.value['uf']\" interface=\"popover\" >\n          <ion-select-option *ngFor=\"let item of cidadeList\"  selected=\"selected\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n      [nomeCampo]=\"'cidade'\"></app-mensagem-validacao> \n    </ion-list> \n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formulario.valid\">Pesquisar</ion-button>\n  </form>\n\n\n  <ion-item *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n\n    <ion-label>\n      <h2>{{item.nome}}</h2>\n      <p>{{item.cidade}} / {{item.uf}}</p>\n      <p>{{item.nomeIgreja}}</p>\n    </ion-label>\n  </ion-item>\n\n</ion-content> ";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n     <ion-list  lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item class=\"input-item\">\n        <ion-label>UF <ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-select class=\"ion-text-end\" name=\"uf\" formControlName=\"uf\" (ionChange)=\"buscarCidades()\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of UfList\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n    \n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n      [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Cidade</ion-label>\n        <ion-select class=\"ion-text-end\" name=\"cidade\" formControlName=\"cidade\"  [disabled]=\"!formulario.value['uf']\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of cidadeList\"  selected=\"selected\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n      [nomeCampo]=\"'cidade'\"></app-mensagem-validacao> \n    </ion-list> \n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formulario.valid\">Pesquisar</ion-button>\n  </form>\n\n\n  <ion-item *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n\n    <ion-label>\n      <h2>{{item.nome}}</h2>\n      <h3>{{item.telefone}}</h3>\n      <p>{{item.cidade}} / {{item.uf}}</p>\n      <p>{{item.nomeIgreja}}</p>\n    </ion-label>\n  </ion-item>\n\n</ion-content> ";
     /***/
   },
 
@@ -325,29 +325,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this3.igrejaService.RecuperaNomeIgreja(igrejas).then(function (resultIgreja) {
               var usuarios = [];
               usuarios = prestadoresResult.map(function (x) {
-                return x.uid;
+                return x.usuarioId;
               });
 
               _this3.usuarioService.RecuperaNomeUsuarios(usuarios).then(function (usuariosResult) {
                 _this3.prestadores = prestadoresResult.map(function (x) {
                   return {
                     nome: usuariosResult.find(function (y) {
-                      return y.id == x.uid;
+                      return y.id == x.usuarioId;
                     }).data.nome,
                     nomeIgreja: resultIgreja.find(function (y) {
                       return y.id == x.igrejas[0].igrejaId;
                     }).data.nomeIgreja,
                     cidade: x.cidade,
                     uf: x.uf,
-                    usuarioId: x.uid,
+                    telefone: x.telefone,
+                    usuarioId: x.usuarioId,
                     igrejaId: x.igrejas[0].igrejaId
                   };
                 });
+              })["finally"](function () {
+                _this3.loadingContr.hideLoader();
               });
             });
           })["catch"](function (x) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
-          })["finally"](function () {
+
             _this3.loadingContr.hideLoader();
           });
         }

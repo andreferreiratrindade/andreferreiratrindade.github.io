@@ -460,68 +460,6 @@ class HandlerError {
 
 /***/ }),
 
-/***/ "./src/app/helpers/loadingContr.ts":
-/*!*****************************************!*\
-  !*** ./src/app/helpers/loadingContr.ts ***!
-  \*****************************************/
-/*! exports provided: LoadingContr */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingContr", function() { return LoadingContr; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-
-let LoadingContr = class LoadingContr {
-    /**
-     *
-     */
-    constructor(loadingController) {
-        this.loadingController = loadingController;
-        this.isLoading = false;
-    }
-    static getLoadingContent() {
-        return { content: 'Processando.' };
-    }
-    showLoader() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.isLoading = true;
-            return yield this.loadingController.create({
-            // duration: 5000,
-            }).then(a => {
-                a.present().then(() => {
-                    if (!this.isLoading) {
-                        a.dismiss();
-                    }
-                });
-            });
-        });
-    }
-    // Hide the loader if already created otherwise return error
-    hideLoader() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.isLoading = false;
-            return yield this.loadingController.dismiss().then(() => console.log('dismissed'));
-        });
-    }
-};
-LoadingContr.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"] }
-];
-LoadingContr = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-        providedIn: 'root'
-    })
-], LoadingContr);
-
-
-
-/***/ }),
-
 /***/ "./src/app/helpers/toastCustom.ts":
 /*!****************************************!*\
   !*** ./src/app/helpers/toastCustom.ts ***!
@@ -731,7 +669,6 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
-                    console.log(doc.data());
                     if (!lst.includes(doc.data().cidade)) {
                         lst.push(doc.data().cidade);
                     }
@@ -747,7 +684,6 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
-                    console.log(doc.data());
                     if (!lst.includes(doc.data().uf)) {
                         lst.push(doc.data().uf);
                     }
@@ -757,7 +693,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         });
     }
     AdicionaPrestador(prestador) {
-        return this.db.collection("usuario").doc(prestador.uid).collection("prestador").doc().set(Object.assign({}, prestador));
+        return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc().set(Object.assign({}, prestador));
     }
 };
 PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

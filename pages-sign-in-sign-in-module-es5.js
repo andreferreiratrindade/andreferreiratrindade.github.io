@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header class=\"ion-no-border\">\n  <ion-toolbar></ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-in-content\">\n  <h2 class=\"auth-title\">\n    Login\n  </h2>\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"signInWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\"  formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <div class=\"error-container\">\n        <ng-container *ngFor=\"let validation of validation_messages.email\">\n          <div class=\"error-message\" *ngIf=\"signInForm.get('email').hasError(validation.type) && (signInForm.get('email').dirty || signInForm.get('email').touched)\">\n            <ion-icon name=\"information-circle-outline\"></ion-icon>\n            <span>{{ validation.message }}</span>\n          </div>\n        </ng-container>\n      </div>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\"  formControlName=\"password\"></ion-input>\n      </ion-item>\n      <div class=\"error-container\">\n        <ng-container *ngFor=\"let validation of validation_messages.password\">\n          <div class=\"error-message\" *ngIf=\"signInForm.get('password').hasError(validation.type) && (signInForm.get('password').dirty || signInForm.get('password').touched)\">\n            <ion-icon name=\"information-circle-outline\"></ion-icon>\n            <span>{{ validation.message }}</span>\n          </div>\n        </ng-container>\n      </div>\n    </ion-list>\n\n    <ion-button class=\"sign-in-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!signInForm.valid\">Sign In</ion-button>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-row class=\"sign-up-btn-wrapper\">\n      <ion-button class=\"sign-up-btn\" fill=\"clear\" [routerLink]=\"['/sign-up']\">\n        Cadastra-se\n      </ion-button>\n    </ion-row>\n  </form>\n\n  <!-- <div class=\"social-auth-options\">\n    <p class=\"options-divider\">Ou</p>\n    <ion-button class=\"social-auth-btn\" color=\"primary\" expand=\"block\" (click)=\"facebookSignIn()\">Facebook Sign In</ion-button>\n    <ion-button class=\"social-auth-btn google-auth-btn\" color=\"danger\" expand=\"block\" (click)=\"googleSignIn()\">Google Sign In</ion-button>\n  </div> -->\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-in-content\">\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"signInWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\"  formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.email\" [form]=\"signInForm\"\n      [nomeCampo]=\"'email'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\"  formControlName=\"password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.password\" [form]=\"signInForm\"\n      [nomeCampo]=\"'password'\"></app-mensagem-validacao>\n    </ion-list>\n\n    <ion-button class=\"sign-in-btn\" type=\"submit\" expand=\"block\">Entrar</ion-button>\n\n    <ion-row class=\"sign-up-btn-wrapper\">\n      <ion-button class=\"sign-up-btn\" fill=\"clear\" [routerLink]=\"['/sign-up']\" routerDirection=\"root\">\n        Cadastre-se\n      </ion-button>\n    </ion-row>\n  </form>\n\n</ion-content>\n";
     /***/
   },
 
@@ -86,6 +86,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_components_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/components/components.module */
+    "./src/app/components/components.module.ts");
 
     var routes = [{
       path: '',
@@ -97,7 +103,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     SignInPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild(routes)],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], src_app_components_components_module__WEBPACK_IMPORTED_MODULE_7__["ComponentsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild(routes)],
       declarations: [_sign_in_page__WEBPACK_IMPORTED_MODULE_5__["SignInPage"]]
     })], SignInPageModule);
     /***/
@@ -184,18 +190,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/helpers/loadingContr */
     "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/helpers/handlerError */
+    "./src/app/helpers/handlerError.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/config */
+    "./src/app/config.ts");
 
     var SignInPage = /*#__PURE__*/function () {
-      function SignInPage(angularFire, router, ngZone, authService, loadControl) {
-        var _this = this;
-
+      function SignInPage(angularFire, router, route, authService, loadControl, toast) {
         _classCallCheck(this, SignInPage);
 
         this.angularFire = angularFire;
         this.router = router;
-        this.ngZone = ngZone;
+        this.route = route;
         this.authService = authService;
         this.loadControl = loadControl;
+        this.toast = toast;
         this.validation_messages = {
           'email': [{
             type: 'required',
@@ -215,107 +238,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.signInForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
           'email': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
           'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]))
-        }); // Get firebase authentication redirect result invoken when using signInWithRedirect()
-        // signInWithRedirect() is only used when client is in web but not desktop
-
-        this.authRedirectResult = this.authService.getRedirectResult().subscribe(function (result) {
-          if (result.user) {
-            _this.redirectLoggedUserToProfilePage();
-          } else if (result.error) {
-            _this.submitError = result.error;
-          }
         });
-      } // Once the auth provider finished the authentication flow, and the auth redirect completes,
-      // redirect the user to the profile page
-
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; // // Get firebase authentication redirect result invoken when using signInWithRedirect()
+        // // signInWithRedirect() is only used when client is in web but not desktop
+        // this.authRedirectResult = this.authService.getRedirectResult()
+        // .subscribe(result => {
+        //   if (result.user) {
+        //     this.redirectLoggedUserToProfilePage();
+        //   } else if (result.error) {
+        //     this.submitError = result.error;
+        //   }
+        // });
+      }
 
       _createClass(SignInPage, [{
-        key: "redirectLoggedUserToProfilePage",
-        value: function redirectLoggedUserToProfilePage() {
-          var _this2 = this;
-
-          // As we are calling the Angular router navigation inside a subscribe method, the navigation will be triggered outside Angular zone.
-          // That's why we need to wrap the router navigation call inside an ngZone wrapper
-          this.loadControl.hideLoader();
-          this.ngZone.run(function () {
-            _this2.router.navigate(['']);
-          });
-        }
-      }, {
         key: "signInWithEmail",
         value: function signInWithEmail() {
-          var _this3 = this;
+          var _this = this;
+
+          if (!this.signInForm.valid) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Favor preencher todos os campos devidamente sinalizados antes de continuar.", this.toast);
+            return false;
+          }
 
           this.loadControl.showLoader();
           this.authService.signInWithEmail(this.signInForm.value['email'], this.signInForm.value['password']).then(function (user) {
-            // navigate to user profile
-            _this3.redirectLoggedUserToProfilePage();
-          })["catch"](function (error) {
-            _this3.authService.signUpWithEmail(_this3.signInForm.value['email'], _this3.signInForm.value['password']).then(function (user) {
-              // navigate to user profile
-              _this3.redirectLoggedUserToProfilePage();
-            })["catch"](function (error) {
-              _this3.submitError = error.message;
+            src_app_config__WEBPACK_IMPORTED_MODULE_9__["Config"].RecuperaInstancia().adicionaUsuario({
+              usuarioId: user.user.uid
             });
+
+            _this.router.navigate([_this.returnUrl]);
+          })["catch"](function (error) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Email ou senha incorreto(s)", _this.toast);
           })["finally"](function () {
-            return _this3.loadControl.hideLoader();
-          });
-        }
-      }, {
-        key: "facebookSignIn",
-        value: function facebookSignIn() {
-          var _this4 = this;
-
-          this.authService.signInWithFacebook().then(function (result) {
-            if (result.additionalUserInfo) {
-              _this4.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            } // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-
-
-            _this4.redirectLoggedUserToProfilePage();
-          })["catch"](function (error) {
-            // Handle Errors here.
-            console.log(error);
-          });
-        }
-      }, {
-        key: "googleSignIn",
-        value: function googleSignIn() {
-          var _this5 = this;
-
-          this.authService.signInWithGoogle().then(function (result) {
-            if (result.additionalUserInfo) {
-              _this5.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            } // This gives you a Google Access Token. You can use it to access the Google API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-
-
-            _this5.redirectLoggedUserToProfilePage();
-          })["catch"](function (error) {
-            // Handle Errors here.
-            console.log(error);
-          });
-        }
-      }, {
-        key: "twitterSignIn",
-        value: function twitterSignIn() {
-          var _this6 = this;
-
-          this.authService.signInWithTwitter().then(function (result) {
-            if (result.additionalUserInfo) {
-              _this6.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            } // This gives you a Twitter Access Token. You can use it to access the Twitter API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-
-
-            _this6.redirectLoggedUserToProfilePage();
-          })["catch"](function (error) {
-            // Handle Errors here.
-            console.log(error);
+            return _this.loadControl.hideLoader();
           });
         }
       }]);
@@ -329,11 +285,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
       }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
       }, {
         type: src_app_providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseAuthService"]
       }, {
         type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_6__["LoadingContr"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"]
       }];
     };
 

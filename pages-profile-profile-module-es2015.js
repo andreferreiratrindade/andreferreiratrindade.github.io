@@ -165,7 +165,6 @@ let ProfilePage = class ProfilePage {
             // Sign-out successful.
             this.router.navigate(['sign-in']);
         }, (error) => {
-            console.log('signout error', error);
         });
     }
 };

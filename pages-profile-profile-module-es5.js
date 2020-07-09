@@ -291,9 +291,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.authService.signOut().subscribe(function () {
             // Sign-out successful.
             _this2.router.navigate(['sign-in']);
-          }, function (error) {
-            console.log('signout error', error);
-          });
+          }, function (error) {});
         }
       }]);
 

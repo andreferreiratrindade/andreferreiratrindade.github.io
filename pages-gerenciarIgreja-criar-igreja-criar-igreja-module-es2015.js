@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Cadastrar Igreja</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"submitError='';salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome Igreja<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n\n      <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n        <ion-label>Buscar Endereço</ion-label>\n        <ion-icon name=\"search-outline\"></ion-icon>\n      </ion-chip>\n      <ion-item class=\"input-item\">\n        <ion-label>\n          <p>{{enderecoParte1}}</p>\n          <p>{{enderecoParte2}} </p>\n        </ion-label>\n\n      <!-- <ion-button color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [submitError]=\"\">Buscar endereço</ion-button> -->\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n\n    \n\n      </ion-item>\n\n      <div class=\"error-container\" *ngIf=\"submitError\">\n        <div class=\"error-message\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon>\n          <span>{{ submitError }}</span>\n        </div>\n      </div>\n    </ion-list>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" [submitError]=\"\" expand=\"block\" [disabled]=\"!formData.valid > 0 \">\n      Cadastrar</ion-button>\n  </form>\n\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Adicionar Igreja\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome Igreja <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n\n      <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n        <ion-label>Buscar Endereço</ion-label>\n        <ion-icon name=\"search-outline\"></ion-icon>\n      </ion-chip>\n      <ion-item class=\"input-item\">\n        <ion-label>\n          <p>{{enderecoParte1}}</p>\n          <p>{{enderecoParte2}} </p>\n        </ion-label>\n\n      <!-- <ion-button color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [submitError]=\"\">Buscar endereço</ion-button> -->\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n\n    \n\n      </ion-item>\n\n    </ion-list>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" [submitError]=\"\" expand=\"block\">\n      Cadastrar</ion-button>\n  </form>\n\n\n</ion-content>");
 
 /***/ }),
 
@@ -139,15 +139,6 @@ let CriarIgrejaPage = class CriarIgrejaPage {
         });
     }
     ngOnInit() {
-        this.loadingControll.showLoader();
-        this.usuarioService.recuperaUsuarioLogado().then(x => {
-            if (x == null) {
-                this.loadingControll.hideLoader();
-                this.ngZone.run(() => {
-                    this.router.navigate(['sign-in']);
-                });
-            }
-        }).finally(() => { this.loadingControll.hideLoader(); });
     }
     buscarEnderecoPorCEP() {
         this.igrejaEntity = {};
@@ -181,9 +172,13 @@ let CriarIgrejaPage = class CriarIgrejaPage {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", this.toastCtrl);
             return false;
         }
+        if (!this.formData.valid) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor preencher todos os campos devidamente sinalizados antes de continuar.", this.toastCtrl);
+            return false;
+        }
         this.loadingControll.showLoader();
         this.igrejaEntity.nomeIgreja = this.formData.value['nomeIgreja'];
-        this.igrejaEntity.administradores = [{ uid: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].recuperaUsuario().uid }];
+        this.igrejaEntity.administradores = [{ usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId }];
         this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(x => {
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].SucessoToast(this.toastCtrl);
         }).catch((error) => {

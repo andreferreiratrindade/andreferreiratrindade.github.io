@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Cadastrar Igreja</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"submitError='';salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome Igreja<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n\n      <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n        <ion-label>Buscar Endereço</ion-label>\n        <ion-icon name=\"search-outline\"></ion-icon>\n      </ion-chip>\n      <ion-item class=\"input-item\">\n        <ion-label>\n          <p>{{enderecoParte1}}</p>\n          <p>{{enderecoParte2}} </p>\n        </ion-label>\n\n      <!-- <ion-button color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [submitError]=\"\">Buscar endereço</ion-button> -->\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n\n    \n\n      </ion-item>\n\n      <div class=\"error-container\" *ngIf=\"submitError\">\n        <div class=\"error-message\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon>\n          <span>{{ submitError }}</span>\n        </div>\n      </div>\n    </ion-list>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" [submitError]=\"\" expand=\"block\" [disabled]=\"!formData.valid > 0 \">\n      Cadastrar</ion-button>\n  </form>\n\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Adicionar Igreja\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formData\" (ngSubmit)=\"salvarIgreja()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome Igreja <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nomeIgreja\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nomeIgreja\" [form]=\"formData\"\n        [nomeCampo]=\"'nomeIgreja'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-input type=\"text\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n\n      <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n        <ion-label>Buscar Endereço</ion-label>\n        <ion-icon name=\"search-outline\"></ion-icon>\n      </ion-chip>\n      <ion-item class=\"input-item\">\n        <ion-label>\n          <p>{{enderecoParte1}}</p>\n          <p>{{enderecoParte2}} </p>\n        </ion-label>\n\n      <!-- <ion-button color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [submitError]=\"\">Buscar endereço</ion-button> -->\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"formData\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n\n    \n\n      </ion-item>\n\n    </ion-list>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" [submitError]=\"\" expand=\"block\">\n      Cadastrar</ion-button>\n  </form>\n\n\n</ion-content>";
     /***/
   },
 
@@ -250,26 +250,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(CriarIgrejaPage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          var _this = this;
-
-          this.loadingControll.showLoader();
-          this.usuarioService.recuperaUsuarioLogado().then(function (x) {
-            if (x == null) {
-              _this.loadingControll.hideLoader();
-
-              _this.ngZone.run(function () {
-                _this.router.navigate(['sign-in']);
-              });
-            }
-          })["finally"](function () {
-            _this.loadingControll.hideLoader();
-          });
-        }
+        value: function ngOnInit() {}
       }, {
         key: "buscarEnderecoPorCEP",
         value: function buscarEnderecoPorCEP() {
-          var _this2 = this;
+          var _this = this;
 
           this.igrejaEntity = {}; // this.loadingControll.showLoader()
 
@@ -280,49 +265,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.buscarCEPService.buscarCEP(this.formData.value['cep']).then(function (x) {
             if (x && !x.erro) {
-              _this2.igrejaEntity.cidade = x.localidade;
-              _this2.igrejaEntity.bairro = x.bairro;
-              _this2.igrejaEntity.uf = x.uf;
-              _this2.igrejaEntity.logradouro = x.logradouro;
-              _this2.igrejaEntity.cep = x.cep;
-              _this2.enderecoParte1 = x.logradouro + ", " + x.bairro;
-              _this2.enderecoParte2 = x.localidade + "/" + x.uf;
+              _this.igrejaEntity.cidade = x.localidade;
+              _this.igrejaEntity.bairro = x.bairro;
+              _this.igrejaEntity.uf = x.uf;
+              _this.igrejaEntity.logradouro = x.logradouro;
+              _this.igrejaEntity.cep = x.cep;
+              _this.enderecoParte1 = x.logradouro + ", " + x.bairro;
+              _this.enderecoParte2 = x.localidade + "/" + x.uf;
 
-              _this2.loadingControll.hideLoader();
+              _this.loadingControll.hideLoader();
             } else {
-              _this2.loadingControll.hideLoader();
+              _this.loadingControll.hideLoader();
 
-              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", _this2.toastCtrl);
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", _this.toastCtrl);
             }
           })["catch"](function (x) {
-            _this2.loadingControll.hideLoader();
+            _this.loadingControll.hideLoader();
 
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(x, _this2.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(x, _this.toastCtrl);
           })["finally"](function () {
-            _this2.loadingControll.hideLoader();
+            _this.loadingControll.hideLoader();
           });
         }
       }, {
         key: "salvarIgreja",
         value: function salvarIgreja() {
-          var _this3 = this;
+          var _this2 = this;
 
           if (!this.igrejaEntity || !this.igrejaEntity.cidade) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", this.toastCtrl);
             return false;
           }
 
+          if (!this.formData.valid) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor preencher todos os campos devidamente sinalizados antes de continuar.", this.toastCtrl);
+            return false;
+          }
+
           this.loadingControll.showLoader();
           this.igrejaEntity.nomeIgreja = this.formData.value['nomeIgreja'];
           this.igrejaEntity.administradores = [{
-            uid: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].recuperaUsuario().uid
+            usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId
           }];
           this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(function (x) {
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].SucessoToast(_this3.toastCtrl);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].SucessoToast(_this2.toastCtrl);
           })["catch"](function (error) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(error, _this3.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(error, _this2.toastCtrl);
           })["finally"](function () {
-            _this3.loadingControll.hideLoader();
+            _this2.loadingControll.hideLoader();
           });
         }
       }]);

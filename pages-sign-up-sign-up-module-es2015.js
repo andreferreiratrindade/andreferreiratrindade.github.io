@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-up-content\">\n  <h2 class=\"auth-title\">\n    Cadastre-se\n  </h2>\n\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"signUpWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nome\" clearInput autocapitalize=\"off\" ></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nome\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'nome'\" ></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\" formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.email\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'email'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.password\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'password'\"></app-mensagem-validacao>\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Confirmar Senha<ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-input type=\"password\" formControlName=\"confirm_password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.confirm_password\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'confirm_password'\"></app-mensagem-validacao>\n\n    </ion-list>\n\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!signUpForm.valid\">Cadastrar</ion-button>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-row class=\"sign-in-btn-wrapper\">\n      <ion-button class=\"sign-in-btn\" fill=\"clear\" [routerLink]=\"['/sign-in']\">\n        Já possui login?\n      </ion-button>\n    </ion-row>\n  </form>\n\n  <!-- <div class=\"social-auth-options\">\n    <p class=\"options-divider\">Ou</p>\n    <ion-button class=\"social-auth-btn\" color=\"primary\" expand=\"block\" (click)=\"facebookSignUp()\">Facebook Sign Up\n    </ion-button>\n    <ion-button class=\"social-auth-btn google-auth-btn\" color=\"danger\" expand=\"block\" (click)=\"googleSignUp()\">Google\n      Sign Up</ion-button>\n  </div> -->\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n     Cadastre-se\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-up-content\">\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"signUpWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Nome<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"text\" formControlName=\"nome\" clearInput autocapitalize=\"off\" ></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.nome\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'nome'\" ></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\" formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.email\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'email'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.password\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'password'\"></app-mensagem-validacao>\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Confirmar Senha<ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-input type=\"password\" formControlName=\"confirm_password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.confirm_password\" [form]=\"signUpForm\"\n        [nomeCampo]=\"'confirm_password'\"></app-mensagem-validacao>\n\n    </ion-list>\n\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" >Cadastrar</ion-button>\n\n    <ion-row class=\"sign-in-btn-wrapper\">\n      <ion-button class=\"sign-in-btn\" fill=\"clear\" [routerLink]=\"['/sign-in']\" routerDirection=\"root\">\n        Já possui login?\n      </ion-button>\n    </ion-row>\n  </form>\n</ion-content>");
 
 /***/ }),
 
@@ -98,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
 /* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
+
 
 
 
@@ -172,13 +174,17 @@ let SignUpPage = class SignUpPage {
         });
     }
     signUpWithEmail() {
+        if (!this.signUpForm.valid) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler("Favor preencher todos os campos devidamente sinalizados antes de continuar.", this.toastCtrl);
+            return false;
+        }
         this.loadCtr.showLoader();
         this.authService.signUpWithEmail(this.signUpForm.value['email'], this.signUpForm.value['password'])
             .then(user => {
             // navigate to user profile
             let usuarioObj = {
                 nome: this.signUpForm.value['nome'],
-                uid: user.user.uid,
+                usuarioId: user.user.uid,
                 email: this.signUpForm.value['email'],
             };
             this.usuarioService.AdicionarUsuario(usuarioObj).then(x => {
@@ -204,7 +210,6 @@ let SignUpPage = class SignUpPage {
             this.redirectLoggedUserToProfilePage();
         }).catch((error) => {
             // Handle Errors here.
-            console.log(error);
         });
     }
     googleSignUp() {
@@ -219,7 +224,6 @@ let SignUpPage = class SignUpPage {
             this.redirectLoggedUserToProfilePage();
         }).catch((error) => {
             // Handle Errors here.
-            console.log(error);
         });
     }
     twitterSignUp() {
@@ -234,7 +238,6 @@ let SignUpPage = class SignUpPage {
             this.redirectLoggedUserToProfilePage();
         }).catch((error) => {
             // Handle Errors here.
-            console.log(error);
         });
     }
 };

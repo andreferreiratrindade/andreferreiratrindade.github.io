@@ -724,137 +724,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./src/app/helpers/loadingContr.ts":
-  /*!*****************************************!*\
-    !*** ./src/app/helpers/loadingContr.ts ***!
-    \*****************************************/
-
-  /*! exports provided: LoadingContr */
-
-  /***/
-  function srcAppHelpersLoadingContrTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "LoadingContr", function () {
-      return LoadingContr;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @ionic/angular */
-    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-    var LoadingContr = /*#__PURE__*/function () {
-      /**
-       *
-       */
-      function LoadingContr(loadingController) {
-        _classCallCheck(this, LoadingContr);
-
-        this.loadingController = loadingController;
-        this.isLoading = false;
-      }
-
-      _createClass(LoadingContr, [{
-        key: "showLoader",
-        value: function showLoader() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var _this = this;
-
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
-              while (1) {
-                switch (_context3.prev = _context3.next) {
-                  case 0:
-                    this.isLoading = true;
-                    _context3.next = 3;
-                    return this.loadingController.create({// duration: 5000,
-                    }).then(function (a) {
-                      a.present().then(function () {
-                        if (!_this.isLoading) {
-                          a.dismiss();
-                        }
-                      });
-                    });
-
-                  case 3:
-                    return _context3.abrupt("return", _context3.sent);
-
-                  case 4:
-                  case "end":
-                    return _context3.stop();
-                }
-              }
-            }, _callee3, this);
-          }));
-        } // Hide the loader if already created otherwise return error
-
-      }, {
-        key: "hideLoader",
-        value: function hideLoader() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
-              while (1) {
-                switch (_context4.prev = _context4.next) {
-                  case 0:
-                    this.isLoading = false;
-                    _context4.next = 3;
-                    return this.loadingController.dismiss().then(function () {
-                      return console.log('dismissed');
-                    });
-
-                  case 3:
-                    return _context4.abrupt("return", _context4.sent);
-
-                  case 4:
-                  case "end":
-                    return _context4.stop();
-                }
-              }
-            }, _callee4, this);
-          }));
-        }
-      }], [{
-        key: "getLoadingContent",
-        value: function getLoadingContent() {
-          return {
-            content: 'Processando.'
-          };
-        }
-      }]);
-
-      return LoadingContr;
-    }();
-
-    LoadingContr.ctorParameters = function () {
-      return [{
-        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
-      }];
-    };
-
-    LoadingContr = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-      providedIn: 'root'
-    })], LoadingContr);
-    /***/
-  },
-
-  /***/
   "./src/app/helpers/toastCustom.ts":
   /*!****************************************!*\
     !*** ./src/app/helpers/toastCustom.ts ***!
@@ -1115,13 +984,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _super = _createSuper(IgrejaRepService);
 
       function IgrejaRepService() {
-        var _this2;
+        var _this;
 
         _classCallCheck(this, IgrejaRepService);
 
-        _this2 = _super.call(this);
-        _this2._collectionName = "igreja";
-        return _this2;
+        _this = _super.call(this);
+        _this._collectionName = "igreja";
+        return _this;
       }
 
       _createClass(IgrejaRepService, [{
@@ -1212,10 +1081,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _createClass(PrestadorRepServiceService, [{
         key: "RecuperaPestadoresPorCidadeEhUF",
         value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
-          var _this3 = this;
+          var _this2 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this3.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
+            var query = _this2.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
 
             if (cidadeSelecionado) {
               query.where("cidade", "==", cidadeSelecionado);
@@ -1233,14 +1102,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "RecuperaCidadePrestadorDisponiveis",
         value: function RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
-          var _this4 = this;
+          var _this3 = this;
 
           return new Promise(function (resolve, reject) {
-            _this4.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this3.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
-                console.log(doc.data());
-
                 if (!lst.includes(doc.data().cidade)) {
                   lst.push(doc.data().cidade);
                 }
@@ -1252,14 +1119,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "recuperaUfPrestadorDisponiveis",
         value: function recuperaUfPrestadorDisponiveis() {
-          var _this5 = this;
+          var _this4 = this;
 
           return new Promise(function (resolve, reject) {
-            _this5.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this4.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
-                console.log(doc.data());
-
                 if (!lst.includes(doc.data().uf)) {
                   lst.push(doc.data().uf);
                 }
@@ -1271,7 +1136,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "AdicionaPrestador",
         value: function AdicionaPrestador(prestador) {
-          return this.db.collection("usuario").doc(prestador.uid).collection("prestador").doc().set(Object.assign({}, prestador));
+          return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc().set(Object.assign({}, prestador));
         }
       }]);
 

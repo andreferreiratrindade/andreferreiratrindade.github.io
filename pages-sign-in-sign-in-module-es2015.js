@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"ion-no-border\">\n  <ion-toolbar></ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-in-content\">\n  <h2 class=\"auth-title\">\n    Login\n  </h2>\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"signInWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\"  formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <div class=\"error-container\">\n        <ng-container *ngFor=\"let validation of validation_messages.email\">\n          <div class=\"error-message\" *ngIf=\"signInForm.get('email').hasError(validation.type) && (signInForm.get('email').dirty || signInForm.get('email').touched)\">\n            <ion-icon name=\"information-circle-outline\"></ion-icon>\n            <span>{{ validation.message }}</span>\n          </div>\n        </ng-container>\n      </div>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\"  formControlName=\"password\"></ion-input>\n      </ion-item>\n      <div class=\"error-container\">\n        <ng-container *ngFor=\"let validation of validation_messages.password\">\n          <div class=\"error-message\" *ngIf=\"signInForm.get('password').hasError(validation.type) && (signInForm.get('password').dirty || signInForm.get('password').touched)\">\n            <ion-icon name=\"information-circle-outline\"></ion-icon>\n            <span>{{ validation.message }}</span>\n          </div>\n        </ng-container>\n      </div>\n    </ion-list>\n\n    <ion-button class=\"sign-in-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!signInForm.valid\">Sign In</ion-button>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-row class=\"sign-up-btn-wrapper\">\n      <ion-button class=\"sign-up-btn\" fill=\"clear\" [routerLink]=\"['/sign-up']\">\n        Cadastra-se\n      </ion-button>\n    </ion-row>\n  </form>\n\n  <!-- <div class=\"social-auth-options\">\n    <p class=\"options-divider\">Ou</p>\n    <ion-button class=\"social-auth-btn\" color=\"primary\" expand=\"block\" (click)=\"facebookSignIn()\">Facebook Sign In</ion-button>\n    <ion-button class=\"social-auth-btn google-auth-btn\" color=\"danger\" expand=\"block\" (click)=\"googleSignIn()\">Google Sign In</ion-button>\n  </div> -->\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Login\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"sign-in-content\">\n  <form [formGroup]=\"signInForm\" (ngSubmit)=\"signInWithEmail()\">\n    <ion-list class=\"inputs-list\" lines=\"full\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Email <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"email\"  formControlName=\"email\" clearInput autocapitalize=\"off\" inputmode=\"email\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.email\" [form]=\"signInForm\"\n      [nomeCampo]=\"'email'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Senha <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"password\"  formControlName=\"password\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.password\" [form]=\"signInForm\"\n      [nomeCampo]=\"'password'\"></app-mensagem-validacao>\n    </ion-list>\n\n    <ion-button class=\"sign-in-btn\" type=\"submit\" expand=\"block\">Entrar</ion-button>\n\n    <ion-row class=\"sign-up-btn-wrapper\">\n      <ion-button class=\"sign-up-btn\" fill=\"clear\" [routerLink]=\"['/sign-up']\" routerDirection=\"root\">\n        Cadastre-se\n      </ion-button>\n    </ion-row>\n  </form>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -30,6 +30,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _sign_in_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sign-in.page */ "./src/app/pages/sign-in/sign-in.page.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_components_components_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/components/components.module */ "./src/app/components/components.module.ts");
+
 
 
 
@@ -51,6 +53,7 @@ SignInPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+            src_app_components_components_module__WEBPACK_IMPORTED_MODULE_7__["ComponentsModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild(routes),
         ],
@@ -92,6 +95,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/providers/base-provider/firebase-auth-service.service */ "./src/app/providers/base-provider/firebase-auth-service.service.ts");
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
+/* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
+
+
+
 
 
 
@@ -100,12 +109,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SignInPage = class SignInPage {
-    constructor(angularFire, router, ngZone, authService, loadControl) {
+    constructor(angularFire, router, route, authService, loadControl, toast) {
         this.angularFire = angularFire;
         this.router = router;
-        this.ngZone = ngZone;
+        this.route = route;
         this.authService = authService;
         this.loadControl = loadControl;
+        this.toast = toast;
         this.validation_messages = {
             'email': [
                 { type: 'required', message: 'Campo de preenchimento obrigatório.' },
@@ -126,98 +136,41 @@ let SignInPage = class SignInPage {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required
             ]))
         });
-        // Get firebase authentication redirect result invoken when using signInWithRedirect()
-        // signInWithRedirect() is only used when client is in web but not desktop
-        this.authRedirectResult = this.authService.getRedirectResult()
-            .subscribe(result => {
-            if (result.user) {
-                this.redirectLoggedUserToProfilePage();
-            }
-            else if (result.error) {
-                this.submitError = result.error;
-            }
-        });
-    }
-    // Once the auth provider finished the authentication flow, and the auth redirect completes,
-    // redirect the user to the profile page
-    redirectLoggedUserToProfilePage() {
-        // As we are calling the Angular router navigation inside a subscribe method, the navigation will be triggered outside Angular zone.
-        // That's why we need to wrap the router navigation call inside an ngZone wrapper
-        this.loadControl.hideLoader();
-        this.ngZone.run(() => {
-            this.router.navigate(['']);
-        });
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        // // Get firebase authentication redirect result invoken when using signInWithRedirect()
+        // // signInWithRedirect() is only used when client is in web but not desktop
+        // this.authRedirectResult = this.authService.getRedirectResult()
+        // .subscribe(result => {
+        //   if (result.user) {
+        //     this.redirectLoggedUserToProfilePage();
+        //   } else if (result.error) {
+        //     this.submitError = result.error;
+        //   }
+        // });
     }
     signInWithEmail() {
+        if (!this.signInForm.valid) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Favor preencher todos os campos devidamente sinalizados antes de continuar.", this.toast);
+            return false;
+        }
         this.loadControl.showLoader();
         this.authService.signInWithEmail(this.signInForm.value['email'], this.signInForm.value['password'])
             .then(user => {
-            // navigate to user profile
-            this.redirectLoggedUserToProfilePage();
+            src_app_config__WEBPACK_IMPORTED_MODULE_9__["Config"].RecuperaInstancia().adicionaUsuario({ usuarioId: user.user.uid });
+            this.router.navigate([this.returnUrl]);
         })
             .catch(error => {
-            this.authService.signUpWithEmail(this.signInForm.value['email'], this.signInForm.value['password'])
-                .then(user => {
-                // navigate to user profile
-                this.redirectLoggedUserToProfilePage();
-            })
-                .catch(error => {
-                this.submitError = error.message;
-            });
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Email ou senha incorreto(s)", this.toast);
         }).finally(() => this.loadControl.hideLoader());
-    }
-    facebookSignIn() {
-        this.authService.signInWithFacebook()
-            .then((result) => {
-            if (result.additionalUserInfo) {
-                this.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            }
-            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-            this.redirectLoggedUserToProfilePage();
-        }).catch((error) => {
-            // Handle Errors here.
-            console.log(error);
-        });
-    }
-    googleSignIn() {
-        this.authService.signInWithGoogle()
-            .then((result) => {
-            if (result.additionalUserInfo) {
-                this.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            }
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-            this.redirectLoggedUserToProfilePage();
-        }).catch((error) => {
-            // Handle Errors here.
-            console.log(error);
-        });
-    }
-    twitterSignIn() {
-        this.authService.signInWithTwitter()
-            .then((result) => {
-            if (result.additionalUserInfo) {
-                this.authService.setProviderAdditionalInfo(result.additionalUserInfo.profile);
-            }
-            // This gives you a Twitter Access Token. You can use it to access the Twitter API.
-            // const token = result.credential.accessToken;
-            // The signed-in user info is in result.user;
-            this.redirectLoggedUserToProfilePage();
-        }).catch((error) => {
-            // Handle Errors here.
-            console.log(error);
-        });
     }
 };
 SignInPage.ctorParameters = () => [
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
     { type: src_app_providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseAuthService"] },
-    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_6__["LoadingContr"] }
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_6__["LoadingContr"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] }
 ];
 SignInPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
