@@ -347,6 +347,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     usuarioId: x.usuarioId,
                     igrejaId: x.igrejas[0].igrejaId
                   };
+
+                  _this3.loadingContr.hideLoader();
                 });
               })["catch"](function (x) {
                 src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);

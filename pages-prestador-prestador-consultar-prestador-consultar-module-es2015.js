@@ -202,6 +202,7 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
                             usuarioId: x.usuarioId,
                             igrejaId: x.igrejas[0].igrejaId
                         };
+                        this.loadingContr.hideLoader();
                     });
                 }).catch(x => {
                     src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
