@@ -174,6 +174,7 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
         this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.formulario.value['uf'])
             .then(result => {
             this.cidadeList = result;
+            this.loadingContr.hideLoader();
         }).catch(x => {
             this.loadingContr.hideLoader();
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);

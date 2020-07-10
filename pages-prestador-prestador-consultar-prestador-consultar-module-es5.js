@@ -305,6 +305,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.formulario.value['cidade'] = "";
           this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.formulario.value['uf']).then(function (result) {
             _this2.cidadeList = result;
+
+            _this2.loadingContr.hideLoader();
           })["catch"](function (x) {
             _this2.loadingContr.hideLoader();
 
