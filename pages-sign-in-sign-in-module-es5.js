@@ -267,11 +267,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               usuarioId: user.user.uid
             });
 
+            _this.loadControl.hideLoader();
+
             _this.router.navigate([_this.returnUrl]);
           })["catch"](function (error) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Email ou senha incorreto(s)", _this.toast);
-          })["finally"](function () {
-            return _this.loadControl.hideLoader();
+
+            _this.loadControl.hideLoader();
           });
         }
       }]);

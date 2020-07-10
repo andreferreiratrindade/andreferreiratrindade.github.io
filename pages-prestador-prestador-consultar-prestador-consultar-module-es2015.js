@@ -162,10 +162,10 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
         this.prestadorService.RecuperaUfPrestadorDisponiveis()
             .then(result => {
             this.UfList = result;
-        }).catch(x => {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
-        }).finally(() => {
             this.loadingContr.hideLoader();
+        }).catch(x => {
+            this.loadingContr.hideLoader();
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
         });
     }
     buscarCidades() {
@@ -175,9 +175,8 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
             .then(result => {
             this.cidadeList = result;
         }).catch(x => {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
-        }).finally(() => {
             this.loadingContr.hideLoader();
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
         });
     }
     ConsultarPrestador() {
@@ -203,7 +202,8 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
                             igrejaId: x.igrejas[0].igrejaId
                         };
                     });
-                }).finally(() => {
+                }).catch(x => {
+                    src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, this.toastCtrl);
                     this.loadingContr.hideLoader();
                 });
             });

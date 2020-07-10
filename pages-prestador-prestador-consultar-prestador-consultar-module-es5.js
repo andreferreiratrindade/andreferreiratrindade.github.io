@@ -288,10 +288,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loadingContr.showLoader();
           this.prestadorService.RecuperaUfPrestadorDisponiveis().then(function (result) {
             _this.UfList = result;
-          })["catch"](function (x) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this.toastCtrl);
-          })["finally"](function () {
+
             _this.loadingContr.hideLoader();
+          })["catch"](function (x) {
+            _this.loadingContr.hideLoader();
+
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this.toastCtrl);
           });
         }
       }, {
@@ -304,9 +306,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.formulario.value['uf']).then(function (result) {
             _this2.cidadeList = result;
           })["catch"](function (x) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this2.toastCtrl);
-          })["finally"](function () {
             _this2.loadingContr.hideLoader();
+
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this2.toastCtrl);
           });
         }
       }, {
@@ -344,7 +346,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     igrejaId: x.igrejas[0].igrejaId
                   };
                 });
-              })["finally"](function () {
+              })["catch"](function (x) {
+                src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
+
                 _this3.loadingContr.hideLoader();
               });
             });

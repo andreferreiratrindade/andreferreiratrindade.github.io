@@ -193,10 +193,10 @@ let SignUpPage = class SignUpPage {
             }).catch(error => {
                 this.submitError = error.message;
             });
-        })
-            .catch(error => {
-            this.submitError = error.message;
-        }).finally(() => { this.loadCtr.hideLoader(); });
+        }).catch(err => {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(err, this.toastCtrl);
+            this.loadCtr.hideLoader();
+        });
     }
     facebookSignUp() {
         this.authService.signInWithFacebook()

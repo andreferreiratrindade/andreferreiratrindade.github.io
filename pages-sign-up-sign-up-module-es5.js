@@ -309,9 +309,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             })["catch"](function (error) {
               _this3.submitError = error.message;
             });
-          })["catch"](function (error) {
-            _this3.submitError = error.message;
-          })["finally"](function () {
+          })["catch"](function (err) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(err, _this3.toastCtrl);
+
             _this3.loadCtr.hideLoader();
           });
         }

@@ -180,7 +180,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\" menuId=\"mainContent\" side=\"start\">\n      <ion-content class=\"background\">\n        <ion-list id=\"inbox-list\">\n          \n         <span *ngIf=\"usuarioLogado\">\n          <ion-list-header>{{recuperaDadosUsuario.nome}}</ion-list-header>\n          <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n          <ion-chip color=\"tertiary\" (click)=\"logoff()\" routerDirection=\"root\" [routerLink]=\"prestador-consultar\"  size=\"6\">\n            <ion-label>Sair</ion-label>\n            <ion-icon name=\"log-out-outline\"></ion-icon>\n          </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"logoff()\" routerDirection=\"root\" [routerLink]=\"prestador-consultar\"  size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n";
+    __webpack_exports__["default"] = "<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\" menuId=\"mainContent\" side=\"start\">\n      <ion-content class=\"background\">\n        <ion-list id=\"inbox-list\">\n          \n         <span *ngIf=\"usuarioLogado\">\n          <ion-list-header>{{recuperaDadosUsuario.nome}}</ion-list-header>\n          <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n          <ion-chip color=\"tertiary\" (click)=\"logoff()\"  slot=\"close\" routerDirection=\"root\" [routerLink]=\"prestador-consultar\"  size=\"6\">\n            <ion-label>Sair</ion-label>\n            <ion-icon name=\"log-out-outline\"></ion-icon>\n          </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"login()\"  size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/accordion/accordion/accordion.component.html":
+  /*!***************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/accordion/accordion/accordion.component.html ***!
+    \***************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsAccordionAccordionAccordionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div #wrapper class='expand-wrapper' [class.collapsed]=\"!expanded\">\n  <ng-content></ng-content>\n</div>";
     /***/
   },
 
@@ -362,6 +382,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return m.PrestadorConsultarPageModule;
         });
       }
+    }, {
+      path: 'prestador-Form2',
+      canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module */
+        "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module.ts")).then(function (m) {
+          return m.PrestadorCadastroForm2PageModule;
+        });
+      }
+    }, {
+      path: 'prestador-cadastro-form3',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */
+        "pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module").then(__webpack_require__.bind(null,
+        /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */
+        "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(function (m) {
+          return m.PrestadorCadastroForm3PageModule;
+        });
+      }
+    }, {
+      path: 'prestador-cadastro-form4',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form4-prestador-cadastro-form4-module */
+        "pages-prestador-prestadorCadastro-prestador-cadastro-form4-prestador-cadastro-form4-module").then(__webpack_require__.bind(null,
+        /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form4/prestador-cadastro-form4.module */
+        "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form4/prestador-cadastro-form4.module.ts")).then(function (m) {
+          return m.PrestadorCadastroForm4PageModule;
+        });
+      }
+    }, {
+      path: 'modal-dominio-servicos',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */
+        "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(function (m) {
+          return m.ModalDominioServicosPageModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -519,6 +584,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function logoff() {
           this.firebaseAuthService.signOut();
           this.router.navigate(['/home']);
+        }
+      }, {
+        key: "login",
+        value: function login() {
+          this.router.navigate(['sign-in']);
         }
       }, {
         key: "recuperaDadosUsuario",
@@ -742,6 +812,100 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/app/components/accordion/accordion/accordion.component.scss":
+  /*!*************************************************************************!*\
+    !*** ./src/app/components/accordion/accordion/accordion.component.scss ***!
+    \*************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsAccordionAccordionAccordionComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "accordion-list .wrapper {\n  transition: 0.2s linear;\n}\naccordion-list .collapsed {\n  height: 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3RyYXZpcy9idWlsZC9hbmRyZWZlcnJlaXJhdHJpbmRhZGUvSWdyZWphQXBwL3NyYy9hcHAvY29tcG9uZW50cy9hY2NvcmRpb24vYWNjb3JkaW9uL2FjY29yZGlvbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9hY2NvcmRpb24vYWNjb3JkaW9uL2FjY29yZGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFSTtFQUNJLHVCQUFBO0FDRFI7QURJSTtFQUNJLG9CQUFBO0FDRlIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FjY29yZGlvbi9hY2NvcmRpb24vYWNjb3JkaW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYWNjb3JkaW9uLWxpc3Qge1xuIFxuICAgIC53cmFwcGVyIHtcbiAgICAgICAgdHJhbnNpdGlvbjogMC4ycyBsaW5lYXI7XG4gICAgfSAgIFxuIFxuICAgIC5jb2xsYXBzZWQge1xuICAgICAgICBoZWlnaHQ6IDAgIWltcG9ydGFudDtcbiAgICB9XG4gXG59IiwiYWNjb3JkaW9uLWxpc3QgLndyYXBwZXIge1xuICB0cmFuc2l0aW9uOiAwLjJzIGxpbmVhcjtcbn1cbmFjY29yZGlvbi1saXN0IC5jb2xsYXBzZWQge1xuICBoZWlnaHQ6IDAgIWltcG9ydGFudDtcbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/accordion/accordion/accordion.component.ts":
+  /*!***********************************************************************!*\
+    !*** ./src/app/components/accordion/accordion/accordion.component.ts ***!
+    \***********************************************************************/
+
+  /*! exports provided: AccordionComponent */
+
+  /***/
+  function srcAppComponentsAccordionAccordionAccordionComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AccordionComponent", function () {
+      return AccordionComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var AccordionComponent = /*#__PURE__*/function () {
+      function AccordionComponent(renderer) {
+        _classCallCheck(this, AccordionComponent);
+
+        this.renderer = renderer;
+        this.expanded = false;
+        this.expandHeight = "150px";
+      }
+
+      _createClass(AccordionComponent, [{
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          this.renderer.setStyle(this.expandWrapper.nativeElement, "max-height", this.expandHeight);
+        }
+      }]);
+
+      return AccordionComponent;
+    }();
+
+    AccordionComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("expandWrapper", {
+      read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+    })], AccordionComponent.prototype, "expandWrapper", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])("expanded")], AccordionComponent.prototype, "expanded", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])("expandHeight")], AccordionComponent.prototype, "expandHeight", void 0);
+    AccordionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-accordion',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./accordion.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/accordion/accordion/accordion.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./accordion.component.scss */
+      "./src/app/components/accordion/accordion/accordion.component.scss"))["default"]]
+    })], AccordionComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/components/components.module.ts":
   /*!*************************************************!*\
     !*** ./src/app/components/components.module.ts ***!
@@ -802,8 +966,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _menuLateral_menu_lateral_menu_lateral_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./menuLateral/menu-lateral/menu-lateral.component */
     "./src/app/components/menuLateral/menu-lateral/menu-lateral.component.ts");
+    /* harmony import */
 
-    var PAGES_COMPONENTS = [_mensagem_validacao_mensagem_validacao_component__WEBPACK_IMPORTED_MODULE_3__["MensagemValidacaoComponent"], _menuLateral_menu_lateral_menu_lateral_component__WEBPACK_IMPORTED_MODULE_6__["MenuLateralComponent"]];
+
+    var _accordion_accordion_accordion_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./accordion/accordion/accordion.component */
+    "./src/app/components/accordion/accordion/accordion.component.ts");
+
+    var PAGES_COMPONENTS = [_mensagem_validacao_mensagem_validacao_component__WEBPACK_IMPORTED_MODULE_3__["MensagemValidacaoComponent"], _menuLateral_menu_lateral_menu_lateral_component__WEBPACK_IMPORTED_MODULE_6__["MenuLateralComponent"], _accordion_accordion_accordion_component__WEBPACK_IMPORTED_MODULE_7__["AccordionComponent"]];
 
     var ComponentsModule = function ComponentsModule() {
       _classCallCheck(this, ComponentsModule);

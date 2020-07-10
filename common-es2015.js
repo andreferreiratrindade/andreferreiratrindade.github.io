@@ -437,6 +437,19 @@ const openURL = async (url, ev, direction, animation) => {
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html ***!
+  \*************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n  <ion-list>\n    <ion-radio-group allow-empty-selection=\"true\" name=\"radio-group\" (ionChange)=\"radioSelect($event)\" #radioGroup>\n      <ion-list-header>\n        <ion-label>Serviços</ion-label>\n      </ion-list-header>\n      <ion-item *ngFor=\"let item of servicos\" >\n        <ion-label>{{item.nomeServico}}</ion-label>\n        <ion-radio slot=\"start\" color=\"success\"  value=\"{{item.servicoId}}\" >\n  \n        </ion-radio>\n      </ion-item>\n  </ion-radio-group>\n  </ion-list>\n</ion-content>\n\n\n<ion-footer>\n  <ion-toolbar>\n\n    <ion-button tyep=\"button\" color=\"light\" (click)=\"closeModal()\" >Voltar</ion-button>\n    <ion-button tyep=\"button\" color=\"primary\" (click)=\"salvar()\" >Salvar</ion-button>\n  </ion-toolbar>\n</ion-footer>");
+
+/***/ }),
+
 /***/ "./src/app/helpers/handlerError.ts":
 /*!*****************************************!*\
   !*** ./src/app/helpers/handlerError.ts ***!
@@ -490,6 +503,74 @@ class ToastCustom {
         });
     }
 }
+
+
+/***/ }),
+
+/***/ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss":
+/*!***********************************************************************************************************!*\
+  !*** ./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3ByZXN0YWRvci9wcmVzdGFkb3JDYWRhc3Ryby9tb2RhbC1kb21pbmlvLXNlcnZpY29zL21vZGFsLWRvbWluaW8tc2Vydmljb3MucGFnZS5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.ts":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.ts ***!
+  \*********************************************************************************************************/
+/*! exports provided: ModalDominioServicosPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalDominioServicosPage", function() { return ModalDominioServicosPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+
+
+
+let ModalDominioServicosPage = class ModalDominioServicosPage {
+    constructor(navParams, modalController) {
+        this.navParams = navParams;
+        this.modalController = modalController;
+        this.servicos = this.navParams.data.servicos;
+    }
+    salvar() {
+        let servico = this.servicos.filter(y => y.servicoId == this.servicoSelecionado)[0];
+        this.modalController.dismiss(servico, 'confirm');
+    }
+    closeModal() {
+        this.modalController.dismiss(null, 'cancel');
+    }
+    radioSelect(event) {
+        this.servicoSelecionado = event.detail.value;
+    }
+};
+ModalDominioServicosPage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ModalDominioServicosPage.prototype, "servicos", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('radioGroup')
+], ModalDominioServicosPage.prototype, "radioGroup", void 0);
+ModalDominioServicosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-modal-dominio-servicos',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./modal-dominio-servicos.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./modal-dominio-servicos.page.scss */ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss")).default]
+    })
+], ModalDominioServicosPage);
+
 
 
 /***/ }),
@@ -554,11 +635,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorService = class PrestadorService {
-    /**
-     *
-     */
     constructor(prestadorRepService) {
         this.prestadorRepService = prestadorRepService;
+    }
+    AlteraSituacaoPrestador(usuarioId, TipoSituacaoPrestador) {
+        // return this.prestador
+    }
+    ExcluirServico(usuarioId, servicoId) {
+        return this.prestadorRepService.ExcluirServico(usuarioId, servicoId);
+    }
+    AdicionaServicoAoPrestador(usuarioId, servico) {
+        return this.prestadorRepService.AdicionaServicoAoPrestador(usuarioId, servico);
     }
     RecuperaUfPrestadorDisponiveis() {
         return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
@@ -571,6 +658,9 @@ let PrestadorService = class PrestadorService {
     }
     RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
         return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
+    }
+    recuperaServicosPorPrestador(usuarioId) {
+        return this.prestadorRepService.recuperaServicosPorPrestador(usuarioId);
     }
 };
 PrestadorService.ctorParameters = () => [
@@ -644,6 +734,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorRepServiceService = class PrestadorRepServiceService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    ExcluirServico(usuarioId, servicoId) {
+        return this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId)
+            .collection("servico").doc(servicoId)
+            .delete();
+    }
+    AdicionaServicoAoPrestador(usuarioId, servico) {
+        return this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId)
+            .collection("servico").doc(servico.servicoId)
+            .set(Object.assign({}, servico), { merge: true });
+    }
+    recuperaServicosPorPrestador(usuarioId) {
+        return new Promise((resolve, reject) => {
+            this.db.collection("usuario").doc(usuarioId).collection("prestador")
+                .doc(usuarioId)
+                .collection("servico")
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
+            });
+        });
+    }
     RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
         return new Promise((resolve, reject) => {
             var query = this.db.collectionGroup("prestador")
@@ -693,7 +809,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         });
     }
     AdicionaPrestador(prestador) {
-        return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc().set(Object.assign({}, prestador));
+        return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador));
     }
 };
 PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

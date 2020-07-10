@@ -142,11 +142,11 @@ let CriarIgrejaPage = class CriarIgrejaPage {
     }
     buscarEnderecoPorCEP() {
         this.igrejaEntity = {};
-        // this.loadingControll.showLoader()
         if (!this.formData.value['cep'] || this.formData.value['cep'].length != "8") {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler("Favor inserir CEP válido, antes de continuar.", this.toastCtrl);
             return false;
         }
+        this.loadingControll.showLoader();
         this.buscarCEPService.buscarCEP(this.formData.value['cep']).then(x => {
             if (x && !x.erro) {
                 this.igrejaEntity.cidade = x.localidade;
@@ -165,7 +165,7 @@ let CriarIgrejaPage = class CriarIgrejaPage {
         }).catch(x => {
             this.loadingControll.hideLoader();
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(x, this.toastCtrl);
-        }).finally(() => { this.loadingControll.hideLoader(); });
+        });
     }
     salvarIgreja() {
         if (!this.igrejaEntity || !this.igrejaEntity.cidade) {
@@ -180,10 +180,12 @@ let CriarIgrejaPage = class CriarIgrejaPage {
         this.igrejaEntity.nomeIgreja = this.formData.value['nomeIgreja'];
         this.igrejaEntity.administradores = [{ usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId }];
         this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(x => {
+            this.loadingControll.hideLoader();
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].SucessoToast(this.toastCtrl);
         }).catch((error) => {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(error, this.toastCtrl);
-        }).finally(() => { this.loadingControll.hideLoader(); });
+            this.loadingControll.hideLoader();
+        });
     }
 };
 CriarIgrejaPage.ctorParameters = () => [

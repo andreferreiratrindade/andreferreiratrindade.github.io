@@ -157,11 +157,13 @@ let SignInPage = class SignInPage {
         this.authService.signInWithEmail(this.signInForm.value['email'], this.signInForm.value['password'])
             .then(user => {
             src_app_config__WEBPACK_IMPORTED_MODULE_9__["Config"].RecuperaInstancia().adicionaUsuario({ usuarioId: user.user.uid });
+            this.loadControl.hideLoader();
             this.router.navigate([this.returnUrl]);
         })
             .catch(error => {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Email ou senha incorreto(s)", this.toast);
-        }).finally(() => this.loadControl.hideLoader());
+            this.loadControl.hideLoader();
+        });
     }
 };
 SignInPage.ctorParameters = () => [
