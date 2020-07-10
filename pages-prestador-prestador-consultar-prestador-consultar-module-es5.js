@@ -334,6 +334,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               _this3.usuarioService.RecuperaNomeUsuarios(usuarios).then(function (usuariosResult) {
                 _this3.prestadores = prestadoresResult.map(function (x) {
+                  _this3.loadingContr.hideLoader();
+
                   return {
                     nome: usuariosResult.find(function (y) {
                       return y.id == x.usuarioId;
@@ -347,8 +349,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     usuarioId: x.usuarioId,
                     igrejaId: x.igrejas[0].igrejaId
                   };
-
-                  _this3.loadingContr.hideLoader();
+                  ;
                 });
               })["catch"](function (x) {
                 src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
