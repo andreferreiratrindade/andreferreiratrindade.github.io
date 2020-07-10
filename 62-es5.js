@@ -818,10 +818,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                     _context18.next = 3;
                     return __webpack_require__.e(
-                    /*! import() | swiper-bundle-e8f38f34-js */
-                    "swiper-bundle-e8f38f34-js").then(__webpack_require__.bind(null,
-                    /*! ./swiper.bundle-e8f38f34.js */
-                    "./node_modules/@ionic/core/dist/esm/swiper.bundle-e8f38f34.js"));
+                    /*! import() | swiper-bundle-95afeea2-js */
+                    "swiper-bundle-95afeea2-js").then(__webpack_require__.bind(null,
+                    /*! ./swiper.bundle-95afeea2.js */
+                    "./node_modules/@ionic/core/dist/esm/swiper.bundle-95afeea2.js"));
 
                   case 3:
                     _yield$__webpack_requ = _context18.sent;

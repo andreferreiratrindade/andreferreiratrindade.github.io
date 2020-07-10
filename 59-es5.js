@@ -682,7 +682,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var textPart = addPlaceholderClass ? 'placeholder' : 'text';
           return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
             onClick: this.onClick,
-            role: "combobox",
+            role: "listbox",
             "aria-haspopup": "dialog",
             "aria-disabled": disabled ? 'true' : null,
             "aria-expanded": "".concat(isExpanded),
@@ -813,7 +813,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         this.inputId = "ion-selopt-".concat(selectOptionIds++);
         /**
-         * If `true`, the user cannot interact with the select option.
+         * If `true`, the user cannot interact with the select option. This property does not apply when `interface="action-sheet"` as `ion-action-sheet` does not allow for disabled buttons.
          */
 
         this.disabled = false;

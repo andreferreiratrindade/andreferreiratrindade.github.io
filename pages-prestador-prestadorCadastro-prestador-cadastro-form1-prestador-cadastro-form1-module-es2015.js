@@ -227,6 +227,7 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
                         this.igrejas = [];
                         src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Nenhuma igreja encontrada para localidade informada.", this.toastCtrl);
                     }
+                    this.loadingContr.hideLoader();
                 }).catch(err => {
                     src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, this.toastCtrl);
                     this.loadingContr.hideLoader();
@@ -257,6 +258,7 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
         this.prestador.situacaoPrestador = src_app_utils_constants__WEBPACK_IMPORTED_MODULE_11__["Constants"].TipoSituacaoPrestador.Form2;
         this.prestadorService.AdicionarNovoPrestador(this.prestador)
             .then(() => {
+            this.loadingContr.hideLoader();
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_13__["ToastCustom"].SucessoToast(this.toastCtrl);
             this.ngZone.run(() => {
                 this.router.navigate(['prestador-Form2']);

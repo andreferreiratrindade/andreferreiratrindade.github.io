@@ -377,6 +377,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   _this.igrejas = [];
                   src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler("Nenhuma igreja encontrada para localidade informada.", _this.toastCtrl);
                 }
+
+                _this.loadingContr.hideLoader();
               })["catch"](function (err) {
                 src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this.toastCtrl);
 
@@ -416,6 +418,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.prestador.usuarioId = src_app_config__WEBPACK_IMPORTED_MODULE_9__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId;
           this.prestador.situacaoPrestador = src_app_utils_constants__WEBPACK_IMPORTED_MODULE_11__["Constants"].TipoSituacaoPrestador.Form2;
           this.prestadorService.AdicionarNovoPrestador(this.prestador).then(function () {
+            _this2.loadingContr.hideLoader();
+
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_13__["ToastCustom"].SucessoToast(_this2.toastCtrl);
 
             _this2.ngZone.run(function () {

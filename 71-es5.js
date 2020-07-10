@@ -358,6 +358,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("textarea", {
             "class": "native-textarea",
+            "aria-labelledby": labelId,
             ref: function ref(el) {
               return _this4.nativeInput = el;
             },

@@ -270,7 +270,7 @@ class Slides {
         const finalOptions = this.normalizeOptions();
         // init swiper core
         // @ts-ignore
-        const { Swiper } = await __webpack_require__.e(/*! import() | swiper-bundle-e8f38f34-js */ "swiper-bundle-e8f38f34-js").then(__webpack_require__.bind(null, /*! ./swiper.bundle-e8f38f34.js */ "./node_modules/@ionic/core/dist/esm/swiper.bundle-e8f38f34.js"));
+        const { Swiper } = await __webpack_require__.e(/*! import() | swiper-bundle-95afeea2-js */ "swiper-bundle-95afeea2-js").then(__webpack_require__.bind(null, /*! ./swiper.bundle-95afeea2.js */ "./node_modules/@ionic/core/dist/esm/swiper.bundle-95afeea2.js"));
         await waitForSlides(this.el);
         const swiper = new Swiper(this.el, finalOptions);
         this.swiperReady = true;

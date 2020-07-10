@@ -283,9 +283,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! src/app/utils/constants */
     "./src/app/utils/constants.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var PrestadorCadastroForm2Page = /*#__PURE__*/function () {
-      function PrestadorCadastroForm2Page(dominioServicoService, loadingContr, prestadorService, modalCtrl, toastCtrl, alertController) {
+      function PrestadorCadastroForm2Page(dominioServicoService, loadingContr, prestadorService, modalCtrl, toastCtrl, alertController, ngZone, router) {
         _classCallCheck(this, PrestadorCadastroForm2Page);
 
         this.dominioServicoService = dominioServicoService;
@@ -294,6 +300,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.modalCtrl = modalCtrl;
         this.toastCtrl = toastCtrl;
         this.alertController = alertController;
+        this.ngZone = ngZone;
+        this.router = router;
       }
 
       _createClass(PrestadorCadastroForm2Page, [{
@@ -489,7 +497,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "Prosseguir",
         value: function Prosseguir() {
-          this.prestadorService.AlteraSituacaoPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__["Constants"].TipoSituacaoPrestador.Form3);
+          var _this7 = this;
+
+          this.loadingContr.showLoader();
+          var obj = {
+            situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__["Constants"].TipoSituacaoPrestador.Form3
+          };
+          this.prestadorService.AtualizaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, obj).then(function () {
+            _this7.loadingContr.hideLoader();
+
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(_this7.toastCtrl);
+
+            _this7.ngZone.run(function () {
+              _this7.router.navigate(['prestador-Form3']);
+            });
+          })["catch"](function (err) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this7.toastCtrl);
+
+            _this7.loadingContr.hideLoader();
+          });
         }
       }]);
 
@@ -509,6 +535,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]
       }];
     };
 
@@ -638,22 +668,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        *
        */
       function DominioServicoRepositoryService() {
-        var _this7;
+        var _this8;
 
         _classCallCheck(this, DominioServicoRepositoryService);
 
-        _this7 = _super.call(this);
-        _this7._collectionName = "dominioServico";
-        return _this7;
+        _this8 = _super.call(this);
+        _this8._collectionName = "dominioServico";
+        return _this8;
       }
 
       _createClass(DominioServicoRepositoryService, [{
         key: "recuperaDominioServico",
         value: function recuperaDominioServico() {
-          var _this8 = this;
+          var _this9 = this;
 
           return new Promise(function (response, resp) {
-            _this8.db.collection("dominioServico").get().then(function (result) {
+            _this9.db.collection("dominioServico").get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({

@@ -130,6 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
 /* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
 /* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
@@ -142,13 +144,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorCadastroForm2Page = class PrestadorCadastroForm2Page {
-    constructor(dominioServicoService, loadingContr, prestadorService, modalCtrl, toastCtrl, alertController) {
+    constructor(dominioServicoService, loadingContr, prestadorService, modalCtrl, toastCtrl, alertController, ngZone, router) {
         this.dominioServicoService = dominioServicoService;
         this.loadingContr = loadingContr;
         this.prestadorService = prestadorService;
         this.modalCtrl = modalCtrl;
         this.toastCtrl = toastCtrl;
         this.alertController = alertController;
+        this.ngZone = ngZone;
+        this.router = router;
     }
     ngOnInit() {
         this.loadingContr.showLoader();
@@ -280,8 +284,19 @@ let PrestadorCadastroForm2Page = class PrestadorCadastroForm2Page {
         });
     }
     Prosseguir() {
+        this.loadingContr.showLoader();
+        let obj = { situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__["Constants"].TipoSituacaoPrestador.Form3 };
         this.prestadorService
-            .AlteraSituacaoPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__["Constants"].TipoSituacaoPrestador.Form3);
+            .AtualizaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, obj).then(() => {
+            this.loadingContr.hideLoader();
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(this.toastCtrl);
+            this.ngZone.run(() => {
+                this.router.navigate(['prestador-Form3']);
+            });
+        }).catch(err => {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, this.toastCtrl);
+            this.loadingContr.hideLoader();
+        });
     }
 };
 PrestadorCadastroForm2Page.ctorParameters = () => [
@@ -290,7 +305,9 @@ PrestadorCadastroForm2Page.ctorParameters = () => [
     { type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__["PrestadorService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] }
 ];
 PrestadorCadastroForm2Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

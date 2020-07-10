@@ -493,6 +493,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers/AuthGuard/AuthGuard */ "./src/app/providers/AuthGuard/AuthGuard.ts");
+/* harmony import */ var _providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers/AuthGuard/PrestadorSituacaoRedirect */ "./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts");
+
 
 
 
@@ -526,7 +528,7 @@ const routes = [
     },
     {
         path: 'prestador-Form1',
-        canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module.ts")).then(m => m.PrestadorCadastroForm1PageModule)
     },
     {
@@ -543,7 +545,8 @@ const routes = [
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module.ts")).then(m => m.PrestadorCadastroForm2PageModule)
     },
     {
-        path: 'prestador-cadastro-form3',
+        path: 'prestador-Form3',
+        canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         loadChildren: () => __webpack_require__.e(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */ "pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module").then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(m => m.PrestadorCadastroForm3PageModule)
     },
     {
@@ -1170,6 +1173,86 @@ AuthGuard = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts ***!
+  \******************************************************************/
+/*! exports provided: PrestadorSituacaoRedirect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorSituacaoRedirect", function() { return PrestadorSituacaoRedirect; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
+/* harmony import */ var _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
+/* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
+/* harmony import */ var _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
+/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+
+
+
+
+
+
+
+
+let PrestadorSituacaoRedirect = class PrestadorSituacaoRedirect {
+    constructor(router, usuarioService, loadingControll, prestadorService) {
+        this.router = router;
+        this.usuarioService = usuarioService;
+        this.loadingControll = loadingControll;
+        this.prestadorService = prestadorService;
+    }
+    canActivate(route, state) {
+        this.loadingControll.showLoader();
+        return this.usuarioService.recuperaUsuarioLogado().then(x => {
+            if (x == null && !src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario()) {
+                this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
+            }
+            else {
+                this.prestadorService
+                    .RecuperaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId)
+                    .then(result => {
+                    debugger;
+                    let redirectStr = "";
+                    switch (result.situacaoPrestador) {
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form1:
+                            redirectStr = "prestador-Form1";
+                            break;
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form2:
+                            redirectStr = "prestador-Form2";
+                            break;
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form3:
+                            redirectStr = "prestador-Form3";
+                            break;
+                        default:
+                            break;
+                    }
+                    this.loadingControll.hideLoader();
+                    this.router.navigate([redirectStr]);
+                });
+            }
+            return true;
+        }).catch(() => { this.loadingControll.showLoader(); return true; });
+    }
+};
+PrestadorSituacaoRedirect.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"] },
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] },
+    { type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"] }
+];
+PrestadorSituacaoRedirect = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
+], PrestadorSituacaoRedirect);
+
+
+
+/***/ }),
+
 /***/ "./src/app/providers/base-provider/base-provider.ts":
 /*!**********************************************************!*\
   !*** ./src/app/providers/base-provider/base-provider.ts ***!
@@ -1418,6 +1501,67 @@ BuscarCEPService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/providers/prestador/prestador.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/providers/prestador/prestador.service.ts ***!
+  \**********************************************************/
+/*! exports provided: PrestadorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorService", function() { return PrestadorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/repository/prestador/prestador-rep-service.service */ "./src/app/repository/prestador/prestador-rep-service.service.ts");
+
+
+
+let PrestadorService = class PrestadorService {
+    constructor(prestadorRepService) {
+        this.prestadorRepService = prestadorRepService;
+    }
+    AtualizaPrestador(usuarioId, obj) {
+        return this.prestadorRepService.AtualizaPrestador(usuarioId, obj);
+    }
+    ExcluirServico(usuarioId, servicoId) {
+        return this.prestadorRepService.ExcluirServico(usuarioId, servicoId);
+    }
+    AdicionaServicoAoPrestador(usuarioId, servico) {
+        return this.prestadorRepService.AdicionaServicoAoPrestador(usuarioId, servico);
+    }
+    RecuperaPrestador(usuarioId) {
+        return this.prestadorRepService.RecuperaPrestador(usuarioId);
+    }
+    RecuperaUfPrestadorDisponiveis() {
+        return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
+    }
+    AdicionarNovoPrestador(prestador) {
+        return this.prestadorRepService.AdicionaPrestador(prestador);
+    }
+    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+        return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado);
+    }
+    RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+        return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
+    }
+    recuperaServicosPorPrestador(usuarioId) {
+        return this.prestadorRepService.recuperaServicosPorPrestador(usuarioId);
+    }
+};
+PrestadorService.ctorParameters = () => [
+    { type: src_app_repository_prestador_prestador_rep_service_service__WEBPACK_IMPORTED_MODULE_2__["PrestadorRepServiceService"] }
+];
+PrestadorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PrestadorService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/providers/usuario/usuario.service.ts":
 /*!******************************************************!*\
   !*** ./src/app/providers/usuario/usuario.service.ts ***!
@@ -1476,6 +1620,126 @@ UsuarioService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         providedIn: 'root'
     })
 ], UsuarioService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/repository/prestador/prestador-rep-service.service.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/repository/prestador/prestador-rep-service.service.ts ***!
+  \***********************************************************************/
+/*! exports provided: PrestadorRepServiceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorRepServiceService", function() { return PrestadorRepServiceService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../repository-interface/Repository-Base */ "./src/app/repository/repository-interface/Repository-Base.ts");
+/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+
+
+
+
+let PrestadorRepServiceService = class PrestadorRepServiceService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    ExcluirServico(usuarioId, servicoId) {
+        return this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId)
+            .collection("servico").doc(servicoId)
+            .delete();
+    }
+    AtualizaPrestador(usuarioId, item) {
+        return this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).update(item);
+    }
+    AdicionaServicoAoPrestador(usuarioId, servico) {
+        return this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId)
+            .collection("servico").doc(servico.servicoId)
+            .set(Object.assign({}, servico), { merge: true });
+    }
+    RecuperaPrestador(usuarioId) {
+        return new Promise((retorno, res) => {
+            this.db.collection("usuario").doc(usuarioId)
+                .collection("prestador")
+                .doc(usuarioId)
+                .get().then((result) => {
+                retorno(result.data());
+            });
+        });
+    }
+    recuperaServicosPorPrestador(usuarioId) {
+        return new Promise((resolve, reject) => {
+            this.db.collection("usuario").doc(usuarioId).collection("prestador")
+                .doc(usuarioId)
+                .collection("servico")
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
+            });
+        });
+    }
+    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+        return new Promise((resolve, reject) => {
+            var query = this.db.collectionGroup("prestador")
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .where("uf", "==", ufSelecionado);
+            if (cidadeSelecionado) {
+                query.where("cidade", "==", cidadeSelecionado);
+            }
+            query.get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
+            });
+        });
+    }
+    RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("uf", "==", ufSelecionado)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    if (!lst.includes(doc.data().cidade)) {
+                        lst.push(doc.data().cidade);
+                    }
+                });
+                resolve(lst);
+            });
+        });
+    }
+    recuperaUfPrestadorDisponiveis() {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    if (!lst.includes(doc.data().uf)) {
+                        lst.push(doc.data().uf);
+                    }
+                });
+                resolve(lst);
+            });
+        });
+    }
+    AdicionaPrestador(prestador) {
+        return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador));
+    }
+};
+PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PrestadorRepServiceService);
 
 
 
@@ -1612,6 +1876,85 @@ UsuarioRepService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     })
 ], UsuarioRepService);
 
+
+
+/***/ }),
+
+/***/ "./src/app/utils/constants.ts":
+/*!************************************!*\
+  !*** ./src/app/utils/constants.ts ***!
+  \************************************/
+/*! exports provided: Constants */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Constants", function() { return Constants; });
+var Constants;
+(function (Constants) {
+    class TipoSituacaoPrestador {
+    }
+    TipoSituacaoPrestador.Form1 = 0;
+    TipoSituacaoPrestador.Form2 = 1;
+    TipoSituacaoPrestador.Form3 = 2;
+    TipoSituacaoPrestador.PendenteAutorizacao = 3;
+    TipoSituacaoPrestador.Ativo = 4;
+    TipoSituacaoPrestador.Suspenso = 5;
+    TipoSituacaoPrestador.Cancelado = 6;
+    Constants.TipoSituacaoPrestador = TipoSituacaoPrestador;
+    class TipoMinisterio {
+    }
+    TipoMinisterio.louvor = 1;
+    TipoMinisterio.educacao = 2;
+    TipoMinisterio.infantil = 3;
+    Constants.TipoMinisterio = TipoMinisterio;
+    ;
+    ;
+    class TipoPessoaIgreja {
+    }
+    TipoPessoaIgreja.admin = 1;
+    TipoPessoaIgreja.participante = 2;
+    TipoPessoaIgreja.pendente = 3;
+    TipoPessoaIgreja.naoSolicitado = 4;
+    TipoPessoaIgreja.naoAceito = 5;
+    Constants.TipoPessoaIgreja = TipoPessoaIgreja;
+    ;
+    class TipoPessoaMinisterio {
+    }
+    TipoPessoaMinisterio.admin = 7;
+    TipoPessoaMinisterio.adminSecundario = 1;
+    TipoPessoaMinisterio.pessoa = 2;
+    TipoPessoaMinisterio.pendente = 3;
+    TipoPessoaMinisterio.naoSolicitado = 4;
+    TipoPessoaMinisterio.naoAceito = 5;
+    Constants.TipoPessoaMinisterio = TipoPessoaMinisterio;
+    ;
+    class TipoFuncaoPessoaEquipe {
+    }
+    TipoFuncaoPessoaEquipe.guitarra = 7;
+    TipoFuncaoPessoaEquipe.vocal = 1;
+    TipoFuncaoPessoaEquipe.violao = 2;
+    TipoFuncaoPessoaEquipe.teclado = 3;
+    TipoFuncaoPessoaEquipe.dataShow = 4;
+    TipoFuncaoPessoaEquipe.bateria = 5;
+    TipoFuncaoPessoaEquipe.baixo = 6;
+    Constants.TipoFuncaoPessoaEquipe = TipoFuncaoPessoaEquipe;
+    ;
+    class TipoLinkMusica {
+    }
+    TipoLinkMusica.youtube = 0;
+    TipoLinkMusica.cifra = 1;
+    TipoLinkMusica.letra = 2;
+    TipoLinkMusica.outro = 3;
+    Constants.TipoLinkMusica = TipoLinkMusica;
+    ;
+    class TipoPeriodoMinistracao {
+    }
+    TipoPeriodoMinistracao.manha = 1;
+    TipoPeriodoMinistracao.tarde = 2;
+    TipoPeriodoMinistracao.noite = 3;
+    Constants.TipoPeriodoMinistracao = TipoPeriodoMinistracao;
+})(Constants || (Constants = {}));
 
 
 /***/ }),
