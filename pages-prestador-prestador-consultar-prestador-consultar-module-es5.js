@@ -269,6 +269,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/helpers/toastCustom */
+    "./src/app/helpers/toastCustom.ts");
 
     var PrestadorConsultarPage = /*#__PURE__*/function () {
       function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router) {
@@ -349,6 +355,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loadingContr.showLoader();
           this.prestadores = [];
           this.prestadorService.RecuperaPestadoresPorCidadeEhUFEhServico(this.formulario.value['uf'], this.formulario.value['cidade'], this.formulario.value['servicoId']).then(function (prestadoresResult) {
+            if (!prestadoresResult) {
+              src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(_this3.toastCtrl, "Nenhum prestador encontrado.", "danger", 4000);
+
+              _this3.loadingContr.hideLoader();
+
+              return false;
+            }
+
             var lstusuarioId = [];
             lstusuarioId = prestadoresResult.map(function (x) {
               return x.usuarioId;

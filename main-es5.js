@@ -2615,7 +2615,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this17 = this;
 
           return new Promise(function (resolve, reject) {
-            _this17.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this17.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 if (!lst.includes(doc.data().cidade)) {
@@ -2634,7 +2634,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this18 = this;
 
           return new Promise(function (resolve, reject) {
-            _this18.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this18.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 if (!lst.includes(doc.data().uf)) {

@@ -130,6 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
 /* harmony import */ var src_app_providers_dominioServico_dominio_servico_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/providers/dominioServico/dominio-servico.service */ "./src/app/providers/dominioServico/dominio-servico.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
+
 
 
 
@@ -206,6 +208,11 @@ let PrestadorConsultarPage = class PrestadorConsultarPage {
         this.prestadorService
             .RecuperaPestadoresPorCidadeEhUFEhServico(this.formulario.value['uf'], this.formulario.value['cidade'], this.formulario.value['servicoId'])
             .then(prestadoresResult => {
+            if (!prestadoresResult) {
+                src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(this.toastCtrl, "Nenhum prestador encontrado.", "danger", 4000);
+                this.loadingContr.hideLoader();
+                return false;
+            }
             let lstusuarioId = [];
             lstusuarioId = prestadoresResult.map(x => { return x.usuarioId; });
             this.prestadores = prestadoresResult;

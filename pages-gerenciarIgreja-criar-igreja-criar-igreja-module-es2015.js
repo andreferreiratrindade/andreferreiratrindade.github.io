@@ -111,12 +111,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CriarIgrejaPage = class CriarIgrejaPage {
-    constructor(buscarCEPService, igrejaService, router, toastCtrl, loadingControll) {
+    constructor(buscarCEPService, igrejaService, router, toastCtrl, loadingControll, ngZone) {
         this.buscarCEPService = buscarCEPService;
         this.igrejaService = igrejaService;
         this.router = router;
         this.toastCtrl = toastCtrl;
         this.loadingControll = loadingControll;
+        this.ngZone = ngZone;
         this.igrejaEntity = {};
         this.validation_messages = {
             'nomeIgreja': [
@@ -177,6 +178,9 @@ let CriarIgrejaPage = class CriarIgrejaPage {
         this.igrejaService.AdicionarNovaIgreja(this.igrejaEntity).then(() => {
             this.loadingControll.hideLoader();
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_10__["ToastCustom"].SucessoToast(this.toastCtrl);
+            this.ngZone.run(() => {
+                this.router.navigate(['home']);
+            });
         }).catch((error) => {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(error, this.toastCtrl);
             this.loadingControll.hideLoader();
@@ -188,7 +192,8 @@ CriarIgrejaPage.ctorParameters = () => [
     { type: src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_4__["IgrejaService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] },
-    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_9__["LoadingContr"] }
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_9__["LoadingContr"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
 ];
 CriarIgrejaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

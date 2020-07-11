@@ -216,7 +216,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/app/helpers/toastCustom.ts");
 
     var CriarIgrejaPage = /*#__PURE__*/function () {
-      function CriarIgrejaPage(buscarCEPService, igrejaService, router, toastCtrl, loadingControll) {
+      function CriarIgrejaPage(buscarCEPService, igrejaService, router, toastCtrl, loadingControll, ngZone) {
         _classCallCheck(this, CriarIgrejaPage);
 
         this.buscarCEPService = buscarCEPService;
@@ -224,6 +224,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.router = router;
         this.toastCtrl = toastCtrl;
         this.loadingControll = loadingControll;
+        this.ngZone = ngZone;
         this.igrejaEntity = {};
         this.validation_messages = {
           'nomeIgreja': [{
@@ -301,6 +302,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this2.loadingControll.hideLoader();
 
             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_10__["ToastCustom"].SucessoToast(_this2.toastCtrl);
+
+            _this2.ngZone.run(function () {
+              _this2.router.navigate(['home']);
+            });
           })["catch"](function (error) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(error, _this2.toastCtrl);
 
@@ -323,6 +328,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"]
       }, {
         type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_9__["LoadingContr"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
       }];
     };
 

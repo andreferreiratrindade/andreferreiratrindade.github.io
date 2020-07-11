@@ -1845,7 +1845,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         return new Promise((resolve, reject) => {
             this.db.collectionGroup("prestador")
                 .where("uf", "==", ufSelecionado)
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
@@ -1862,7 +1862,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
     recuperaUfPrestadorDisponiveis() {
         return new Promise((resolve, reject) => {
             this.db.collectionGroup("prestador")
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
