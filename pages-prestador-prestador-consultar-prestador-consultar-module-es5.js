@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n     <ion-list  lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item class=\"input-item\">\n        <ion-label>UF <ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-select class=\"ion-text-end\" name=\"uf\" formControlName=\"uf\" (ionChange)=\"buscarCidades()\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of UfList\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n    \n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n      [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Cidade</ion-label>\n        <ion-select class=\"ion-text-end\" name=\"cidade\" formControlName=\"cidade\"  [disabled]=\"!formulario.value['uf']\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of cidadeList\"  selected=\"selected\" value=\"{{item}}\">\n              {{ item }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n      [nomeCampo]=\"'cidade'\"></app-mensagem-validacao> \n    </ion-list> \n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formulario.valid\">Pesquisar</ion-button>\n  </form>\n\n\n  <ion-item *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n\n    <ion-label>\n      <h2>{{item.nome}}</h2>\n      <h3>{{item.telefone}}</h3>\n      <p>{{item.cidade}} / {{item.uf}}</p>\n      <p>{{item.nomeIgreja}}</p>\n    </ion-label>\n  </ion-item>\n\n</ion-content> ";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n    <ion-list lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item>\n        <ion-label>Serviço <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-select class=\"ion-text-end\" name=\"servicoId\" formControlName=\"servicoId\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of servicos\" selected=\"selected\" value=\"{{item.servicoId}}\">\n            {{ item.nomeServico }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item class=\"input-item\">\n        <ion-label>UF <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-select class=\"ion-text-end\" name=\"uf\" formControlName=\"uf\" (ionChange)=\"buscarCidades()\"\n          interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of UfList\" value=\"{{item}}\">\n            {{ item }}\n          </ion-select-option>\n        </ion-select>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n        [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Cidade</ion-label>\n        <ion-select class=\"ion-text-end\" name=\"cidade\" formControlName=\"cidade\" [disabled]=\"!formulario.value['uf']\"\n          interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of cidadeList\" selected=\"selected\" value=\"{{item}}\">\n            {{ item }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n        [nomeCampo]=\"'cidade'\"></app-mensagem-validacao>\n\n\n    </ion-list>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formulario.valid\">Pesquisar</ion-button>\n  </form>\n\n  <ion-card *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n    <ion-card-header>\n      <ion-card-title>{{item.nome}} </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-item>\n        <ion-label>\n          <h2>{{item.telefone}}</h2>\n          <h2>{{item.email}}</h2>\n          <p>{{item.nomeIgreja}}</p>\n          <p>{{item.cidade}} / {{item.uf}}</p>\n        </ion-label>\n      </ion-item>\n      <ion-row>\n        <ion-col>\n          <ion-button  color=\"warning\" (click)=\"detalhes(item.usuarioId)\">\n            <ion-icon name=\"eye-outline\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>";
     /***/
   },
 
@@ -257,9 +257,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/helpers/loadingContr */
     "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var src_app_providers_dominioServico_dominio_servico_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/providers/dominioServico/dominio-servico.service */
+    "./src/app/providers/dominioServico/dominio-servico.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var PrestadorConsultarPage = /*#__PURE__*/function () {
-      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr) {
+      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router) {
         _classCallCheck(this, PrestadorConsultarPage);
 
         this.prestadorService = prestadorService;
@@ -267,15 +279,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.igrejaService = igrejaService;
         this.usuarioService = usuarioService;
         this.loadingContr = loadingContr;
+        this.dominioServicoService = dominioServicoService;
+        this.router = router;
         this.validation_messages = {
           'uf': [{
+            type: 'required',
+            message: 'Campo de preenchimento obrigatório.'
+          }],
+          'servicoId': [{
             type: 'required',
             message: 'Campo de preenchimento obrigatório.'
           }]
         };
         this.formulario = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
           'uf': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])),
-          'cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]()
+          'cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+          'servicoId': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]))
         });
         this.prestadores = [];
       }
@@ -288,6 +307,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loadingContr.showLoader();
           this.prestadorService.RecuperaUfPrestadorDisponiveis().then(function (result) {
             _this.UfList = result;
+
+            _this.loadingContr.hideLoader();
+          })["catch"](function (x) {
+            _this.loadingContr.hideLoader();
+
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this.toastCtrl);
+          });
+          this.dominioServicoService.recuperaDominioServico().then(function (result) {
+            _this.servicos = result;
 
             _this.loadingContr.hideLoader();
           })["catch"](function (x) {
@@ -320,47 +348,116 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.loadingContr.showLoader();
           this.prestadores = [];
-          this.prestadorService.RecuperaPestadoresPorCidadeEhUF(this.formulario.value['uf'], this.formulario.value['cidade']).then(function (prestadoresResult) {
-            var igrejas = [];
-            igrejas = prestadoresResult.map(function (x) {
+          this.prestadorService.RecuperaPestadoresPorCidadeEhUFEhServico(this.formulario.value['uf'], this.formulario.value['cidade'], this.formulario.value['servicoId']).then(function (prestadoresResult) {
+            var lstusuarioId = [];
+            lstusuarioId = prestadoresResult.map(function (x) {
+              return x.usuarioId;
+            });
+            _this3.prestadores = prestadoresResult;
+            var lstIgrejaId = [];
+            lstIgrejaId = prestadoresResult.map(function (x) {
               return x.igrejas[0].igrejaId;
             });
 
-            _this3.igrejaService.RecuperaNomeIgreja(igrejas).then(function (resultIgreja) {
-              var usuarios = [];
-              usuarios = prestadoresResult.map(function (x) {
-                return x.usuarioId;
-              });
+            _this3.consultaMasterPrestador(lstusuarioId, lstIgrejaId).then(function () {
+              _this3.loadingContr.hideLoader();
+            })["catch"](function (x) {
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
 
-              _this3.usuarioService.RecuperaNomeUsuarios(usuarios).then(function (usuariosResult) {
-                _this3.prestadores = prestadoresResult.map(function (x) {
-                  _this3.loadingContr.hideLoader();
-
-                  return {
-                    nome: usuariosResult.find(function (y) {
-                      return y.id == x.usuarioId;
-                    }).data.nome,
-                    nomeIgreja: resultIgreja.find(function (y) {
-                      return y.id == x.igrejas[0].igrejaId;
-                    }).data.nomeIgreja,
-                    cidade: x.cidade,
-                    uf: x.uf,
-                    telefone: x.telefone,
-                    usuarioId: x.usuarioId,
-                    igrejaId: x.igrejas[0].igrejaId
-                  };
-                  ;
-                });
-              })["catch"](function (x) {
-                src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
-
-                _this3.loadingContr.hideLoader();
-              });
+              _this3.loadingContr.hideLoader();
             });
           })["catch"](function (x) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this3.toastCtrl);
 
             _this3.loadingContr.hideLoader();
+          });
+        }
+      }, {
+        key: "consultaMasterPrestador",
+        value: function consultaMasterPrestador(lstusuarioId, lstIgrejaId) {
+          var _this4 = this;
+
+          return new Promise(function (result, reject) {
+            // Recupera igreja 
+            _this4.recuperaNomeIgreja(lstIgrejaId); // Recupera Nome 
+
+
+            _this4.recuperaNomePrestadores(lstusuarioId); // Recupera Servicos
+            //this.recuperaServicosPorPrestadores(lstusuarioId);
+
+          });
+        }
+      }, {
+        key: "recuperaServicosPorPrestadores",
+        value: function recuperaServicosPorPrestadores(lstusuarioId) {
+          var _this5 = this;
+
+          return new Promise(function () {
+            _this5.prestadorService.recuperaServicosPorPrestadores(lstusuarioId).then(function (servicosPorPrestador) {
+              _this5.prestadores.map(function (x) {
+                x.servicos = servicosPorPrestador.find(function (y) {
+                  y.usuarioId == x.usuarioId;
+                });
+              });
+
+              _this5.loadingContr.hideLoader();
+            })["catch"](function (x) {
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this5.toastCtrl);
+
+              _this5.loadingContr.hideLoader();
+            });
+          });
+        }
+      }, {
+        key: "recuperaNomePrestadores",
+        value: function recuperaNomePrestadores(lstusuarioId) {
+          var _this6 = this;
+
+          return new Promise(function () {
+            _this6.usuarioService.RecuperaNomeUsuarios(lstusuarioId).then(function (usuariosResult) {
+              _this6.prestadores.map(function (x) {
+                x.nome = usuariosResult.find(function (y) {
+                  return y.data.usuarioId == x.usuarioId;
+                }).data.nome;
+                x.email = usuariosResult.find(function (y) {
+                  return y.data.usuarioId == x.usuarioId;
+                }).data.email;
+              });
+
+              _this6.loadingContr.hideLoader();
+            })["catch"](function (x) {
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this6.toastCtrl);
+
+              _this6.loadingContr.hideLoader();
+            });
+          });
+        }
+      }, {
+        key: "recuperaNomeIgreja",
+        value: function recuperaNomeIgreja(lstIgrejaId) {
+          var _this7 = this;
+
+          return new Promise(function () {
+            _this7.igrejaService.RecuperaNomeIgreja(lstIgrejaId).then(function (resultIgreja) {
+              _this7.prestadores.map(function (x) {
+                x.nomeIgreja = resultIgreja.find(function (y) {
+                  return y.data.id == x.igrejas[0].igrejaId;
+                }).data.nomeIgreja;
+              });
+            })["catch"](function (x) {
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this7.toastCtrl);
+
+              _this7.loadingContr.hideLoader();
+            });
+          });
+        }
+      }, {
+        key: "detalhes",
+        value: function detalhes(usuarioId) {
+          this.router.navigate(['/visualizar-prestador'], {
+            queryParams: {
+              usuarioId: usuarioId
+            }
           });
         }
       }]);
@@ -379,6 +476,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_7__["UsuarioService"]
       }, {
         type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_8__["LoadingContr"]
+      }, {
+        type: src_app_providers_dominioServico_dominio_servico_service__WEBPACK_IMPORTED_MODULE_9__["DominioServicoService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
       }];
     };
 

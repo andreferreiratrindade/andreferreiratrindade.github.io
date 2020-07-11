@@ -541,13 +541,13 @@ const routes = [
     },
     {
         path: 'prestador-Form2',
-        canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module.ts")).then(m => m.PrestadorCadastroForm2PageModule)
     },
     {
         path: 'prestador-Form3',
-        canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */ "pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module").then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(m => m.PrestadorCadastroForm3PageModule)
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(m => m.PrestadorCadastroForm3PageModule)
     },
     {
         path: 'prestador-cadastro-form4',
@@ -556,6 +556,14 @@ const routes = [
     {
         path: 'modal-dominio-servicos',
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(m => m.ModalDominioServicosPageModule)
+    },
+    {
+        path: 'visualizar-prestador',
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-visualizar-prestador-visualizar-prestador-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-visualizar-prestador-visualizar-prestador-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/visualizar-prestador/visualizar-prestador.module */ "./src/app/pages/prestador/visualizar-prestador/visualizar-prestador.module.ts")).then(m => m.VisualizarPrestadorPageModule)
+    },
+    {
+        path: 'consultar-prestador-adm',
+        loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module */ "./src/app/pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module.ts")).then(m => m.ConsultarPrestadorAdmPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -602,8 +610,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./config */ "./src/app/config.ts");
-/* harmony import */ var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./providers/base-provider/firebase-auth-service.service */ "./src/app/providers/base-provider/firebase-auth-service.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./providers/usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
+/* harmony import */ var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./providers/base-provider/firebase-auth-service.service */ "./src/app/providers/base-provider/firebase-auth-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
@@ -613,28 +623,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, firebaseAuthService, router) {
+    constructor(platform, splashScreen, statusBar, firebaseAuthService, router, usuarioService) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.firebaseAuthService = firebaseAuthService;
         this.router = router;
+        this.usuarioService = usuarioService;
         this.selectedIndex = 0;
         this.appPages = [
             {
                 title: 'Consultar Prestador',
                 url: 'prestador-consultar',
-                icon: 'warning'
+                icon: 'search'
             },
             {
                 title: 'Seja um Prestador',
                 url: 'prestador-Form1',
-                icon: 'warning'
+                icon: 'people'
             },
             {
                 title: 'Adicione sua Igreja',
                 url: 'criar-igreja',
-                icon: 'warning'
+                icon: 'business'
             }
         ];
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
@@ -651,6 +662,7 @@ let AppComponent = class AppComponent {
         if (path !== undefined) {
             this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
         }
+        this.usuarioService.recuperaUsuarioLogado();
     }
     get recuperaDadosUsuario() {
         var _a;
@@ -671,8 +683,9 @@ AppComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
     { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
     { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
-    { type: _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] }
+    { type: _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseAuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_6__["UsuarioService"] }
 ];
 AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -967,7 +980,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuLateralComponent", function() { return MenuLateralComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/providers/usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
+/* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
+/* harmony import */ var src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/providers/usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
+
 
 
 
@@ -993,15 +1008,17 @@ let MenuLateralComponent = class MenuLateralComponent {
         if (path !== undefined) {
             this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
         }
-        this.usuarioService.recuperaUsuarioLogado().then(usuario => {
-            if (usuario) {
-                this.usuario = usuario;
-            }
-        });
+        if (!src_app_config__WEBPACK_IMPORTED_MODULE_2__["Config"].RecuperaInstancia()) {
+            this.usuarioService.recuperaUsuarioLogado().then(usuario => {
+                if (usuario) {
+                    this.usuario = usuario;
+                }
+            });
+        }
     }
 };
 MenuLateralComponent.ctorParameters = () => [
-    { type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"] }
+    { type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_3__["UsuarioService"] }
 ];
 MenuLateralComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1105,6 +1122,37 @@ LoadingContr = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/helpers/toastCustom.ts":
+/*!****************************************!*\
+  !*** ./src/app/helpers/toastCustom.ts ***!
+  \****************************************/
+/*! exports provided: ToastCustom */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ToastCustom", function() { return ToastCustom; });
+class ToastCustom {
+    static errorToast(msg, toastCtrl) {
+        this.CustomToast(toastCtrl, msg, "danger", 4000);
+    }
+    static SucessoToast(toastCtrl) {
+        this.CustomToast(toastCtrl, "Operação realizada com sucesso.", "success", 4000);
+    }
+    static CustomToast(toastCtrl, message, color, duration) {
+        toastCtrl.create({
+            message: message,
+            duration: duration,
+            color: color
+        }).then(x => {
+            x.present();
+        });
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/pages/profile/profile.model.ts":
 /*!************************************************!*\
   !*** ./src/app/pages/profile/profile.model.ts ***!
@@ -1191,6 +1239,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
 /* harmony import */ var _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
 /* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
+
+
 
 
 
@@ -1200,25 +1252,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorSituacaoRedirect = class PrestadorSituacaoRedirect {
-    constructor(router, usuarioService, loadingControll, prestadorService) {
+    constructor(router, usuarioService, loadingControll, prestadorService, toast) {
         this.router = router;
         this.usuarioService = usuarioService;
         this.loadingControll = loadingControll;
         this.prestadorService = prestadorService;
+        this.toast = toast;
     }
     canActivate(route, state) {
         this.loadingControll.showLoader();
         return this.usuarioService.recuperaUsuarioLogado().then(x => {
             if (x == null && !src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario()) {
+                this.loadingControll.hideLoader();
                 this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
             }
             else {
                 this.prestadorService
                     .RecuperaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId)
                     .then(result => {
-                    debugger;
-                    let redirectStr = "";
-                    switch (result.situacaoPrestador) {
+                    let redirectStr = "home";
+                    let situacaoPrestador = 0;
+                    if (result) {
+                        situacaoPrestador = result.situacaoPrestador;
+                    }
+                    switch (situacaoPrestador) {
                         case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form1:
                             redirectStr = "prestador-Form1";
                             break;
@@ -1228,22 +1285,28 @@ let PrestadorSituacaoRedirect = class PrestadorSituacaoRedirect {
                         case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form3:
                             redirectStr = "prestador-Form3";
                             break;
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao:
+                            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].CustomToast(this.toast, "Anteção. Existe uma solicitação de aprovação deste prestador para o adiministrador da igreja.", "danger", 5000);
+                            redirectStr = "visualizar-prestador";
+                            break;
                         default:
+                            redirectStr = "visualizar-prestador";
                             break;
                     }
                     this.loadingControll.hideLoader();
-                    this.router.navigate([redirectStr]);
+                    this.router.navigate([redirectStr], { queryParams: { usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId } });
                 });
             }
             return true;
-        }).catch(() => { this.loadingControll.showLoader(); return true; });
+        }).catch(() => { this.loadingControll.hideLoader(); return true; });
     }
 };
 PrestadorSituacaoRedirect.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"] },
     { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] },
-    { type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"] }
+    { type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] }
 ];
 PrestadorSituacaoRedirect = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
@@ -1521,6 +1584,9 @@ let PrestadorService = class PrestadorService {
     constructor(prestadorRepService) {
         this.prestadorRepService = prestadorRepService;
     }
+    recuperaPrestadoresPorIgreja(igrejaId) {
+        return this.prestadorRepService.recuperaPrestadoresPorIgreja(igrejaId);
+    }
     AtualizaPrestador(usuarioId, obj) {
         return this.prestadorRepService.AtualizaPrestador(usuarioId, obj);
     }
@@ -1539,14 +1605,17 @@ let PrestadorService = class PrestadorService {
     AdicionarNovoPrestador(prestador) {
         return this.prestadorRepService.AdicionaPrestador(prestador);
     }
-    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
-        return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado);
+    RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
+        return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId);
     }
     RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
         return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
     }
     recuperaServicosPorPrestador(usuarioId) {
         return this.prestadorRepService.recuperaServicosPorPrestador(usuarioId);
+    }
+    recuperaServicosPorPrestadores(usuarioId) {
+        return this.prestadorRepService.recuperaServicosPorPrestadores(usuarioId);
     }
 };
 PrestadorService.ctorParameters = () => [
@@ -1593,7 +1662,18 @@ let UsuarioService = class UsuarioService {
     RecuperaNomeUsuarios(usuarios) {
         return this.usuarioRepository.find({ elemento: "usuarioId", tipoComparacao: "in", comparacao: usuarios });
     }
+    RecuperaUsuarioPorUsuarioId(usuarioId) {
+        return new Promise((resolve, reject) => {
+            this.usuarioRepository.findOne(usuarioId)
+                .then(result => {
+                resolve(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
     recuperaUsuarioLogado() {
+        console.log("Verifica Usuario Logado;");
         return new Promise((resolve, reject) => {
             this.firebaseAutentication.verificaUsuarioLogado().then(user => {
                 if (user != null) {
@@ -1607,6 +1687,8 @@ let UsuarioService = class UsuarioService {
                     src_app_config__WEBPACK_IMPORTED_MODULE_4__["Config"].RecuperaInstancia().adicionaUsuario(null);
                     resolve(null);
                 }
+            }).catch(err => {
+                reject(err);
             });
         });
     }
@@ -1644,28 +1726,80 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorRepServiceService = class PrestadorRepServiceService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    recuperaPrestadoresPorIgreja(igrejaId) {
+        return new Promise((retorno, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("igrejas", "array-contains", igrejaId)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                retorno(lst);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
     ExcluirServico(usuarioId, servicoId) {
-        return this.db.collection("usuario").doc(usuarioId)
-            .collection("prestador").doc(usuarioId)
-            .collection("servico").doc(servicoId)
-            .delete();
+        return new Promise((retorno, reject) => {
+            return this.db.collection("usuario").doc(usuarioId)
+                .collection("prestador").doc(usuarioId)
+                .collection("servico").doc(servicoId)
+                .delete().then((result) => {
+                retorno(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
     AtualizaPrestador(usuarioId, item) {
-        return this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).update(item);
+        return new Promise((retorno, reject) => {
+            this.db.collection("usuario").doc(usuarioId)
+                .collection("prestador").doc(usuarioId)
+                .update(item).then((result) => {
+                retorno(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
     AdicionaServicoAoPrestador(usuarioId, servico) {
-        return this.db.collection("usuario").doc(usuarioId)
-            .collection("prestador").doc(usuarioId)
-            .collection("servico").doc(servico.servicoId)
-            .set(Object.assign({}, servico), { merge: true });
+        return new Promise((retorno, reject) => {
+            return this.db.collection("usuario").doc(usuarioId)
+                .collection("prestador").doc(usuarioId)
+                .collection("servico").doc(servico.servicoId)
+                .set(Object.assign({}, servico), { merge: true }).then((result) => {
+                retorno(result);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
     RecuperaPrestador(usuarioId) {
-        return new Promise((retorno, res) => {
+        return new Promise((retorno, reject) => {
             this.db.collection("usuario").doc(usuarioId)
                 .collection("prestador")
                 .doc(usuarioId)
                 .get().then((result) => {
                 retorno(result.data());
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+    recuperaServicosPorPrestadores(usuarios) {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("servico")
+                .where("usuarioId", "in", usuarios)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
+            }).catch(err => {
+                reject(err);
             });
         });
     }
@@ -1680,16 +1814,21 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                     lst.push(doc.data());
                 });
                 resolve(lst);
+            }).catch(err => {
+                reject(err);
             });
         });
     }
-    RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
+    RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
         return new Promise((resolve, reject) => {
             var query = this.db.collectionGroup("prestador")
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
                 .where("uf", "==", ufSelecionado);
             if (cidadeSelecionado) {
                 query.where("cidade", "==", cidadeSelecionado);
+            }
+            if (servicoId) {
+                query.firestore.collectionGroup("servico").where("servicoId", "==", servicoId);
             }
             query.get().then(result => {
                 let lst = [];
@@ -1697,6 +1836,8 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                     lst.push(doc.data());
                 });
                 resolve(lst);
+            }).catch(err => {
+                reject(err);
             });
         });
     }
@@ -1713,6 +1854,8 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                     }
                 });
                 resolve(lst);
+            }).catch(err => {
+                reject(err);
             });
         });
     }
@@ -1728,11 +1871,22 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                     }
                 });
                 resolve(lst);
+            }).catch(err => {
+                reject(err);
             });
         });
     }
     AdicionaPrestador(prestador) {
-        return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador));
+        console.log(prestador);
+        return new Promise((resolve, reject) => {
+            this.db.collection("usuario").doc(prestador.usuarioId)
+                .collection("prestador").doc(prestador.usuarioId)
+                .set(Object.assign({}, prestador)).then((obj) => {
+                resolve(obj);
+            }).catch(err => {
+                reject(err);
+            });
+        });
     }
 };
 PrestadorRepServiceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1892,6 +2046,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Constants", function() { return Constants; });
 var Constants;
 (function (Constants) {
+    class ListTipoSituacaoPrestador {
+        static RecuperaListagem() {
+            return [
+                { valor: TipoSituacaoPrestador.Form1, descricao: "Informações Iniciais" },
+                { valor: TipoSituacaoPrestador.Form2, descricao: "Serviços" },
+                { valor: TipoSituacaoPrestador.Form3, descricao: "Confirmar Dados" },
+                { valor: TipoSituacaoPrestador.PendenteAutorizacao, descricao: "Pendente de Autorização" },
+                { valor: TipoSituacaoPrestador.Ativo, descricao: "Ativo" },
+                { valor: TipoSituacaoPrestador.Suspenso, descricao: "Suspenso" }
+            ];
+        }
+        static RecuperaDescricaoPorValor(valor) {
+            return this.RecuperaListagem().filter(y => y.valor == valor)[0].descricao;
+        }
+    }
+    Constants.ListTipoSituacaoPrestador = ListTipoSituacaoPrestador;
     class TipoSituacaoPrestador {
     }
     TipoSituacaoPrestador.Form1 = 0;

@@ -390,7 +390,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }, {
       path: 'prestador-Form2',
-      canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+      canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module */
@@ -402,11 +402,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }, {
       path: 'prestador-Form3',
-      canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+      canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
+        return Promise.all(
         /*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */
-        "pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module").then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module")]).then(__webpack_require__.bind(null,
         /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */
         "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(function (m) {
           return m.PrestadorCadastroForm3PageModule;
@@ -432,6 +432,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */
         "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(function (m) {
           return m.ModalDominioServicosPageModule;
+        });
+      }
+    }, {
+      path: 'visualizar-prestador',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-prestador-visualizar-prestador-visualizar-prestador-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-visualizar-prestador-visualizar-prestador-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/prestador/visualizar-prestador/visualizar-prestador.module */
+        "./src/app/pages/prestador/visualizar-prestador/visualizar-prestador.module.ts")).then(function (m) {
+          return m.VisualizarPrestadorPageModule;
+        });
+      }
+    }, {
+      path: 'consultar-prestador-adm',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module */
+        "./src/app/pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module.ts")).then(function (m) {
+          return m.ConsultarPrestadorAdmPageModule;
         });
       }
     }];
@@ -527,18 +549,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./providers/usuario/usuario.service */
+    "./src/app/providers/usuario/usuario.service.ts");
+    /* harmony import */
+
+
+    var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./providers/base-provider/firebase-auth-service.service */
     "./src/app/providers/base-provider/firebase-auth-service.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var AppComponent = /*#__PURE__*/function () {
-      function AppComponent(platform, splashScreen, statusBar, firebaseAuthService, router) {
+      function AppComponent(platform, splashScreen, statusBar, firebaseAuthService, router, usuarioService) {
         _classCallCheck(this, AppComponent);
 
         this.platform = platform;
@@ -546,19 +574,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.statusBar = statusBar;
         this.firebaseAuthService = firebaseAuthService;
         this.router = router;
+        this.usuarioService = usuarioService;
         this.selectedIndex = 0;
         this.appPages = [{
           title: 'Consultar Prestador',
           url: 'prestador-consultar',
-          icon: 'warning'
+          icon: 'search'
         }, {
           title: 'Seja um Prestador',
           url: 'prestador-Form1',
-          icon: 'warning'
+          icon: 'people'
         }, {
           title: 'Adicione sua Igreja',
           url: 'criar-igreja',
-          icon: 'warning'
+          icon: 'business'
         }];
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
         this.initializeApp();
@@ -585,6 +614,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return page.title.toLowerCase() === path.toLowerCase();
             });
           }
+
+          this.usuarioService.recuperaUsuarioLogado();
         }
       }, {
         key: "logoff",
@@ -625,9 +656,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
       }, {
-        type: _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthService"]
+        type: _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseAuthService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
+      }, {
+        type: _providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_6__["UsuarioService"]
       }];
     };
 
@@ -1120,7 +1153,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var src_app_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/config */
+    "./src/app/config.ts");
+    /* harmony import */
+
+
+    var src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/providers/usuario/usuario.service */
     "./src/app/providers/usuario/usuario.service.ts");
 
@@ -1154,11 +1193,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
           }
 
-          this.usuarioService.recuperaUsuarioLogado().then(function (usuario) {
-            if (usuario) {
-              _this2.usuario = usuario;
-            }
-          });
+          if (!src_app_config__WEBPACK_IMPORTED_MODULE_2__["Config"].RecuperaInstancia()) {
+            this.usuarioService.recuperaUsuarioLogado().then(function (usuario) {
+              if (usuario) {
+                _this2.usuario = usuario;
+              }
+            });
+          }
         }
       }]);
 
@@ -1167,7 +1208,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     MenuLateralComponent.ctorParameters = function () {
       return [{
-        type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"]
+        type: src_app_providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_3__["UsuarioService"]
       }];
     };
 
@@ -1362,6 +1403,60 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       providedIn: 'root'
     })], LoadingContr);
     /***/
+  },
+
+  /***/
+  "./src/app/helpers/toastCustom.ts":
+  /*!****************************************!*\
+    !*** ./src/app/helpers/toastCustom.ts ***!
+    \****************************************/
+
+  /*! exports provided: ToastCustom */
+
+  /***/
+  function srcAppHelpersToastCustomTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ToastCustom", function () {
+      return ToastCustom;
+    });
+
+    var ToastCustom = /*#__PURE__*/function () {
+      function ToastCustom() {
+        _classCallCheck(this, ToastCustom);
+      }
+
+      _createClass(ToastCustom, null, [{
+        key: "errorToast",
+        value: function errorToast(msg, toastCtrl) {
+          this.CustomToast(toastCtrl, msg, "danger", 4000);
+        }
+      }, {
+        key: "SucessoToast",
+        value: function SucessoToast(toastCtrl) {
+          this.CustomToast(toastCtrl, "Operação realizada com sucesso.", "success", 4000);
+        }
+      }, {
+        key: "CustomToast",
+        value: function CustomToast(toastCtrl, message, color, duration) {
+          toastCtrl.create({
+            message: message,
+            duration: duration,
+            color: color
+          }).then(function (x) {
+            x.present();
+          });
+        }
+      }]);
+
+      return ToastCustom;
+    }();
+    /***/
+
   },
 
   /***/
@@ -1568,15 +1663,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/utils/constants */
     "./src/app/utils/constants.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/helpers/toastCustom */
+    "./src/app/helpers/toastCustom.ts");
 
     var PrestadorSituacaoRedirect = /*#__PURE__*/function () {
-      function PrestadorSituacaoRedirect(router, usuarioService, loadingControll, prestadorService) {
+      function PrestadorSituacaoRedirect(router, usuarioService, loadingControll, prestadorService, toast) {
         _classCallCheck(this, PrestadorSituacaoRedirect);
 
         this.router = router;
         this.usuarioService = usuarioService;
         this.loadingControll = loadingControll;
         this.prestadorService = prestadorService;
+        this.toast = toast;
       }
 
       _createClass(PrestadorSituacaoRedirect, [{
@@ -1587,6 +1695,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loadingControll.showLoader();
           return this.usuarioService.recuperaUsuarioLogado().then(function (x) {
             if (x == null && !src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario()) {
+              _this5.loadingControll.hideLoader();
+
               _this5.router.navigate(['/sign-in'], {
                 queryParams: {
                   returnUrl: state.url
@@ -1594,10 +1704,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
             } else {
               _this5.prestadorService.RecuperaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId).then(function (result) {
-                debugger;
-                var redirectStr = "";
+                var redirectStr = "home";
+                var situacaoPrestador = 0;
 
-                switch (result.situacaoPrestador) {
+                if (result) {
+                  situacaoPrestador = result.situacaoPrestador;
+                }
+
+                switch (situacaoPrestador) {
                   case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form1:
                     redirectStr = "prestador-Form1";
                     break;
@@ -1610,19 +1724,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     redirectStr = "prestador-Form3";
                     break;
 
+                  case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao:
+                    src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].CustomToast(_this5.toast, "Anteção. Existe uma solicitação de aprovação deste prestador para o adiministrador da igreja.", "danger", 5000);
+                    redirectStr = "visualizar-prestador";
+                    break;
+
                   default:
+                    redirectStr = "visualizar-prestador";
                     break;
                 }
 
                 _this5.loadingControll.hideLoader();
 
-                _this5.router.navigate([redirectStr]);
+                _this5.router.navigate([redirectStr], {
+                  queryParams: {
+                    usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId
+                  }
+                });
               });
             }
 
             return true;
           })["catch"](function () {
-            _this5.loadingControll.showLoader();
+            _this5.loadingControll.hideLoader();
 
             return true;
           });
@@ -1641,6 +1765,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"]
       }, {
         type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"]
       }];
     };
 
@@ -2099,6 +2225,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(PrestadorService, [{
+        key: "recuperaPrestadoresPorIgreja",
+        value: function recuperaPrestadoresPorIgreja(igrejaId) {
+          return this.prestadorRepService.recuperaPrestadoresPorIgreja(igrejaId);
+        }
+      }, {
         key: "AtualizaPrestador",
         value: function AtualizaPrestador(usuarioId, obj) {
           return this.prestadorRepService.AtualizaPrestador(usuarioId, obj);
@@ -2129,9 +2260,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.prestadorRepService.AdicionaPrestador(prestador);
         }
       }, {
-        key: "RecuperaPestadoresPorCidadeEhUF",
-        value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
-          return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado);
+        key: "RecuperaPestadoresPorCidadeEhUFEhServico",
+        value: function RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
+          return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId);
         }
       }, {
         key: "RecuperaCidadePrestadorDisponiveis",
@@ -2142,6 +2273,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "recuperaServicosPorPrestador",
         value: function recuperaServicosPorPrestador(usuarioId) {
           return this.prestadorRepService.recuperaServicosPorPrestador(usuarioId);
+        }
+      }, {
+        key: "recuperaServicosPorPrestadores",
+        value: function recuperaServicosPorPrestadores(usuarioId) {
+          return this.prestadorRepService.recuperaServicosPorPrestadores(usuarioId);
         }
       }]);
 
@@ -2233,14 +2369,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        key: "recuperaUsuarioLogado",
-        value: function recuperaUsuarioLogado() {
+        key: "RecuperaUsuarioPorUsuarioId",
+        value: function RecuperaUsuarioPorUsuarioId(usuarioId) {
           var _this7 = this;
 
           return new Promise(function (resolve, reject) {
-            _this7.firebaseAutentication.verificaUsuarioLogado().then(function (user) {
+            _this7.usuarioRepository.findOne(usuarioId).then(function (result) {
+              resolve(result);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
+        }
+      }, {
+        key: "recuperaUsuarioLogado",
+        value: function recuperaUsuarioLogado() {
+          var _this8 = this;
+
+          console.log("Verifica Usuario Logado;");
+          return new Promise(function (resolve, reject) {
+            _this8.firebaseAutentication.verificaUsuarioLogado().then(function (user) {
               if (user != null) {
-                _this7.usuarioRepository.findOne(user.uid).then(function (result) {
+                _this8.usuarioRepository.findOne(user.uid).then(function (result) {
                   src_app_config__WEBPACK_IMPORTED_MODULE_4__["Config"].RecuperaInstancia().adicionaUsuario(result);
                   resolve(result);
                 });
@@ -2248,6 +2398,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 src_app_config__WEBPACK_IMPORTED_MODULE_4__["Config"].RecuperaInstancia().adicionaUsuario(null);
                 resolve(null);
               }
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
@@ -2326,58 +2478,124 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(PrestadorRepServiceService, [{
+        key: "recuperaPrestadoresPorIgreja",
+        value: function recuperaPrestadoresPorIgreja(igrejaId) {
+          var _this9 = this;
+
+          return new Promise(function (retorno, reject) {
+            _this9.db.collectionGroup("prestador").where("igrejas", "array-contains", igrejaId).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push(doc.data());
+              });
+              retorno(lst);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
+        }
+      }, {
         key: "ExcluirServico",
         value: function ExcluirServico(usuarioId, servicoId) {
-          return this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servicoId)["delete"]();
+          var _this10 = this;
+
+          return new Promise(function (retorno, reject) {
+            return _this10.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servicoId)["delete"]().then(function (result) {
+              retorno(result);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
         }
       }, {
         key: "AtualizaPrestador",
         value: function AtualizaPrestador(usuarioId, item) {
-          return this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).update(item);
+          var _this11 = this;
+
+          return new Promise(function (retorno, reject) {
+            _this11.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).update(item).then(function (result) {
+              retorno(result);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
         }
       }, {
         key: "AdicionaServicoAoPrestador",
         value: function AdicionaServicoAoPrestador(usuarioId, servico) {
-          return this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servico.servicoId).set(Object.assign({}, servico), {
-            merge: true
+          var _this12 = this;
+
+          return new Promise(function (retorno, reject) {
+            return _this12.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servico.servicoId).set(Object.assign({}, servico), {
+              merge: true
+            }).then(function (result) {
+              retorno(result);
+            })["catch"](function (err) {
+              reject(err);
+            });
           });
         }
       }, {
         key: "RecuperaPrestador",
         value: function RecuperaPrestador(usuarioId) {
-          var _this8 = this;
+          var _this13 = this;
 
-          return new Promise(function (retorno, res) {
-            _this8.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).get().then(function (result) {
+          return new Promise(function (retorno, reject) {
+            _this13.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).get().then(function (result) {
               retorno(result.data());
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
+        }
+      }, {
+        key: "recuperaServicosPorPrestadores",
+        value: function recuperaServicosPorPrestadores(usuarios) {
+          var _this14 = this;
+
+          return new Promise(function (resolve, reject) {
+            _this14.db.collectionGroup("servico").where("usuarioId", "in", usuarios).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push(doc.data());
+              });
+              resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
       }, {
         key: "recuperaServicosPorPrestador",
         value: function recuperaServicosPorPrestador(usuarioId) {
-          var _this9 = this;
+          var _this15 = this;
 
           return new Promise(function (resolve, reject) {
-            _this9.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").get().then(function (result) {
+            _this15.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push(doc.data());
               });
               resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
       }, {
-        key: "RecuperaPestadoresPorCidadeEhUF",
-        value: function RecuperaPestadoresPorCidadeEhUF(ufSelecionado, cidadeSelecionado) {
-          var _this10 = this;
+        key: "RecuperaPestadoresPorCidadeEhUFEhServico",
+        value: function RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
+          var _this16 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this10.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).where("uf", "==", ufSelecionado);
+            var query = _this16.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao).where("uf", "==", ufSelecionado);
 
             if (cidadeSelecionado) {
               query.where("cidade", "==", cidadeSelecionado);
+            }
+
+            if (servicoId) {
+              query.firestore.collectionGroup("servico").where("servicoId", "==", servicoId);
             }
 
             query.get().then(function (result) {
@@ -2386,16 +2604,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 lst.push(doc.data());
               });
               resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
       }, {
         key: "RecuperaCidadePrestadorDisponiveis",
         value: function RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
-          var _this11 = this;
+          var _this17 = this;
 
           return new Promise(function (resolve, reject) {
-            _this11.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this17.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 if (!lst.includes(doc.data().cidade)) {
@@ -2403,16 +2623,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               });
               resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
       }, {
         key: "recuperaUfPrestadorDisponiveis",
         value: function recuperaUfPrestadorDisponiveis() {
-          var _this12 = this;
+          var _this18 = this;
 
           return new Promise(function (resolve, reject) {
-            _this12.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
+            _this18.db.collectionGroup("prestador").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Form2).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 if (!lst.includes(doc.data().uf)) {
@@ -2420,13 +2642,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               });
               resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
             });
           });
         }
       }, {
         key: "AdicionaPrestador",
         value: function AdicionaPrestador(prestador) {
-          return this.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador));
+          var _this19 = this;
+
+          console.log(prestador);
+          return new Promise(function (resolve, reject) {
+            _this19.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador)).then(function (obj) {
+              resolve(obj);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
         }
       }]);
 
@@ -2480,13 +2713,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        *
        */
       function BaseRepository() {
-        var _this13 = this;
+        var _this20 = this;
 
         _classCallCheck(this, BaseRepository);
 
         // success
         this.addCollection = function (item) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this13, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -2503,7 +2736,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.update = function (documentName, item) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this13, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -2525,12 +2758,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(BaseRepository, [{
         key: "add",
         value: function add(item, id) {
-          var _this14 = this;
+          var _this21 = this;
 
           var idTemp = id ? id : this.db.collection(this._collectionName).doc().id;
           item.id = idTemp;
           return new Promise(function (resolve, reject) {
-            _this14.db.collection(_this14._collectionName).doc(idTemp).set(Object.assign({}, item)).then(function (obj) {
+            _this21.db.collection(_this21._collectionName).doc(idTemp).set(Object.assign({}, item)).then(function (obj) {
               resolve(obj);
             })["catch"](function (error) {
               reject(error);
@@ -2541,10 +2774,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "find",
         value: function find(filter) {
-          var _this15 = this;
+          var _this22 = this;
 
           return new Promise(function (resolve, reject) {
-            var ref = _this15.db.collection(_this15._collectionName).where(filter.elemento, filter.tipoComparacao, filter.comparacao).get().then(function (result) {
+            var ref = _this22.db.collection(_this22._collectionName).where(filter.elemento, filter.tipoComparacao, filter.comparacao).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({
@@ -2561,10 +2794,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "findOne",
         value: function findOne(id) {
-          var _this16 = this;
+          var _this23 = this;
 
           return new Promise(function (resolve, reject) {
-            _this16.db.collection(_this16._collectionName).doc(id).get().then(function (result) {
+            _this23.db.collection(_this23._collectionName).doc(id).get().then(function (result) {
               resolve(result.data());
             });
           });
@@ -2652,13 +2885,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super2 = _createSuper(UsuarioRepService);
 
       function UsuarioRepService() {
-        var _this17;
+        var _this24;
 
         _classCallCheck(this, UsuarioRepService);
 
-        _this17 = _super2.call(this);
-        _this17._collectionName = "usuario";
-        return _this17;
+        _this24 = _super2.call(this);
+        _this24._collectionName = "usuario";
+        return _this24;
       }
 
       return UsuarioRepService;
@@ -2693,6 +2926,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var Constants;
 
     (function (Constants) {
+      var ListTipoSituacaoPrestador = /*#__PURE__*/function () {
+        function ListTipoSituacaoPrestador() {
+          _classCallCheck(this, ListTipoSituacaoPrestador);
+        }
+
+        _createClass(ListTipoSituacaoPrestador, null, [{
+          key: "RecuperaListagem",
+          value: function RecuperaListagem() {
+            return [{
+              valor: TipoSituacaoPrestador.Form1,
+              descricao: "Informações Iniciais"
+            }, {
+              valor: TipoSituacaoPrestador.Form2,
+              descricao: "Serviços"
+            }, {
+              valor: TipoSituacaoPrestador.Form3,
+              descricao: "Confirmar Dados"
+            }, {
+              valor: TipoSituacaoPrestador.PendenteAutorizacao,
+              descricao: "Pendente de Autorização"
+            }, {
+              valor: TipoSituacaoPrestador.Ativo,
+              descricao: "Ativo"
+            }, {
+              valor: TipoSituacaoPrestador.Suspenso,
+              descricao: "Suspenso"
+            }];
+          }
+        }, {
+          key: "RecuperaDescricaoPorValor",
+          value: function RecuperaDescricaoPorValor(valor) {
+            return this.RecuperaListagem().filter(function (y) {
+              return y.valor == valor;
+            })[0].descricao;
+          }
+        }]);
+
+        return ListTipoSituacaoPrestador;
+      }();
+
+      Constants.ListTipoSituacaoPrestador = ListTipoSituacaoPrestador;
+
       var TipoSituacaoPrestador = function TipoSituacaoPrestador() {
         _classCallCheck(this, TipoSituacaoPrestador);
       };

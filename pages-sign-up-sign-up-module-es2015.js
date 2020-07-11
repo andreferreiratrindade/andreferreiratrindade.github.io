@@ -188,10 +188,12 @@ let SignUpPage = class SignUpPage {
                 email: this.signUpForm.value['email'],
             };
             this.usuarioService.AdicionarUsuario(usuarioObj).then(x => {
+                this.loadCtr.hideLoader();
                 src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(this.toastCtrl);
                 this.redirectLoggedUserToProfilePage();
             }).catch(error => {
-                this.submitError = error.message;
+                src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(error, this.toastCtrl);
+                this.loadCtr.hideLoader();
             });
         }).catch(err => {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(err, this.toastCtrl);

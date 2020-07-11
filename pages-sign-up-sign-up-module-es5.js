@@ -303,11 +303,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
 
             _this3.usuarioService.AdicionarUsuario(usuarioObj).then(function (x) {
+              _this3.loadCtr.hideLoader();
+
               src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(_this3.toastCtrl);
 
               _this3.redirectLoggedUserToProfilePage();
             })["catch"](function (error) {
-              _this3.submitError = error.message;
+              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(error, _this3.toastCtrl);
+
+              _this3.loadCtr.hideLoader();
             });
           })["catch"](function (err) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_10__["HandlerError"].handler(err, _this3.toastCtrl);
