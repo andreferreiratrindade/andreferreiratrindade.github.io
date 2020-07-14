@@ -1821,14 +1821,15 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
     }
     RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
         return new Promise((resolve, reject) => {
-            var query = this.db.collectionGroup("prestador")
+            var query = this.db.collectionGroup("servico")
                 .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
                 .where("uf", "==", ufSelecionado);
             if (cidadeSelecionado) {
-                query.where("cidade", "==", cidadeSelecionado);
+                query = query.where("cidade", "==", cidadeSelecionado);
             }
+            // debugger
             if (servicoId) {
-                query.firestore.collectionGroup("servico").where("servicoId", "==", servicoId);
+                query = query.where("servicoId", "==", servicoId);
             }
             query.get().then(result => {
                 let lst = [];
