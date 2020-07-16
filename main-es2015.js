@@ -436,7 +436,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\" menuId=\"mainContent\" side=\"start\">\n      <ion-content class=\"background\">\n        <ion-list id=\"inbox-list\">\n          \n         <span *ngIf=\"usuarioLogado\">\n          <ion-list-header>{{recuperaDadosUsuario.nome}}</ion-list-header>\n          <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n          <ion-chip color=\"tertiary\" (click)=\"logoff()\"  slot=\"close\" routerDirection=\"root\" [routerLink]=\"prestador-consultar\"  size=\"6\">\n            <ion-label>Sair</ion-label>\n            <ion-icon name=\"log-out-outline\"></ion-icon>\n          </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"login()\"  size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\" menuId=\"mainContent\" side=\"start\">\n      <ion-content class=\"background\">\n        <ion-list id=\"inbox-list\">\n\n          <span *ngIf=\"usuarioLogado\">\n            <ion-list-header>\n              <h3>\n                {{recuperaDadosUsuario.nome.split(' ')[0]}}</h3>\n            </ion-list-header>\n            <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n            <ion-chip color=\"tertiary\" (click)=\"logoff()\" slot=\"close\" routerDirection=\"root\" \n              [routerLink]=\"prestador-consultar\" size=\"6\">\n              <ion-label>Sair</ion-label>\n              <ion-icon name=\"log-out-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"login()\" size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"true\" *ngFor=\"let p of paginas; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n              detail=\"false\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>");
 
 /***/ }),
 
@@ -479,6 +479,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/textoCortado/texto-cortado/texto-cortado.component.html":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/textoCortado/texto-cortado/texto-cortado.component.html ***!
+  \**************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-buttons slot=\"end\" *ngIf=\"texto.length > qtdCaracteres\">\n <h3>{{textoCortado}}...</h3> \n  <ion-button (click)=presentPopover() interface=\"popover\">\n    <ion-icon name=\"eye-outline\" color=\"dark\"></ion-icon>\n  </ion-button>\n</ion-buttons>\n\n");
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -492,8 +505,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers/AuthGuard/AuthGuard */ "./src/app/providers/AuthGuard/AuthGuard.ts");
-/* harmony import */ var _providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers/AuthGuard/PrestadorSituacaoRedirect */ "./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts");
+/* harmony import */ var _providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers/AuthGuard/PrestadorSituacaoValidation */ "./src/app/providers/AuthGuard/PrestadorSituacaoValidation.ts");
+/* harmony import */ var _providers_AuthGuard_PerfilValidation_AdministradorSistema__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers/AuthGuard/PerfilValidation_AdministradorSistema */ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts");
 
 
 
@@ -523,12 +536,12 @@ const routes = [
     },
     {
         path: 'criar-igreja',
-        canActivate: [_providers_AuthGuard_AuthGuard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+        canActivate: [_providers_AuthGuard_PerfilValidation_AdministradorSistema__WEBPACK_IMPORTED_MODULE_4__["PerfilValidation_AdministradorSistema"]],
         loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-criar-igreja-criar-igreja-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-criar-igreja-criar-igreja-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/criar-igreja/criar-igreja.module */ "./src/app/pages/gerenciarIgreja/criar-igreja/criar-igreja.module.ts")).then(m => m.CriarIgrejaPageModule)
     },
     {
         path: 'prestador-Form1',
-        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__["PrestadorSituacaoValidation"]],
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form1-prestador-cadastro-form1-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form1/prestador-cadastro-form1.module.ts")).then(m => m.PrestadorCadastroForm1PageModule)
     },
     {
@@ -541,12 +554,12 @@ const routes = [
     },
     {
         path: 'prestador-Form2',
-        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__["PrestadorSituacaoValidation"]],
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form2-prestador-cadastro-form2-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form2/prestador-cadastro-form2.module.ts")).then(m => m.PrestadorCadastroForm2PageModule)
     },
     {
         path: 'prestador-Form3',
-        canActivate: [_providers_AuthGuard_PrestadorSituacaoRedirect__WEBPACK_IMPORTED_MODULE_4__["PrestadorSituacaoRedirect"]],
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__["PrestadorSituacaoValidation"]],
         loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-form3-prestador-cadastro-form3-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form3/prestador-cadastro-form3.module.ts")).then(m => m.PrestadorCadastroForm3PageModule)
     },
     {
@@ -610,7 +623,7 @@ AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  --background: url('background.jpg') 0 0/100% 100% no-repeat;\n}\n\nion-menu ion-content {\n  --background: var(--ion-item-background, var(--ion-background-color, #fff));\n}\n\nion-menu.md ion-content {\n  --padding-start: 8px;\n  --padding-end: 8px;\n  --padding-top: 20px;\n  --padding-bottom: 20px;\n}\n\nion-menu.md ion-list {\n  padding: 20px 0;\n}\n\nion-menu.md ion-note {\n  margin-bottom: 30px;\n}\n\nion-menu.md ion-list-header,\nion-menu.md ion-note {\n  padding-left: 10px;\n}\n\nion-menu.md ion-list#inbox-list {\n  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);\n}\n\nion-menu.md ion-list#inbox-list ion-list-header {\n  font-size: 22px;\n  font-weight: 600;\n  min-height: 20px;\n}\n\nion-menu.md ion-list#labels-list ion-list-header {\n  font-size: 16px;\n  margin-bottom: 18px;\n  color: #757575;\n  min-height: 26px;\n}\n\nion-menu.md ion-item {\n  --padding-start: 10px;\n  --padding-end: 10px;\n  border-radius: 4px;\n}\n\nion-menu.md ion-item.selected {\n  --background: rgba(var(--ion-color-primary-rgb), 0.14);\n}\n\nion-menu.md ion-item.selected ion-icon {\n  color: var(--ion-color-primary);\n}\n\nion-menu.md ion-item ion-icon {\n  color: #616e7e;\n}\n\nion-menu.md ion-item ion-label {\n  font-weight: 500;\n}\n\nion-menu.ios ion-content {\n  --padding-bottom: 20px;\n}\n\nion-menu.ios ion-list {\n  padding: 20px 0 0 0;\n}\n\nion-menu.ios ion-note {\n  line-height: 24px;\n  margin-bottom: 20px;\n}\n\nion-menu.ios ion-item {\n  --padding-start: 16px;\n  --padding-end: 16px;\n  --min-height: 50px;\n}\n\nion-menu.ios ion-item.selected ion-icon {\n  color: var(--ion-color-primary);\n}\n\nion-menu.ios ion-item ion-icon {\n  font-size: 24px;\n  color: #73849a;\n}\n\nion-menu.ios ion-list#labels-list ion-list-header {\n  margin-bottom: 8px;\n}\n\nion-menu.ios ion-list-header,\nion-menu.ios ion-note {\n  padding-left: 16px;\n  padding-right: 16px;\n}\n\nion-menu.ios ion-note {\n  margin-bottom: 8px;\n}\n\nion-note {\n  display: inline-block;\n  font-size: 16px;\n  color: var(--ion-color-medium-shade);\n}\n\nion-item.selected {\n  --color: var(--ion-color-primary);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3RyYXZpcy9idWlsZC9hbmRyZWZlcnJlaXJhdHJpbmRhZGUvSWdyZWphQXBwL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyREFBQTtBQ0NGOztBRElBO0VBQ0UsMkVBQUE7QUNERjs7QURJQTtFQUNFLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0FDREY7O0FESUE7RUFDRSxlQUFBO0FDREY7O0FESUE7RUFDRSxtQkFBQTtBQ0RGOztBRElBOztFQUVFLGtCQUFBO0FDREY7O0FESUE7RUFDRSwyREFBQTtBQ0RGOztBRElBO0VBQ0UsZUFBQTtFQUNBLGdCQUFBO0VBRUEsZ0JBQUE7QUNGRjs7QURLQTtFQUNFLGVBQUE7RUFFQSxtQkFBQTtFQUVBLGNBQUE7RUFFQSxnQkFBQTtBQ0xGOztBRFFBO0VBQ0UscUJBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FDTEY7O0FEUUE7RUFDRSxzREFBQTtBQ0xGOztBRFFBO0VBQ0UsK0JBQUE7QUNMRjs7QURRQTtFQUNFLGNBQUE7QUNMRjs7QURRQTtFQUNFLGdCQUFBO0FDTEY7O0FEUUE7RUFDRSxzQkFBQTtBQ0xGOztBRFFBO0VBQ0UsbUJBQUE7QUNMRjs7QURRQTtFQUNFLGlCQUFBO0VBQ0EsbUJBQUE7QUNMRjs7QURRQTtFQUNFLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQ0xGOztBRFFBO0VBQ0UsK0JBQUE7QUNMRjs7QURRQTtFQUNFLGVBQUE7RUFDQSxjQUFBO0FDTEY7O0FEUUE7RUFDRSxrQkFBQTtBQ0xGOztBRFFBOztFQUVFLGtCQUFBO0VBQ0EsbUJBQUE7QUNMRjs7QURRQTtFQUNFLGtCQUFBO0FDTEY7O0FEUUE7RUFDRSxxQkFBQTtFQUNBLGVBQUE7RUFFQSxvQ0FBQTtBQ05GOztBRFNBO0VBQ0UsaUNBQUE7QUNORiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1jb250ZW50e1xuICAtLWJhY2tncm91bmQ6IHVybCguLi9hc3NldHMvaW1nL2JhY2tncm91bmQuanBnKSAgMCAwLzEwMCUgMTAwJSBuby1yZXBlYXQ7XG59XG5cblxuXG5pb24tbWVudSBpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWl0ZW0tYmFja2dyb3VuZCwgdmFyKC0taW9uLWJhY2tncm91bmQtY29sb3IsICNmZmYpKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctc3RhcnQ6IDhweDtcbiAgLS1wYWRkaW5nLWVuZDogOHB4O1xuICAtLXBhZGRpbmctdG9wOiAyMHB4O1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCB7XG4gIHBhZGRpbmc6IDIwcHggMDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdC1oZWFkZXIsXG5pb24tbWVudS5tZCBpb24tbm90ZSB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjaW5ib3gtbGlzdCB7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1pb24tY29sb3Itc3RlcC0xNTAsICNkN2Q4ZGEpO1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCNpbmJveC1saXN0IGlvbi1saXN0LWhlYWRlciB7XG4gIGZvbnQtc2l6ZTogMjJweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcblxuICBtaW4taGVpZ2h0OiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCNsYWJlbHMtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBmb250LXNpemU6IDE2cHg7XG5cbiAgbWFyZ2luLWJvdHRvbTogMThweDtcblxuICBjb2xvcjogIzc1NzU3NTtcblxuICBtaW4taGVpZ2h0OiAyNnB4O1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTBweDtcbiAgLS1wYWRkaW5nLWVuZDogMTBweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tYmFja2dyb3VuZDogcmdiYSh2YXIoLS1pb24tY29sb3ItcHJpbWFyeS1yZ2IpLCAwLjE0KTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSBpb24taWNvbiB7XG4gIGNvbG9yOiAjNjE2ZTdlO1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSBpb24tbGFiZWwge1xuICBmb250LXdlaWdodDogNTAwO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3Qge1xuICBwYWRkaW5nOiAyMHB4IDAgMCAwO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBsaW5lLWhlaWdodDogMjRweDtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1pdGVtIHtcbiAgLS1wYWRkaW5nLXN0YXJ0OiAxNnB4O1xuICAtLXBhZGRpbmctZW5kOiAxNnB4O1xuICAtLW1pbi1oZWlnaHQ6IDUwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbS5zZWxlY3RlZCBpb24taWNvbiB7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItcHJpbWFyeSk7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSBpb24taWNvbiB7XG4gIGZvbnQtc2l6ZTogMjRweDtcbiAgY29sb3I6ICM3Mzg0OWE7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbGlzdCNsYWJlbHMtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbGlzdC1oZWFkZXIsXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBwYWRkaW5nLWxlZnQ6IDE2cHg7XG4gIHBhZGRpbmctcmlnaHQ6IDE2cHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbm90ZSB7XG4gIG1hcmdpbi1ib3R0b206IDhweDtcbn1cblxuaW9uLW5vdGUge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGZvbnQtc2l6ZTogMTZweDtcblxuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLW1lZGl1bS1zaGFkZSk7XG59XG5cbmlvbi1pdGVtLnNlbGVjdGVkIHtcbiAgLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufSIsImlvbi1jb250ZW50IHtcbiAgLS1iYWNrZ3JvdW5kOiB1cmwoLi4vYXNzZXRzL2ltZy9iYWNrZ3JvdW5kLmpwZykgMCAwLzEwMCUgMTAwJSBuby1yZXBlYXQ7XG59XG5cbmlvbi1tZW51IGlvbi1jb250ZW50IHtcbiAgLS1iYWNrZ3JvdW5kOiB2YXIoLS1pb24taXRlbS1iYWNrZ3JvdW5kLCB2YXIoLS1pb24tYmFja2dyb3VuZC1jb2xvciwgI2ZmZikpO1xufVxuXG5pb24tbWVudS5tZCBpb24tY29udGVudCB7XG4gIC0tcGFkZGluZy1zdGFydDogOHB4O1xuICAtLXBhZGRpbmctZW5kOiA4cHg7XG4gIC0tcGFkZGluZy10b3A6IDIwcHg7XG4gIC0tcGFkZGluZy1ib3R0b206IDIwcHg7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMjBweCAwO1xufVxuXG5pb24tbWVudS5tZCBpb24tbm90ZSB7XG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1saXN0LWhlYWRlcixcbmlvbi1tZW51Lm1kIGlvbi1ub3RlIHtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCNpbmJveC1saXN0IHtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHZhcigtLWlvbi1jb2xvci1zdGVwLTE1MCwgI2Q3ZDhkYSk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1saXN0I2luYm94LWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAyMnB4O1xuICBmb250LXdlaWdodDogNjAwO1xuICBtaW4taGVpZ2h0OiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCNsYWJlbHMtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBmb250LXNpemU6IDE2cHg7XG4gIG1hcmdpbi1ib3R0b206IDE4cHg7XG4gIGNvbG9yOiAjNzU3NTc1O1xuICBtaW4taGVpZ2h0OiAyNnB4O1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTBweDtcbiAgLS1wYWRkaW5nLWVuZDogMTBweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tYmFja2dyb3VuZDogcmdiYSh2YXIoLS1pb24tY29sb3ItcHJpbWFyeS1yZ2IpLCAwLjE0KTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSBpb24taWNvbiB7XG4gIGNvbG9yOiAjNjE2ZTdlO1xufVxuXG5pb24tbWVudS5tZCBpb24taXRlbSBpb24tbGFiZWwge1xuICBmb250LXdlaWdodDogNTAwO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3Qge1xuICBwYWRkaW5nOiAyMHB4IDAgMCAwO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBsaW5lLWhlaWdodDogMjRweDtcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1pdGVtIHtcbiAgLS1wYWRkaW5nLXN0YXJ0OiAxNnB4O1xuICAtLXBhZGRpbmctZW5kOiAxNnB4O1xuICAtLW1pbi1oZWlnaHQ6IDUwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbS5zZWxlY3RlZCBpb24taWNvbiB7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItcHJpbWFyeSk7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSBpb24taWNvbiB7XG4gIGZvbnQtc2l6ZTogMjRweDtcbiAgY29sb3I6ICM3Mzg0OWE7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbGlzdCNsYWJlbHMtbGlzdCBpb24tbGlzdC1oZWFkZXIge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbGlzdC1oZWFkZXIsXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBwYWRkaW5nLWxlZnQ6IDE2cHg7XG4gIHBhZGRpbmctcmlnaHQ6IDE2cHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24tbm90ZSB7XG4gIG1hcmdpbi1ib3R0b206IDhweDtcbn1cblxuaW9uLW5vdGUge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGZvbnQtc2l6ZTogMTZweDtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0tc2hhZGUpO1xufVxuXG5pb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-content {\n  --background: url('background.jpg') 0 0/100% 100% no-repeat;\n}\n\nion-menu ion-content {\n  --background: var(--ion-item-background, var(--ion-background-color, #fff));\n}\n\nion-menu.md ion-content {\n  --padding-start: 8px;\n  --padding-end: 8px;\n  --padding-top: 20px;\n  --padding-bottom: 20px;\n}\n\nion-menu.md ion-list {\n  padding: 20px 0;\n}\n\nion-menu.md ion-note {\n  margin-bottom: 30px;\n}\n\nion-menu.md ion-list-header,\nion-menu.md ion-note {\n  padding-left: 10px;\n}\n\nion-menu.md ion-list#labels-list ion-list-header {\n  font-size: 16px;\n  margin-bottom: 18px;\n  color: #757575;\n  min-height: 26px;\n}\n\nion-menu.md ion-item {\n  --padding-start: 10px;\n  --padding-end: 10px;\n  border-radius: 4px;\n}\n\nion-menu.md ion-item.selected {\n  --background: rgba(var(--ion-color-primary-rgb), 0.14);\n}\n\nion-menu.md ion-item.selected ion-icon {\n  color: var(--ion-color-primary);\n}\n\nion-menu.md ion-item ion-icon {\n  color: #616e7e;\n}\n\nion-menu.md ion-item ion-label {\n  font-weight: 500;\n}\n\nion-menu.ios ion-content {\n  --padding-bottom: 20px;\n}\n\nion-menu.ios ion-list {\n  padding: 20px 0 0 0;\n}\n\nion-menu.ios ion-note {\n  line-height: 24px;\n  margin-bottom: 20px;\n}\n\nion-menu.ios ion-item {\n  --padding-start: 16px;\n  --padding-end: 16px;\n  --min-height: 50px;\n}\n\nion-menu.ios ion-item.selected ion-icon {\n  color: var(--ion-color-primary);\n}\n\nion-menu.ios ion-item ion-icon {\n  font-size: 24px;\n  color: #73849a;\n}\n\nion-menu.ios ion-list#labels-list ion-list-header {\n  margin-bottom: 8px;\n}\n\nion-menu.ios ion-list-header,\nion-menu.ios ion-note {\n  padding-left: 16px;\n  padding-right: 16px;\n}\n\nion-menu.ios ion-note {\n  margin-bottom: 8px;\n}\n\nion-note {\n  display: inline-block;\n  font-size: 16px;\n  color: var(--ion-color-medium-shade);\n}\n\nion-item.selected {\n  --color: var(--ion-color-primary);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3RyYXZpcy9idWlsZC9hbmRyZWZlcnJlaXJhdHJpbmRhZGUvSWdyZWphQXBwL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwyREFBQTtBQ0NGOztBRElBO0VBQ0UsMkVBQUE7QUNERjs7QURJQTtFQUNFLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0FDREY7O0FESUE7RUFDRSxlQUFBO0FDREY7O0FESUE7RUFDRSxtQkFBQTtBQ0RGOztBRElBOztFQUVFLGtCQUFBO0FDREY7O0FES0E7RUFDRSxlQUFBO0VBRUEsbUJBQUE7RUFFQSxjQUFBO0VBRUEsZ0JBQUE7QUNMRjs7QURRQTtFQUNFLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQ0xGOztBRFFBO0VBQ0Usc0RBQUE7QUNMRjs7QURRQTtFQUNFLCtCQUFBO0FDTEY7O0FEUUE7RUFDRSxjQUFBO0FDTEY7O0FEUUE7RUFDRSxnQkFBQTtBQ0xGOztBRFFBO0VBQ0Usc0JBQUE7QUNMRjs7QURRQTtFQUNFLG1CQUFBO0FDTEY7O0FEUUE7RUFDRSxpQkFBQTtFQUNBLG1CQUFBO0FDTEY7O0FEUUE7RUFDRSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUNMRjs7QURRQTtFQUNFLCtCQUFBO0FDTEY7O0FEUUE7RUFDRSxlQUFBO0VBQ0EsY0FBQTtBQ0xGOztBRFFBO0VBQ0Usa0JBQUE7QUNMRjs7QURRQTs7RUFFRSxrQkFBQTtFQUNBLG1CQUFBO0FDTEY7O0FEUUE7RUFDRSxrQkFBQTtBQ0xGOztBRFFBO0VBQ0UscUJBQUE7RUFDQSxlQUFBO0VBRUEsb0NBQUE7QUNORjs7QURTQTtFQUNFLGlDQUFBO0FDTkYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY29udGVudHtcbiAgLS1iYWNrZ3JvdW5kOiB1cmwoLi4vYXNzZXRzL2ltZy9iYWNrZ3JvdW5kLmpwZykgIDAgMC8xMDAlIDEwMCUgbm8tcmVwZWF0O1xufVxuXG5cblxuaW9uLW1lbnUgaW9uLWNvbnRlbnQge1xuICAtLWJhY2tncm91bmQ6IHZhcigtLWlvbi1pdGVtLWJhY2tncm91bmQsIHZhcigtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yLCAjZmZmKSk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1jb250ZW50IHtcbiAgLS1wYWRkaW5nLXN0YXJ0OiA4cHg7XG4gIC0tcGFkZGluZy1lbmQ6IDhweDtcbiAgLS1wYWRkaW5nLXRvcDogMjBweDtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3Qge1xuICBwYWRkaW5nOiAyMHB4IDA7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1ub3RlIHtcbiAgbWFyZ2luLWJvdHRvbTogMzBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUubWQgaW9uLW5vdGUge1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG59XG5cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxNnB4O1xuXG4gIG1hcmdpbi1ib3R0b206IDE4cHg7XG5cbiAgY29sb3I6ICM3NTc1NzU7XG5cbiAgbWluLWhlaWdodDogMjZweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0ge1xuICAtLXBhZGRpbmctc3RhcnQ6IDEwcHg7XG4gIC0tcGFkZGluZy1lbmQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQge1xuICAtLWJhY2tncm91bmQ6IHJnYmEodmFyKC0taW9uLWNvbG9yLXByaW1hcnktcmdiKSwgMC4xNCk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1pdGVtLnNlbGVjdGVkIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogIzYxNmU3ZTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1jb250ZW50IHtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMjBweCAwIDAgMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgbGluZS1oZWlnaHQ6IDI0cHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTZweDtcbiAgLS1wYWRkaW5nLWVuZDogMTZweDtcbiAgLS1taW4taGVpZ2h0OiA1MHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBmb250LXNpemU6IDI0cHg7XG4gIGNvbG9yOiAjNzM4NDlhO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgcGFkZGluZy1sZWZ0OiAxNnB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxNnB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1ub3RlIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDE2cHg7XG5cbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1tZWRpdW0tc2hhZGUpO1xufVxuXG5pb24taXRlbS5zZWxlY3RlZCB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn0iLCJpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdXJsKC4uL2Fzc2V0cy9pbWcvYmFja2dyb3VuZC5qcGcpIDAgMC8xMDAlIDEwMCUgbm8tcmVwZWF0O1xufVxuXG5pb24tbWVudSBpb24tY29udGVudCB7XG4gIC0tYmFja2dyb3VuZDogdmFyKC0taW9uLWl0ZW0tYmFja2dyb3VuZCwgdmFyKC0taW9uLWJhY2tncm91bmQtY29sb3IsICNmZmYpKTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWNvbnRlbnQge1xuICAtLXBhZGRpbmctc3RhcnQ6IDhweDtcbiAgLS1wYWRkaW5nLWVuZDogOHB4O1xuICAtLXBhZGRpbmctdG9wOiAyMHB4O1xuICAtLXBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdCB7XG4gIHBhZGRpbmc6IDIwcHggMDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiAzMHB4O1xufVxuXG5pb24tbWVudS5tZCBpb24tbGlzdC1oZWFkZXIsXG5pb24tbWVudS5tZCBpb24tbm90ZSB7XG4gIHBhZGRpbmctbGVmdDogMTBweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBtYXJnaW4tYm90dG9tOiAxOHB4O1xuICBjb2xvcjogIzc1NzU3NTtcbiAgbWluLWhlaWdodDogMjZweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0ge1xuICAtLXBhZGRpbmctc3RhcnQ6IDEwcHg7XG4gIC0tcGFkZGluZy1lbmQ6IDEwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0uc2VsZWN0ZWQge1xuICAtLWJhY2tncm91bmQ6IHJnYmEodmFyKC0taW9uLWNvbG9yLXByaW1hcnktcmdiKSwgMC4xNCk7XG59XG5cbmlvbi1tZW51Lm1kIGlvbi1pdGVtLnNlbGVjdGVkIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogIzYxNmU3ZTtcbn1cblxuaW9uLW1lbnUubWQgaW9uLWl0ZW0gaW9uLWxhYmVsIHtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1jb250ZW50IHtcbiAgLS1wYWRkaW5nLWJvdHRvbTogMjBweDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMjBweCAwIDAgMDtcbn1cblxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgbGluZS1oZWlnaHQ6IDI0cHg7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbmlvbi1tZW51LmlvcyBpb24taXRlbSB7XG4gIC0tcGFkZGluZy1zdGFydDogMTZweDtcbiAgLS1wYWRkaW5nLWVuZDogMTZweDtcbiAgLS1taW4taGVpZ2h0OiA1MHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0uc2VsZWN0ZWQgaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWl0ZW0gaW9uLWljb24ge1xuICBmb250LXNpemU6IDI0cHg7XG4gIGNvbG9yOiAjNzM4NDlhO1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QjbGFiZWxzLWxpc3QgaW9uLWxpc3QtaGVhZGVyIHtcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLWxpc3QtaGVhZGVyLFxuaW9uLW1lbnUuaW9zIGlvbi1ub3RlIHtcbiAgcGFkZGluZy1sZWZ0OiAxNnB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxNnB4O1xufVxuXG5pb24tbWVudS5pb3MgaW9uLW5vdGUge1xuICBtYXJnaW4tYm90dG9tOiA4cHg7XG59XG5cbmlvbi1ub3RlIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDE2cHg7XG4gIGNvbG9yOiB2YXIoLS1pb24tY29sb3ItbWVkaXVtLXNoYWRlKTtcbn1cblxuaW9uLWl0ZW0uc2VsZWN0ZWQge1xuICAtLWNvbG9yOiB2YXIoLS1pb24tY29sb3ItcHJpbWFyeSk7XG59Il19 */");
 
 /***/ }),
 
@@ -633,6 +646,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _providers_usuario_usuario_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./providers/usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
 /* harmony import */ var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./providers/base-provider/firebase-auth-service.service */ "./src/app/providers/base-provider/firebase-auth-service.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/constants */ "./src/app/utils/constants.ts");
+
 
 
 
@@ -651,23 +666,7 @@ let AppComponent = class AppComponent {
         this.router = router;
         this.usuarioService = usuarioService;
         this.selectedIndex = 0;
-        this.appPages = [
-            {
-                title: 'Consultar Prestador',
-                url: 'prestador-consultar',
-                icon: 'search'
-            },
-            {
-                title: 'Seja um Prestador',
-                url: 'prestador-Form1',
-                icon: 'people'
-            },
-            {
-                title: 'Adicione sua Igreja',
-                url: 'criar-igreja',
-                icon: 'business'
-            }
-        ];
+        this.paginas = [];
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
         this.initializeApp();
     }
@@ -678,11 +677,29 @@ let AppComponent = class AppComponent {
         });
     }
     ngOnInit() {
-        const path = window.location.pathname.split('folder/')[1];
-        if (path !== undefined) {
-            this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-        }
-        this.usuarioService.recuperaUsuarioLogado();
+        this.usuarioService.recuperaUsuarioLogado().then(() => {
+            this.inicializaPaginas();
+        });
+    }
+    inicializaPaginas() {
+        this.paginas = this.RecuperaPaginasMenuLateral().filter(page => {
+            let retorno = true;
+            if (page.perfil) {
+                retorno = page.perfil.filter(x => {
+                    let retorno = false;
+                    if (this.usuarioLogado) {
+                        let perfisDoUsuario = this.usuarioLogado.perfis;
+                        if (perfisDoUsuario) {
+                            retorno = perfisDoUsuario.filter(perfis => {
+                                return perfis == x;
+                            }).length > 0;
+                        }
+                    }
+                    return retorno;
+                }).length > 0;
+            }
+            return retorno;
+        });
     }
     get recuperaDadosUsuario() {
         var _a;
@@ -694,9 +711,36 @@ let AppComponent = class AppComponent {
     logoff() {
         this.firebaseAuthService.signOut();
         this.router.navigate(['/home']);
+        this.inicializaPaginas();
     }
     login() {
         this.router.navigate(['sign-in']);
+    }
+    RecuperaPaginasMenuLateral() {
+        return [
+            {
+                title: 'Consultar Prestador',
+                url: 'prestador-consultar',
+                icon: 'search'
+            },
+            {
+                title: 'Seja um Prestador',
+                url: 'prestador-Form1',
+                icon: 'people'
+            },
+            {
+                title: 'Adicionar Igreja',
+                url: 'criar-igreja',
+                icon: 'business',
+                perfil: [_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].PerfilUsuario.AdministradorSistema]
+            },
+            {
+                title: 'Manter Prestadores',
+                url: 'manter-prestador',
+                icon: 'business',
+                perfil: [_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].PerfilUsuario.AdministradorIgreja]
+            }
+        ];
     }
 };
 AppComponent.ctorParameters = () => [
@@ -891,6 +935,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _menuLateral_menu_lateral_menu_lateral_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./menuLateral/menu-lateral/menu-lateral.component */ "./src/app/components/menuLateral/menu-lateral/menu-lateral.component.ts");
 /* harmony import */ var _accordion_accordion_accordion_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./accordion/accordion/accordion.component */ "./src/app/components/accordion/accordion/accordion.component.ts");
+/* harmony import */ var _textoCortado_texto_cortado_texto_cortado_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./textoCortado/texto-cortado/texto-cortado.component */ "./src/app/components/textoCortado/texto-cortado/texto-cortado.component.ts");
+/* harmony import */ var _textoCortado_texto_cortado_textoPropover__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./textoCortado/texto-cortado/textoPropover */ "./src/app/components/textoCortado/texto-cortado/textoPropover.ts");
+
+
 
 
 
@@ -902,7 +950,9 @@ __webpack_require__.r(__webpack_exports__);
 const PAGES_COMPONENTS = [
     _mensagem_validacao_mensagem_validacao_component__WEBPACK_IMPORTED_MODULE_3__["MensagemValidacaoComponent"],
     _menuLateral_menu_lateral_menu_lateral_component__WEBPACK_IMPORTED_MODULE_6__["MenuLateralComponent"],
-    _accordion_accordion_accordion_component__WEBPACK_IMPORTED_MODULE_7__["AccordionComponent"]
+    _accordion_accordion_accordion_component__WEBPACK_IMPORTED_MODULE_7__["AccordionComponent"],
+    _textoCortado_texto_cortado_texto_cortado_component__WEBPACK_IMPORTED_MODULE_8__["TextoCortadoComponent"],
+    _textoCortado_texto_cortado_textoPropover__WEBPACK_IMPORTED_MODULE_9__["PopupMenuComponentPopover"]
 ];
 let ComponentsModule = class ComponentsModule {
 };
@@ -1055,6 +1105,126 @@ MenuLateralComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 /***/ }),
 
+/***/ "./src/app/components/textoCortado/texto-cortado/texto-cortado.component.scss":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/textoCortado/texto-cortado/texto-cortado.component.scss ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdGV4dG9Db3J0YWRvL3RleHRvLWNvcnRhZG8vdGV4dG8tY29ydGFkby5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/components/textoCortado/texto-cortado/texto-cortado.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/textoCortado/texto-cortado/texto-cortado.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: TextoCortadoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextoCortadoComponent", function() { return TextoCortadoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _textoPropover__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./textoPropover */ "./src/app/components/textoCortado/texto-cortado/textoPropover.ts");
+
+
+
+
+let TextoCortadoComponent = class TextoCortadoComponent {
+    constructor(popoverController) {
+        this.popoverController = popoverController;
+    }
+    ngOnInit() {
+        this.textoCortado = this.texto.substring(0, this.qtdCaracteres);
+    }
+    presentPopover(ev) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const popover = yield this.popoverController.create({
+                component: _textoPropover__WEBPACK_IMPORTED_MODULE_3__["PopupMenuComponentPopover"],
+                componentProps: { texto: this.texto },
+                translucent: true,
+                event: ev
+            });
+            return yield popover.present();
+        });
+    }
+};
+TextoCortadoComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], TextoCortadoComponent.prototype, "texto", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], TextoCortadoComponent.prototype, "qtdCaracteres", void 0);
+TextoCortadoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-texto-cortado',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./texto-cortado.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/textoCortado/texto-cortado/texto-cortado.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./texto-cortado.component.scss */ "./src/app/components/textoCortado/texto-cortado/texto-cortado.component.scss")).default]
+    })
+], TextoCortadoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/textoCortado/texto-cortado/textoPropover.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/components/textoCortado/texto-cortado/textoPropover.ts ***!
+  \************************************************************************/
+/*! exports provided: PopupMenuComponentPopover */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopupMenuComponentPopover", function() { return PopupMenuComponentPopover; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+
+
+
+let PopupMenuComponentPopover = class PopupMenuComponentPopover {
+    constructor(popoverCtrl, navParams) {
+        this.popoverCtrl = popoverCtrl;
+        this.navParams = navParams;
+        this.texto = this.navParams.data.texto;
+    }
+    onDismiss() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                yield this.popoverCtrl.dismiss();
+            }
+            catch (e) {
+                //click more than one time popover throws error, so ignore...
+            }
+        });
+    }
+};
+PopupMenuComponentPopover.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] }
+];
+PopupMenuComponentPopover = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: `<ion-list interface="popover">
+        <ion-list-header>{{texto}}</ion-list-header>
+  </ion-list>   `
+    })
+], PopupMenuComponentPopover);
+
+
+
+/***/ }),
+
 /***/ "./src/app/config.ts":
 /*!***************************!*\
   !*** ./src/app/config.ts ***!
@@ -1192,33 +1362,41 @@ class ProfileModel {
 
 /***/ }),
 
-/***/ "./src/app/providers/AuthGuard/AuthGuard.ts":
-/*!**************************************************!*\
-  !*** ./src/app/providers/AuthGuard/AuthGuard.ts ***!
-  \**************************************************/
-/*! exports provided: AuthGuard */
+/***/ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts ***!
+  \******************************************************************************/
+/*! exports provided: PerfilValidation_AdministradorSistema */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilValidation_AdministradorSistema", function() { return PerfilValidation_AdministradorSistema; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
 /* harmony import */ var _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
 /* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
+/* harmony import */ var _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
+/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
 
 
 
 
 
-let AuthGuard = class AuthGuard {
-    constructor(router, usuarioService, loadingControll) {
+
+
+
+let PerfilValidation_AdministradorSistema = class PerfilValidation_AdministradorSistema {
+    constructor(router, usuarioService, loadingControll, prestadorService, toast) {
         this.router = router;
         this.usuarioService = usuarioService;
         this.loadingControll = loadingControll;
+        this.prestadorService = prestadorService;
+        this.toast = toast;
     }
     canActivate(route, state) {
         this.loadingControll.showLoader();
@@ -1227,33 +1405,41 @@ let AuthGuard = class AuthGuard {
             if (x == null && !src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario()) {
                 this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
             }
+            else {
+                let perfisUsuario = src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().perfis;
+                if (!perfisUsuario || perfisUsuario.filter(x => { return x == src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].PerfilUsuario.AdministradorSistema; }).length == 0) {
+                    this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
+                }
+            }
             return true;
-        }).catch(() => { this.loadingControll.showLoader(); return true; });
+        }).catch(() => { this.loadingControll.hideLoader(); return true; });
     }
 };
-AuthGuard.ctorParameters = () => [
+PerfilValidation_AdministradorSistema.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"] },
-    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] }
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] },
+    { type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] }
 ];
-AuthGuard = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+PerfilValidation_AdministradorSistema = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
-], AuthGuard);
+], PerfilValidation_AdministradorSistema);
 
 
 
 /***/ }),
 
-/***/ "./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts":
-/*!******************************************************************!*\
-  !*** ./src/app/providers/AuthGuard/PrestadorSituacaoRedirect.ts ***!
-  \******************************************************************/
-/*! exports provided: PrestadorSituacaoRedirect */
+/***/ "./src/app/providers/AuthGuard/PrestadorSituacaoValidation.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/providers/AuthGuard/PrestadorSituacaoValidation.ts ***!
+  \********************************************************************/
+/*! exports provided: PrestadorSituacaoValidation */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorSituacaoRedirect", function() { return PrestadorSituacaoRedirect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrestadorSituacaoValidation", function() { return PrestadorSituacaoValidation; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
@@ -1274,7 +1460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let PrestadorSituacaoRedirect = class PrestadorSituacaoRedirect {
+let PrestadorSituacaoValidation = class PrestadorSituacaoValidation {
     constructor(router, usuarioService, loadingControll, prestadorService, toast) {
         this.router = router;
         this.usuarioService = usuarioService;
@@ -1324,16 +1510,16 @@ let PrestadorSituacaoRedirect = class PrestadorSituacaoRedirect {
         }).catch(() => { this.loadingControll.hideLoader(); return true; });
     }
 };
-PrestadorSituacaoRedirect.ctorParameters = () => [
+PrestadorSituacaoValidation.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"] },
     { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] },
     { type: _prestador_prestador_service__WEBPACK_IMPORTED_MODULE_6__["PrestadorService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] }
 ];
-PrestadorSituacaoRedirect = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+PrestadorSituacaoValidation = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
-], PrestadorSituacaoRedirect);
+], PrestadorSituacaoValidation);
 
 
 
@@ -1682,6 +1868,9 @@ let UsuarioService = class UsuarioService {
         this.usuarioRepository = usuarioRepository;
         this.firebaseAutentication = firebaseAutentication;
     }
+    AdicionaPerfilAoUsuario(usuarioId, perfil) {
+        return this.usuarioRepository.AdicionaPerfilAoUsuario(usuarioId, perfil);
+    }
     RecuperaUsuarioPorEmail(emailAdministrador) {
         return this.usuarioRepository.find({ elemento: "email", tipoComparacao: "==", comparacao: emailAdministrador });
     }
@@ -1813,7 +2002,6 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                         transaction.set(ref, prestador);
                     }
                     else {
-                        debugger;
                         let prestador = doc.data();
                         prestador.servicos = prestador.servicos.filter(y => { return y.servicoId != servico.servicoId; });
                         prestador.servicos.push(servico);
@@ -1890,7 +2078,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                 result.forEach(function (doc) {
                     if (doc.data().servicos) {
                         let servicosTemp = doc.data().servicos.filter(y => { return y.servicoId == servicoId; });
-                        if (servicosTemp.length > 0) {
+                        if (servicosTemp.length > 0 || !servicoId) {
                             let prestador = doc.data();
                             if (igrejaId) {
                                 if (prestador.igrejas
@@ -2108,6 +2296,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UsuarioRepService = class UsuarioRepService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    AdicionaPerfilAoUsuario(usuarioId, perfil) {
+        let ref = this.db.collection("usuario").doc(usuarioId);
+        let ob = [perfil];
+        return new Promise((retorno, reject) => {
+            this.db.runTransaction(transaction => {
+                // This code may get re-run multiple times if there are conflicts.
+                return transaction.get(ref).then(doc => {
+                    let usuario = doc.data();
+                    if (!usuario.perfis) {
+                        usuario.perfis = [perfil];
+                        transaction.set(ref, usuario);
+                    }
+                    else {
+                        usuario.perfis = usuario.perfis.filter(y => { return y != perfil; });
+                        usuario.perfis.push(perfil);
+                        transaction.update(ref, usuario);
+                    }
+                });
+            }).then(function () {
+                retorno();
+            }).catch(function (error) {
+                reject(error);
+            });
+        });
+    }
     constructor() {
         super();
         this._collectionName = "usuario";
@@ -2135,6 +2348,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Constants", function() { return Constants; });
 var Constants;
 (function (Constants) {
+    class PerfilUsuario {
+    }
+    PerfilUsuario.AdministradorSistema = 1;
+    PerfilUsuario.AdministradorIgreja = 2;
+    Constants.PerfilUsuario = PerfilUsuario;
+    class Mensagens {
+    }
+    Mensagens.CamposObrigatorios = "Favor preencher todos os campos obrigatorios sinalizados com *";
+    Constants.Mensagens = Mensagens;
     class ListTipoSituacaoPrestador {
         static RecuperaListagem() {
             return [

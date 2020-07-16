@@ -692,7 +692,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"  \n  animated (ionChange)=\"recuperaItens($event)\" #searchbar></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n";
     /***/
   },
 
@@ -712,7 +712,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Bairros</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Bairros</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -732,7 +732,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Cidades</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Cidades</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -752,7 +752,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Igrejas</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.nomeIgreja}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Igrejas</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.nomeIgreja}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -772,7 +772,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Serviços</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-searchbar type=\"text\" \n    debounce = 1\n    placeholder=\"Pesquisar\"\n    animated\n    (ionChange)=\"recuperaServicos($event)\" animated></ion-searchbar>\n  <ion-list>\n      <ion-item *ngFor=\"let item of servicos\" (click)=\"selecionarServico(item)\" detail>\n        <ion-label>{{item.nomeServico}}</ion-label>\n      </ion-item>\n  </ion-list>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Serviços</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-searchbar type=\"text\" \n    debounce = 1\n    placeholder=\"Pesquisar\"\n    animated #searchbar\n    (ionChange)=\"recuperaServicos($event)\" animated></ion-searchbar>\n  <ion-list>\n      <ion-item *ngFor=\"let item of servicos\" (click)=\"selecionarServico(item)\" detail>\n        <ion-label>{{item.nomeServico}}</ion-label>\n      </ion-item>\n  </ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -925,6 +925,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       _createClass(ModalUFPage, [{
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this2 = this;
+
+          setTimeout(function () {
+            _this2.inputElement.setFocus();
+          }, 800);
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
@@ -967,6 +976,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalUFPage.prototype, "inputElement", void 0);
     ModalUFPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-modal-uf',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1057,7 +1067,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var ModalBairroPage = /*#__PURE__*/function () {
       function ModalBairroPage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
-        var _this2 = this;
+        var _this3 = this;
 
         _classCallCheck(this, ModalBairroPage);
 
@@ -1072,20 +1082,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.cidade = this.navParams.data.cidade;
         this.loadingContr.showLoader();
         this.prestadorService.RecuperaBairroPrestadorDisponiveis(this.navParams.data.uf, this.navParams.data.cidade).then(function (result) {
-          _this2.dominioBairro = result;
-          _this2.itens = result;
+          _this3.dominioBairro = result;
+          _this3.itens = result;
 
-          _this2.loadingContr.hideLoader();
+          _this3.loadingContr.hideLoader();
         })["catch"](function (x) {
-          _this2.loadingContr.hideLoader();
+          _this3.loadingContr.hideLoader();
 
-          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this2.toastCtrl);
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this3.toastCtrl);
         });
       }
 
       _createClass(ModalBairroPage, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this4 = this;
+
+          setTimeout(function () {
+            _this4.inputElement.setFocus();
+          }, 800);
+        }
       }, {
         key: "recuperaItens",
         value: function recuperaItens(ev) {
@@ -1128,6 +1147,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalBairroPage.prototype, "inputElement", void 0);
     ModalBairroPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-modal-bairro',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1218,7 +1238,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var ModalCidadePage = /*#__PURE__*/function () {
       function ModalCidadePage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
-        var _this3 = this;
+        var _this5 = this;
 
         _classCallCheck(this, ModalCidadePage);
 
@@ -1232,20 +1252,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.loadingContr.showLoader();
         this.uf = this.navParams.data.uf;
         this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.navParams.data.uf).then(function (result) {
-          _this3.dominioCidade = result;
-          _this3.itens = result;
+          _this5.dominioCidade = result;
+          _this5.itens = result;
 
-          _this3.loadingContr.hideLoader();
+          _this5.loadingContr.hideLoader();
         })["catch"](function (x) {
-          _this3.loadingContr.hideLoader();
+          _this5.loadingContr.hideLoader();
 
-          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this3.toastCtrl);
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this5.toastCtrl);
         });
       }
 
       _createClass(ModalCidadePage, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this6 = this;
+
+          setTimeout(function () {
+            _this6.inputElement.setFocus();
+          }, 800);
+        }
       }, {
         key: "recuperaItens",
         value: function recuperaItens(ev) {
@@ -1288,6 +1317,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalCidadePage.prototype, "inputElement", void 0);
     ModalCidadePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-modal-cidade',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1372,7 +1402,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var ModalIgrejaPage = /*#__PURE__*/function () {
       function ModalIgrejaPage(loadingContr, toastCtrl, igrejaService, modalController, navParams) {
-        var _this4 = this;
+        var _this7 = this;
 
         _classCallCheck(this, ModalIgrejaPage);
 
@@ -1385,8 +1415,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.dominioIgrejas = [];
         loadingContr.showLoader();
         this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(function (result) {
-          _this4.itens = result;
-          _this4.dominioIgrejas = result;
+          _this7.itens = result;
+          _this7.dominioIgrejas = result;
           loadingContr.hideLoader();
         })["catch"](function (err) {
           loadingContr.hideLoader();
@@ -1397,6 +1427,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _createClass(ModalIgrejaPage, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this8 = this;
+
+          setTimeout(function () {
+            _this8.inputElement.setFocus();
+          }, 800);
+        }
       }, {
         key: "recuperaItens",
         value: function recuperaItens(ev) {
@@ -1439,6 +1478,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalIgrejaPage.prototype, "inputElement", void 0);
     ModalIgrejaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-modal-igreja',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1533,6 +1573,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this9 = this;
+
+          setTimeout(function () {
+            _this9.inputElement.setFocus();
+          }, 800);
+        }
+      }, {
         key: "recuperaServicos",
         value: function recuperaServicos(ev) {
           var val = ev.target.value;
@@ -1572,6 +1621,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalServicosPage.prototype, "inputElement", void 0);
     ModalServicosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-modal-servicos',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -1790,12 +1840,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        *
        */
       function DominioServicoRepositoryService() {
-        var _this5;
+        var _this10;
 
         _classCallCheck(this, DominioServicoRepositoryService);
 
-        _this5 = _super.call(this);
-        _this5.servicoConverter = {
+        _this10 = _super.call(this);
+        _this10.servicoConverter = {
           toFirestore: function toFirestore(servico) {
             return {
               servicoId: servico.servicoId,
@@ -1803,19 +1853,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             };
           }
         };
-        _this5._collectionName = "dominioServico";
-        return _this5;
+        _this10._collectionName = "dominioServico";
+        return _this10;
       }
 
       _createClass(DominioServicoRepositoryService, [{
         key: "recuperaServicoAutoComplete",
         value: function recuperaServicoAutoComplete(query) {
-          var _this6 = this;
+          var _this11 = this;
 
           return new Promise(function (response, resp) {
             var endText = query + "\uF8FF";
 
-            _this6.db.collection("dominioServico").orderBy("nomeServico").limit(10).where("nomeServico", ">=", query).where("nomeServico", "<=", endText) // .startAt(query)
+            _this11.db.collection("dominioServico").orderBy("nomeServico").limit(10).where("nomeServico", ">=", query).where("nomeServico", "<=", endText) // .startAt(query)
             // .endAt(endText)
             .get().then(function (result) {
               var lst = [];
@@ -1834,10 +1884,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "recuperaDominioServico",
         value: function recuperaDominioServico() {
-          var _this7 = this;
+          var _this12 = this;
 
           return new Promise(function (response, resp) {
-            _this7.db.collection("dominioServico").get().then(function (result) {
+            _this12.db.collection("dominioServico").get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({
@@ -1904,22 +1954,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _super2 = _createSuper(IgrejaRepService);
 
       function IgrejaRepService() {
-        var _this8;
+        var _this13;
 
         _classCallCheck(this, IgrejaRepService);
 
-        _this8 = _super2.call(this);
-        _this8._collectionName = "igreja";
-        return _this8;
+        _this13 = _super2.call(this);
+        _this13._collectionName = "igreja";
+        return _this13;
       }
 
       _createClass(IgrejaRepService, [{
         key: "RecuperaIgrejasPorEndereco",
         value: function RecuperaIgrejasPorEndereco(uf, cidade, bairro) {
-          var _this9 = this;
+          var _this14 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this9.db.collection('igreja').where("uf", "==", uf);
+            var query = _this14.db.collection('igreja').where("uf", "==", uf);
 
             if (cidade) {
               query = query.where("cidade", "==", cidade);
@@ -1943,10 +1993,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "RecuperaIgrejaPorAdministrador",
         value: function RecuperaIgrejaPorAdministrador(usuarioId) {
-          var _this10 = this;
+          var _this15 = this;
 
           return new Promise(function (resolve, reject) {
-            _this10.db.collection('igreja').where("administradores", "array-contains", usuarioId).get().then(function (result) {
+            _this15.db.collection('igreja').where("administradores", "array-contains", usuarioId).get().then(function (result) {
               resolve(result);
             })["catch"](function (err) {
               reject(err);

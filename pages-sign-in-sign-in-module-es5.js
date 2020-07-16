@@ -246,16 +246,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           'email': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
           'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]))
         });
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; // // Get firebase authentication redirect result invoken when using signInWithRedirect()
-        // // signInWithRedirect() is only used when client is in web but not desktop
-        // this.authRedirectResult = this.authService.getRedirectResult()
-        // .subscribe(result => {
-        //   if (result.user) {
-        //     this.redirectLoggedUserToProfilePage();
-        //   } else if (result.error) {
-        //     this.submitError = result.error;
-        //   }
-        // });
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.authService.signOut();
       }
 
       _createClass(SignInPage, [{

@@ -140,16 +140,7 @@ let SignInPage = class SignInPage {
             ]))
         });
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        // // Get firebase authentication redirect result invoken when using signInWithRedirect()
-        // // signInWithRedirect() is only used when client is in web but not desktop
-        // this.authRedirectResult = this.authService.getRedirectResult()
-        // .subscribe(result => {
-        //   if (result.user) {
-        //     this.redirectLoggedUserToProfilePage();
-        //   } else if (result.error) {
-        //     this.submitError = result.error;
-        //   }
-        // });
+        this.authService.signOut();
     }
     signInWithEmail() {
         if (!this.signInForm.valid) {

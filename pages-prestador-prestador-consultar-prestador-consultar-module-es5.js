@@ -1,3 +1,17 @@
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -21,7 +35,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n    <ion-list lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item (click)=\"abrirModalServicos()\" detail>\n        <ion-label>Serviço<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">{{formulario.value.nomeServico}}</ion-note>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.servico\" [form]=\"formulario\"\n        [nomeCampo]=\"'servico'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalUF()\" detail>\n        <ion-label>UF<ion-text color=\"danger\">*</ion-text>\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.uf}}</ion-note>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n        [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalCidade()\" detail [disabled]=\"!formulario.value.uf\">\n        <ion-label>Cidade<ion-text color=\"danger\">*</ion-text>\n          \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.cidade}}</ion-note>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n        [nomeCampo]=\"'cidade'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalBairro()\" detail [disabled]=\"!formulario.value.cidade\">\n        <ion-label>Bairro\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">  {{formulario.value.bairro}}</ion-note>\n\n      </ion-item>\n      <ion-item (click)=\"abrirModalIgreja()\" detail [disabled]=\"!formulario.value.cidade\">\n        <ion-label>Igreja\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">  {{formulario.value.nomeIgreja}}</ion-note>\n\n      </ion-item>\n\n    </ion-list>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\">Pesquisar</ion-button>\n  </form>\n\n  <ion-card *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n    <ion-card-header>\n      <ion-card-title>{{item.nome}}  <span *ngIf=\"item.staMembro\"><ion-icon name=\"cube-outline\" ></ion-icon></span> </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-item (click)=\"ligarTelefone(item.telefone)\">\n        <ion-icon name=\"call-outline\" slot=\"start\"></ion-icon>\n        <ion-label color=\"primary\">\n          <h2>{{item.telefone}}</h2>\n          \n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"mail-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.email}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"business-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.nomeIgreja}} </h2> \n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"golf-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.bairro}} - {{item.cidade}} / {{item.uf}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-grid>\n        <ion-row>\n          <ion-col>\n            <ion-button size=\"small\" (click)=\"detalhes(item.usuarioId)\">Detalhes</ion-button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header class=\"ion-no-border\">\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card>\n    <ion-card-content>\n      <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n        <ion-item (click)=\"abrirModalServicos()\" detail>\n          <ion-label>Serviço</ion-label>\n          <ion-note color=\"primary\" slot=\"end\">{{formulario.value.nomeServico}}</ion-note>\n          <ion-note color=\"primary\" slot=\"end\" *ngIf=\"!formulario.value.nomeServico\">Todos</ion-note>\n        </ion-item>\n\n        <ion-item (click)=\"abrirModalUF()\" detail>\n          <ion-label>UF<ion-text color=\"danger\">*</ion-text>\n\n          </ion-label>\n          <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.uf}}</ion-note>\n\n        </ion-item>\n        <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n          [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n        <ion-item (click)=\"abrirModalCidade()\" detail [disabled]=\"!formulario.value.uf\">\n          <ion-label>Cidade<ion-text color=\"danger\">*</ion-text>\n\n          </ion-label>\n          <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.cidade}}</ion-note>\n\n        </ion-item>\n        <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n          [nomeCampo]=\"'cidade'\"></app-mensagem-validacao>\n\n        <ion-item (click)=\"abrirModalBairro()\" detail [disabled]=\"!formulario.value.cidade\">\n          <ion-label>Bairro\n\n          </ion-label>\n          <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.bairro}}</ion-note>\n\n        </ion-item>\n        <ion-item (click)=\"abrirModalIgreja()\" detail [disabled]=\"!formulario.value.cidade\">\n          <ion-label>Igreja\n\n          </ion-label>\n          <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.nomeIgreja}}</ion-note>\n\n        </ion-item>\n\n        <ion-button class=\"primary\" type=\"submit\" expand=\"block\">Pesquisar</ion-button>\n\n      </form>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card *ngFor=\"let item of prestadores\" value=\"{{item}}\" class=\"ion-no-border\">\n  <ion-card-header>\n\n      <ion-card-title><h3>{{item.nome}} </h3>\n        \n     \n        </ion-card-title>\n    </ion-card-header> \n\n      <ion-item (click)=\"ligarTelefone(item.telefone)\"  >\n                <ion-icon name=\"call-outline\" slot=\"start\"></ion-icon>\n        <ion-label color=\"primary\" class=\"ion-no-border\">\n          <h2>{{item.telefone}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-item  class=\"ion-no-border\">\n        <ion-icon name=\"business-outline\" slot=\"start\"></ion-icon>\n        <ion-label class=\"ion-text-wrap on-no-border\">\n          <h2>{{item.nomeIgreja}} </h2>\n        </ion-label>\n        <ion-note color=\"tertiary\" slot=\"end\" *ngIf=\"item.staMembro\">\n         membro \n        </ion-note>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"golf-outline\" slot=\"start\"></ion-icon>\n        <ion-label class=\"ion-text-wrap on-no-border\">\n          <h2>{{item.bairro}} - {{item.cidade}} / {{item.uf}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-grid>\n        <ion-row>\n          <ion-col size=\"4\">\n            <ion-button size=\"small\" (click)=\"detalhes(item.usuarioId)\">Detalhes</ion-button>\n          </ion-col>\n          <!-- <ion-col size=\"4\">\n            <ion-button size=\"small\" (click)=\"compartilhar()\" >\n              <ion-icon name=\"share-social\"></ion-icon></ion-button>\n          </ion-col>\n          <ion-col size=\"4\">\n\n            <ion-button size=\"small\" (click)=\"adicionarFavorito(item.usuarioId)\" fill=\"outline\">\n              <ion-icon name=\"star-outline\"></ion-icon></ion-button>\n          </ion-col> -->\n        </ion-row>\n      </ion-grid>\n    <!-- </ion-card-content> -->\n  </ion-card>\n\n</ion-content>";
     /***/
   },
 
@@ -311,9 +325,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! @ionic-native/call-number/ngx */
     "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! src/app/utils/constants */
+    "./src/app/utils/constants.ts");
+    /* harmony import */
+
+
+    var src_app_providers_favorito_favorito_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! src/app/providers/favorito/favorito.service */
+    "./src/app/providers/favorito/favorito.service.ts");
+    /* harmony import */
+
+
+    var src_app_config__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! src/app/config */
+    "./src/app/config.ts");
 
     var PrestadorConsultarPage = /*#__PURE__*/function () {
-      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router, modalCtrl, callNumber) {
+      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router, modalCtrl, callNumber, favoritoService) {
         _classCallCheck(this, PrestadorConsultarPage);
 
         this.prestadorService = prestadorService;
@@ -325,6 +357,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.router = router;
         this.modalCtrl = modalCtrl;
         this.callNumber = callNumber;
+        this.favoritoService = favoritoService;
         this.validation_messages = {
           'uf': [{
             type: 'required',
@@ -385,7 +418,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this3 = this;
 
           if (!this.formularioValido()) {
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(this.toastCtrl, "Favor preencher campos obrigatórios", "danger", 4000);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(this.toastCtrl, src_app_utils_constants__WEBPACK_IMPORTED_MODULE_18__["Constants"].Mensagens.CamposObrigatorios, "danger", 4000);
             return false;
           }
 
@@ -430,10 +463,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return new Promise(function (result, reject) {
             // Recupera igreja 
-            _this4.recuperaNomeIgreja(lstIgrejaId); // Recupera Nome 
+            _this4.recuperaNomeIgreja(lstIgrejaId).then(function () {
+              result();
+            })["catch"](function (err) {
+              reject(err);
+            }); // Recupera Nome 
 
 
-            _this4.recuperaNomePrestadores(lstusuarioId); // Recupera Servicos
+            _this4.recuperaNomePrestadores(lstusuarioId).then(function () {
+              result();
+            })["catch"](function (err) {
+              reject(err);
+            }); // Recupera Servicos
             //this.recuperaServicosPorPrestadores(lstusuarioId);
 
           });
@@ -464,7 +505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function recuperaNomePrestadores(lstusuarioId) {
           var _this6 = this;
 
-          return new Promise(function () {
+          return new Promise(function (result, reject) {
             _this6.usuarioService.RecuperaNomeUsuarios(lstusuarioId).then(function (usuariosResult) {
               _this6.prestadores.map(function (x) {
                 x.nome = usuariosResult.find(function (y) {
@@ -475,7 +516,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }).data.email;
               });
 
-              _this6.loadingContr.hideLoader();
+              _this6.ionContent.scrollToPoint(0, 350, 800);
+
+              result();
             })["catch"](function (x) {
               src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this6.toastCtrl);
 
@@ -488,17 +531,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function recuperaNomeIgreja(lstIgrejaId) {
           var _this7 = this;
 
-          return new Promise(function () {
+          return new Promise(function (result, reject) {
             _this7.igrejaService.RecuperaNomeIgreja(lstIgrejaId).then(function (resultIgreja) {
               _this7.prestadores.map(function (x) {
                 x.nomeIgreja = resultIgreja.find(function (y) {
                   return y.data.id == x.igrejas[0].igrejaId;
                 }).data.nomeIgreja;
-                x.staMembro = resultIgreja.find(function (y) {
-                  return y.data.id == x.igrejas[0].igrejaId;
-                }).data.staMembro;
+                x.staMembro = x.igrejas[0].staMembro;
               });
+
+              result();
             })["catch"](function (x) {
+              reject(x);
               src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this7.toastCtrl);
 
               _this7.loadingContr.hideLoader();
@@ -628,7 +672,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "formularioValido",
         value: function formularioValido() {
-          return this.formulario.value.uf && this.formulario.value.cidade && this.formulario.value.servicoId;
+          return this.formulario.value.uf && this.formulario.value.cidade;
         }
       }, {
         key: "ligarTelefone",
@@ -638,6 +682,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.callNumber.callNumber(telefone, true).then(function () {})["catch"](function (x) {
             src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this13.toastCtrl);
           });
+        }
+      }, {
+        key: "adicionarPrestadorFavorito",
+        value: function adicionarPrestadorFavorito(usuarioId) {
+          this.favoritoService.AdicionaPrestadorFavorito(usuarioId, src_app_config__WEBPACK_IMPORTED_MODULE_20__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId).then(function () {});
+        }
+      }, {
+        key: "removePrestadorFavorito",
+        value: function removePrestadorFavorito(usuarioId) {
+          this.favoritoService.RemovePrestadorFavorito(usuarioId, src_app_config__WEBPACK_IMPORTED_MODULE_20__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId).then(function () {});
         }
       }]);
 
@@ -663,9 +717,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"]
       }, {
         type: _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_17__["CallNumber"]
+      }, {
+        type: src_app_providers_favorito_favorito_service__WEBPACK_IMPORTED_MODULE_19__["FavoritoService"]
       }];
     };
 
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonContent"])], PrestadorConsultarPage.prototype, "ionContent", void 0);
     PrestadorConsultarPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-prestador-consultar',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -675,6 +732,202 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./prestador-consultar.page.scss */
       "./src/app/pages/prestador/prestador-consultar/prestador-consultar.page.scss"))["default"]]
     })], PrestadorConsultarPage);
+    /***/
+  },
+
+  /***/
+  "./src/app/providers/favorito/favorito.service.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/providers/favorito/favorito.service.ts ***!
+    \********************************************************/
+
+  /*! exports provided: FavoritoService */
+
+  /***/
+  function srcAppProvidersFavoritoFavoritoServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FavoritoService", function () {
+      return FavoritoService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_repository_favorito_favorito_rep_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/repository/favorito/favorito-rep.service */
+    "./src/app/repository/favorito/favorito-rep.service.ts");
+
+    var FavoritoService = /*#__PURE__*/function () {
+      function FavoritoService(favoritoRepService) {
+        _classCallCheck(this, FavoritoService);
+
+        this.favoritoRepService = favoritoRepService;
+      }
+
+      _createClass(FavoritoService, [{
+        key: "AdicionaPrestadorFavorito",
+        value: function AdicionaPrestadorFavorito(prestadorUsuarioId, usuarioId) {
+          return this.favoritoRepService.AdicionaPrestadorFavorito(prestadorUsuarioId, usuarioId);
+        }
+      }, {
+        key: "RemovePrestadorFavorito",
+        value: function RemovePrestadorFavorito(prestadorUsuarioId, usuarioId) {
+          return this.favoritoRepService.RemovePrestadorFavorito(prestadorUsuarioId, usuarioId);
+        }
+      }]);
+
+      return FavoritoService;
+    }();
+
+    FavoritoService.ctorParameters = function () {
+      return [{
+        type: src_app_repository_favorito_favorito_rep_service__WEBPACK_IMPORTED_MODULE_2__["FavoritoRepService"]
+      }];
+    };
+
+    FavoritoService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], FavoritoService);
+    /***/
+  },
+
+  /***/
+  "./src/app/repository/favorito/favorito-rep.service.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/repository/favorito/favorito-rep.service.ts ***!
+    \*************************************************************/
+
+  /*! exports provided: FavoritoRepService */
+
+  /***/
+  function srcAppRepositoryFavoritoFavoritoRepServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FavoritoRepService", function () {
+      return FavoritoRepService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../repository-interface/Repository-Base */
+    "./src/app/repository/repository-interface/Repository-Base.ts");
+
+    var FavoritoRepService = /*#__PURE__*/function (_repository_interface) {
+      _inherits(FavoritoRepService, _repository_interface);
+
+      var _super = _createSuper(FavoritoRepService);
+
+      _createClass(FavoritoRepService, [{
+        key: "AdicionaPrestadorFavorito",
+        value: function AdicionaPrestadorFavorito(prestadorUsuarioId, usuarioId) {
+          var _this14 = this;
+
+          var ref = this.db.collection("favorito").doc(usuarioId);
+          var obj = [{
+            prestadorUsuarioId: prestadorUsuarioId,
+            usuarioId: usuarioId
+          }];
+          return new Promise(function (retorno, reject) {
+            _this14.db.runTransaction(function (transaction) {
+              // This code may get re-run multiple times if there are conflicts.
+              return transaction.get(ref).then(function (doc) {
+                var favorito = doc.data();
+
+                if (!favorito.prestadores) {
+                  favorito.prestadores = [obj];
+                  transaction.set(ref, favorito);
+                } else {
+                  favorito.prestadores = favorito.prestadores.filter(function (y) {
+                    return y.prestadorUsuarioId != prestadorUsuarioId;
+                  });
+                  favorito.prestadores.push(obj);
+                  transaction.update(ref, favorito);
+                }
+              });
+            }).then(function () {
+              retorno();
+            })["catch"](function (error) {
+              reject(error);
+            });
+          });
+        }
+      }, {
+        key: "RemovePrestadorFavorito",
+        value: function RemovePrestadorFavorito(prestadorUsuarioId, usuarioId) {
+          var _this15 = this;
+
+          var ref = this.db.collection("favorito").doc(usuarioId);
+          var obj = [{
+            prestadorUsuarioId: prestadorUsuarioId,
+            usuarioId: usuarioId
+          }];
+          return new Promise(function (retorno, reject) {
+            _this15.db.runTransaction(function (transaction) {
+              // This code may get re-run multiple times if there are conflicts.
+              return transaction.get(ref).then(function (doc) {
+                var prestadores = [];
+                prestadores = doc.data().prestadores;
+                prestadores = prestadores.filter(function (y) {
+                  return y.prestadorUsuarioId != prestadorUsuarioId;
+                });
+                transaction.update(ref, {
+                  prestadores: prestadores
+                });
+              });
+            }).then(function () {
+              retorno();
+            })["catch"](function (error) {
+              reject(error);
+            });
+          });
+        }
+      }]);
+
+      function FavoritoRepService() {
+        _classCallCheck(this, FavoritoRepService);
+
+        return _super.call(this);
+      }
+
+      return FavoritoRepService;
+    }(_repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"]);
+
+    FavoritoRepService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], FavoritoRepService);
     /***/
   }
 }]);
