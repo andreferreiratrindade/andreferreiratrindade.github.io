@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n    <ion-list lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item>\n        <ion-label>Serviço <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-select class=\"ion-text-end\" name=\"servicoId\" formControlName=\"servicoId\" interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of servicos\" selected=\"selected\" value=\"{{item.servicoId}}\">\n            {{ item.nomeServico }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item class=\"input-item\">\n        <ion-label>UF <ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-select class=\"ion-text-end\" name=\"uf\" formControlName=\"uf\" (ionChange)=\"buscarCidades()\"\n          interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of UfList\" value=\"{{item}}\">\n            {{ item }}\n          </ion-select-option>\n        </ion-select>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n        [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Cidade</ion-label>\n        <ion-select class=\"ion-text-end\" name=\"cidade\" formControlName=\"cidade\" [disabled]=\"!formulario.value['uf']\"\n          interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of cidadeList\" selected=\"selected\" value=\"{{item}}\">\n            {{ item }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n        [nomeCampo]=\"'cidade'\"></app-mensagem-validacao>\n\n\n    </ion-list>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" [disabled]=\"!formulario.valid\">Pesquisar</ion-button>\n  </form>\n\n  <ion-card *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n    <ion-card-header>\n      <ion-card-title>{{item.nome}} </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-item>\n        <ion-label>\n          <h2>{{item.telefone}}</h2>\n          <h2>{{item.email}}</h2>\n          <p>{{item.nomeIgreja}}</p>\n          <p>{{item.cidade}} / {{item.uf}}</p>\n        </ion-label>\n      </ion-item>\n      <ion-row>\n        <ion-col>\n          <ion-button  color=\"warning\" (click)=\"detalhes(item.usuarioId)\">\n            <ion-icon name=\"eye-outline\"></ion-icon>\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Consultar Prestador\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"ConsultarPrestador()\">\n    <ion-list lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item (click)=\"abrirModalServicos()\" detail>\n        <ion-label>Serviço<ion-text color=\"danger\">*</ion-text>\n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">{{formulario.value.nomeServico}}</ion-note>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.servico\" [form]=\"formulario\"\n        [nomeCampo]=\"'servico'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalUF()\" detail>\n        <ion-label>UF<ion-text color=\"danger\">*</ion-text>\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.uf}}</ion-note>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.uf\" [form]=\"formulario\"\n        [nomeCampo]=\"'uf'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalCidade()\" detail [disabled]=\"!formulario.value.uf\">\n        <ion-label>Cidade<ion-text color=\"danger\">*</ion-text>\n          \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\"> {{formulario.value.cidade}}</ion-note>\n\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cidade\" [form]=\"formulario\"\n        [nomeCampo]=\"'cidade'\"></app-mensagem-validacao>\n\n      <ion-item (click)=\"abrirModalBairro()\" detail [disabled]=\"!formulario.value.cidade\">\n        <ion-label>Bairro\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">  {{formulario.value.bairro}}</ion-note>\n\n      </ion-item>\n      <ion-item (click)=\"abrirModalIgreja()\" detail [disabled]=\"!formulario.value.cidade\">\n        <ion-label>Igreja\n         \n        </ion-label>\n        <ion-note slot=\"end\" color=\"primary\">  {{formulario.value.nomeIgreja}}</ion-note>\n\n      </ion-item>\n\n    </ion-list>\n    <div class=\"error-container\" *ngIf=\"submitError\">\n      <div class=\"error-message\">\n        <ion-icon name=\"information-circle-outline\"></ion-icon>\n        <span>{{ submitError }}</span>\n      </div>\n    </div>\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\">Pesquisar</ion-button>\n  </form>\n\n  <ion-card *ngFor=\"let item of prestadores\" value=\"{{item}}\">\n    <ion-card-header>\n      <ion-card-title>{{item.nome}}  <span *ngIf=\"item.staMembro\"><ion-icon name=\"cube-outline\" ></ion-icon></span> </ion-card-title>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-item (click)=\"ligarTelefone(item.telefone)\">\n        <ion-icon name=\"call-outline\" slot=\"start\"></ion-icon>\n        <ion-label color=\"primary\">\n          <h2>{{item.telefone}}</h2>\n          \n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"mail-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.email}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"business-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.nomeIgreja}} </h2> \n        </ion-label>\n      </ion-item>\n      <ion-item>\n        <ion-icon name=\"golf-outline\" slot=\"start\"></ion-icon>\n        <ion-label>\n          <h2>{{item.bairro}} - {{item.cidade}} / {{item.uf}}</h2>\n        </ion-label>\n      </ion-item>\n      <ion-grid>\n        <ion-row>\n          <ion-col>\n            <ion-button size=\"small\" (click)=\"detalhes(item.usuarioId)\">Detalhes</ion-button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>";
     /***/
   },
 
@@ -275,9 +275,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! src/app/helpers/toastCustom */
     "./src/app/helpers/toastCustom.ts");
+    /* harmony import */
+
+
+    var _servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ../../servico/modal-servicos/modal-servicos.page */
+    "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts");
+    /* harmony import */
+
+
+    var _bairro_modal_bairro_modal_bairro_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! ../../bairro/modal-bairro/modal-bairro.page */
+    "./src/app/pages/bairro/modal-bairro/modal-bairro.page.ts");
+    /* harmony import */
+
+
+    var _cidade_modal_cidade_modal_cidade_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ../../cidade/modal-cidade/modal-cidade.page */
+    "./src/app/pages/cidade/modal-cidade/modal-cidade.page.ts");
+    /* harmony import */
+
+
+    var _UF_modal_uf_modal_uf_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! ../../UF/modal-uf/modal-uf.page */
+    "./src/app/pages/UF/modal-uf/modal-uf.page.ts");
+    /* harmony import */
+
+
+    var _igreja_modal_igreja_modal_igreja_page__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ../../igreja/modal-igreja/modal-igreja.page */
+    "./src/app/pages/igreja/modal-igreja/modal-igreja.page.ts");
+    /* harmony import */
+
+
+    var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! @ionic-native/call-number/ngx */
+    "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
 
     var PrestadorConsultarPage = /*#__PURE__*/function () {
-      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router) {
+      function PrestadorConsultarPage(prestadorService, toastCtrl, igrejaService, usuarioService, loadingContr, dominioServicoService, router, modalCtrl, callNumber) {
         _classCallCheck(this, PrestadorConsultarPage);
 
         this.prestadorService = prestadorService;
@@ -287,6 +323,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.loadingContr = loadingContr;
         this.dominioServicoService = dominioServicoService;
         this.router = router;
+        this.modalCtrl = modalCtrl;
+        this.callNumber = callNumber;
         this.validation_messages = {
           'uf': [{
             type: 'required',
@@ -300,7 +338,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.formulario = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
           'uf': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])),
           'cidade': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
-          'servicoId': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]))
+          'bairro': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+          'nomeServico': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+          'nomeIgreja': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+          'igrejaId': new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]()
         });
         this.prestadores = [];
       }
@@ -311,15 +352,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.loadingContr.showLoader();
-          this.prestadorService.RecuperaUfPrestadorDisponiveis().then(function (result) {
-            _this.UfList = result;
-
-            _this.loadingContr.hideLoader();
-          })["catch"](function (x) {
-            _this.loadingContr.hideLoader();
-
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this.toastCtrl);
-          });
           this.dominioServicoService.recuperaDominioServico().then(function (result) {
             _this.servicos = result;
 
@@ -352,10 +384,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ConsultarPrestador() {
           var _this3 = this;
 
-          this.loadingContr.showLoader();
+          if (!this.formularioValido()) {
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(this.toastCtrl, "Favor preencher campos obrigatórios", "danger", 4000);
+            return false;
+          }
+
           this.prestadores = [];
-          this.prestadorService.RecuperaPestadoresPorCidadeEhUFEhServico(this.formulario.value['uf'], this.formulario.value['cidade'], this.formulario.value['servicoId']).then(function (prestadoresResult) {
-            if (!prestadoresResult) {
+          this.loadingContr.showLoader();
+          this.prestadorService.RecuperaPestadoresPesquisar(this.formulario.value['uf'], this.formulario.value['cidade'], this.formulario.value['bairro'], this.formulario.value['servicoId'], this.formulario.value.igrejaId).then(function (prestadoresResult) {
+            if (!prestadoresResult || prestadoresResult.length == 0) {
               src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_11__["ToastCustom"].CustomToast(_this3.toastCtrl, "Nenhum prestador encontrado.", "danger", 4000);
 
               _this3.loadingContr.hideLoader();
@@ -457,6 +494,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 x.nomeIgreja = resultIgreja.find(function (y) {
                   return y.data.id == x.igrejas[0].igrejaId;
                 }).data.nomeIgreja;
+                x.staMembro = resultIgreja.find(function (y) {
+                  return y.data.id == x.igrejas[0].igrejaId;
+                }).data.staMembro;
               });
             })["catch"](function (x) {
               src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this7.toastCtrl);
@@ -472,6 +512,131 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             queryParams: {
               usuarioId: usuarioId
             }
+          });
+        }
+      }, {
+        key: "abrirModalServicos",
+        value: function abrirModalServicos() {
+          var _this8 = this;
+
+          var modal = this.modalCtrl.create({
+            component: _servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_12__["ModalServicosPage"],
+            componentProps: {
+              servicos: this.servicos
+            },
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              if (resultModal) {
+                _this8.formulario.value.nomeServico = resultModal.data.nomeServico;
+                _this8.formulario.value.servicoId = resultModal.data.servicoId;
+              }
+            });
+          });
+        }
+      }, {
+        key: "abrirModalUF",
+        value: function abrirModalUF() {
+          var _this9 = this;
+
+          var modal = this.modalCtrl.create({
+            component: _UF_modal_uf_modal_uf_page__WEBPACK_IMPORTED_MODULE_15__["ModalUFPage"],
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              if (resultModal) {
+                _this9.formulario.value.uf = resultModal.data;
+                _this9.formulario.value.cidade = null;
+                _this9.formulario.value.bairro = null;
+                _this9.formulario.value.nomeIgreja = null;
+                _this9.formulario.value.igrejaId = null;
+              }
+            });
+          });
+        }
+      }, {
+        key: "abrirModalCidade",
+        value: function abrirModalCidade() {
+          var _this10 = this;
+
+          var modal = this.modalCtrl.create({
+            component: _cidade_modal_cidade_modal_cidade_page__WEBPACK_IMPORTED_MODULE_14__["ModalCidadePage"],
+            componentProps: {
+              uf: this.formulario.value.uf
+            },
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              if (resultModal) {
+                _this10.formulario.value.cidade = resultModal.data;
+                _this10.formulario.value.bairro = null;
+                _this10.formulario.value.nomeIgreja = null;
+                _this10.formulario.value.igrejaId = null;
+              }
+            });
+          });
+        }
+      }, {
+        key: "abrirModalBairro",
+        value: function abrirModalBairro() {
+          var _this11 = this;
+
+          var modal = this.modalCtrl.create({
+            component: _bairro_modal_bairro_modal_bairro_page__WEBPACK_IMPORTED_MODULE_13__["ModalBairroPage"],
+            componentProps: {
+              uf: this.formulario.value.uf,
+              cidade: this.formulario.value.cidade
+            },
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              if (resultModal) {
+                _this11.formulario.value.bairro = resultModal.data;
+                _this11.formulario.value.nomeIgreja = null;
+                _this11.formulario.value.igrejaId = null;
+              }
+            });
+          });
+        }
+      }, {
+        key: "abrirModalIgreja",
+        value: function abrirModalIgreja() {
+          var _this12 = this;
+
+          var modal = this.modalCtrl.create({
+            component: _igreja_modal_igreja_modal_igreja_page__WEBPACK_IMPORTED_MODULE_16__["ModalIgrejaPage"],
+            componentProps: {
+              uf: this.formulario.value.uf,
+              cidade: this.formulario.value.cidade,
+              bairro: this.formulario.value.bairro
+            },
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              if (resultModal) {
+                _this12.formulario.value.nomeIgreja = resultModal.data.nomeIgreja;
+                _this12.formulario.value.igrejaId = resultModal.data.id;
+              }
+            });
+          });
+        }
+      }, {
+        key: "formularioValido",
+        value: function formularioValido() {
+          return this.formulario.value.uf && this.formulario.value.cidade && this.formulario.value.servicoId;
+        }
+      }, {
+        key: "ligarTelefone",
+        value: function ligarTelefone(telefone) {
+          var _this13 = this;
+
+          this.callNumber.callNumber(telefone, true).then(function () {})["catch"](function (x) {
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_4__["HandlerError"].handler(x, _this13.toastCtrl);
           });
         }
       }]);
@@ -494,6 +659,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_providers_dominioServico_dominio_servico_service__WEBPACK_IMPORTED_MODULE_9__["DominioServicoService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"]
+      }, {
+        type: _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_17__["CallNumber"]
       }];
     };
 

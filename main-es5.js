@@ -426,9 +426,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'modal-dominio-servicos',
       loadChildren: function loadChildren() {
-        return Promise.all(
+        return __webpack_require__.e(
         /*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */
-        [__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module")]).then(__webpack_require__.bind(null,
+        "pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module").then(__webpack_require__.bind(null,
         /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */
         "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(function (m) {
           return m.ModalDominioServicosPageModule;
@@ -454,6 +454,61 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /*! ./pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module */
         "./src/app/pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module.ts")).then(function (m) {
           return m.ConsultarPrestadorAdmPageModule;
+        });
+      }
+    }, {
+      path: 'modal-servicos',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-servico-modal-servicos-modal-servicos-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-servico-modal-servicos-modal-servicos-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/servico/modal-servicos/modal-servicos.module */
+        "./src/app/pages/servico/modal-servicos/modal-servicos.module.ts")).then(function (m) {
+          return m.ModalServicosPageModule;
+        });
+      }
+    }, {
+      path: 'modal-cidade',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-cidade-modal-cidade-modal-cidade-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-cidade-modal-cidade-modal-cidade-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/cidade/modal-cidade/modal-cidade.module */
+        "./src/app/pages/cidade/modal-cidade/modal-cidade.module.ts")).then(function (m) {
+          return m.ModalCidadePageModule;
+        });
+      }
+    }, {
+      path: 'modal-bairro',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-bairro-modal-bairro-modal-bairro-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-bairro-modal-bairro-modal-bairro-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/bairro/modal-bairro/modal-bairro.module */
+        "./src/app/pages/bairro/modal-bairro/modal-bairro.module.ts")).then(function (m) {
+          return m.ModalBairroPageModule;
+        });
+      }
+    }, {
+      path: 'modal-uf',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-UF-modal-uf-modal-uf-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-UF-modal-uf-modal-uf-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/UF/modal-uf/modal-uf.module */
+        "./src/app/pages/UF/modal-uf/modal-uf.module.ts")).then(function (m) {
+          return m.ModalUFPageModule;
+        });
+      }
+    }, {
+      path: 'modal-igreja',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-igreja-modal-igreja-modal-igreja-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-igreja-modal-igreja-modal-igreja-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/igreja/modal-igreja/modal-igreja.module */
+        "./src/app/pages/igreja/modal-igreja/modal-igreja.module.ts")).then(function (m) {
+          return m.ModalIgrejaPageModule;
         });
       }
     }];
@@ -829,6 +884,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var firebase__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_20__);
+    /* harmony import */
+
+
+    var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! @ionic-native/call-number/ngx */
+    "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
 
     firebase__WEBPACK_IMPORTED_MODULE_20__["initializeApp"](src_environments_environment__WEBPACK_IMPORTED_MODULE_13__["environment"].firebase);
 
@@ -842,7 +903,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       imports: [br_mask__WEBPACK_IMPORTED_MODULE_7__["BrMaskerModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_18__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_18__["ReactiveFormsModule"], _angular_http__WEBPACK_IMPORTED_MODULE_17__["HttpModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot({
         mode: 'ios'
       }), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_14__["ComponentsModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_10__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_13__["environment"].firebase), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuthModule"], angularfire2_firestore__WEBPACK_IMPORTED_MODULE_19__["AngularFirestoreModule"]],
-      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_16__["BuscarCEPService"], _providers_base_provider_base_provider__WEBPACK_IMPORTED_MODULE_15__["BaseProvider"], _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_12__["FirebaseAuthService"], {
+      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_16__["BuscarCEPService"], _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_21__["CallNumber"], _providers_base_provider_base_provider__WEBPACK_IMPORTED_MODULE_15__["BaseProvider"], _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_12__["FirebaseAuthService"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],
@@ -2250,6 +2311,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.prestadorRepService.RecuperaPrestador(usuarioId);
         }
       }, {
+        key: "RecuperaBairroPrestadorDisponiveis",
+        value: function RecuperaBairroPrestadorDisponiveis(uf, cidade) {
+          return this.prestadorRepService.RecuperaBairroPrestadorDisponiveis(uf, cidade);
+        }
+      }, {
         key: "RecuperaUfPrestadorDisponiveis",
         value: function RecuperaUfPrestadorDisponiveis() {
           return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
@@ -2260,9 +2326,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.prestadorRepService.AdicionaPrestador(prestador);
         }
       }, {
-        key: "RecuperaPestadoresPorCidadeEhUFEhServico",
-        value: function RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
-          return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId);
+        key: "RecuperaPestadoresPesquisar",
+        value: function RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId) {
+          return this.prestadorRepService.RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId);
         }
       }, {
         key: "RecuperaCidadePrestadorDisponiveis",
@@ -2355,6 +2421,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(UsuarioService, [{
+        key: "RecuperaUsuarioPorEmail",
+        value: function RecuperaUsuarioPorEmail(emailAdministrador) {
+          return this.usuarioRepository.find({
+            elemento: "email",
+            tipoComparacao: "==",
+            comparacao: emailAdministrador
+          });
+        }
+      }, {
         key: "AdicionarUsuario",
         value: function AdicionarUsuario(item) {
           return this.usuarioRepository.add(item, item.usuarioId);
@@ -2499,11 +2574,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ExcluirServico(usuarioId, servicoId) {
           var _this10 = this;
 
+          var ref = this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId);
           return new Promise(function (retorno, reject) {
-            return _this10.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servicoId)["delete"]().then(function (result) {
-              retorno(result);
-            })["catch"](function (err) {
-              reject(err);
+            _this10.db.runTransaction(function (transaction) {
+              // This code may get re-run multiple times if there are conflicts.
+              return transaction.get(ref).then(function (doc) {
+                var servicos = [];
+                servicos = doc.data().servicos;
+                servicos = servicos.filter(function (y) {
+                  return y.servicoId != servicoId;
+                });
+                transaction.update(ref, {
+                  servicos: servicos
+                });
+              });
+            }).then(function () {
+              retorno();
+            })["catch"](function (error) {
+              reject(error);
             });
           });
         }
@@ -2525,13 +2613,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function AdicionaServicoAoPrestador(usuarioId, servico) {
           var _this12 = this;
 
+          var ref = this.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId);
           return new Promise(function (retorno, reject) {
-            return _this12.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").doc(servico.servicoId).set(Object.assign({}, servico), {
-              merge: true
-            }).then(function (result) {
-              retorno(result);
-            })["catch"](function (err) {
-              reject(err);
+            _this12.db.runTransaction(function (transaction) {
+              // This code may get re-run multiple times if there are conflicts.
+              return transaction.get(ref).then(function (doc) {
+                var prestador = doc.data();
+
+                if (!prestador.servicos) {
+                  prestador.servicos = [servico];
+                  transaction.set(ref, prestador);
+                } else {
+                  debugger;
+
+                  var _prestador = doc.data();
+
+                  _prestador.servicos = _prestador.servicos.filter(function (y) {
+                    return y.servicoId != servico.servicoId;
+                  });
+
+                  _prestador.servicos.push(servico);
+
+                  transaction.update(ref, _prestador);
+                }
+              });
+            }).then(function () {
+              retorno();
+            })["catch"](function (error) {
+              reject(error);
             });
           });
         }
@@ -2571,11 +2680,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this15 = this;
 
           return new Promise(function (resolve, reject) {
-            _this15.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).collection("servico").get().then(function (result) {
+            _this15.db.collection("usuario").doc(usuarioId).collection("prestador").doc(usuarioId).get().then(function (result) {
               var lst = [];
-              result.forEach(function (doc) {
-                lst.push(doc.data());
-              });
+
+              if (result.data().servicos && result.data().servicos.length > 0) {
+                result.data().servicos.forEach(function (doc) {
+                  lst.push(doc);
+                });
+              }
+
               resolve(lst);
             })["catch"](function (err) {
               reject(err);
@@ -2583,29 +2696,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        key: "RecuperaPestadoresPorCidadeEhUFEhServico",
-        value: function RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
+        key: "RecuperaPestadoresPesquisar",
+        value: function RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId) {
           var _this16 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this16.db.collectionGroup("servico").where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao).where("uf", "==", ufSelecionado);
+            var query = _this16.db.collectionGroup("prestador").where("uf", "==", ufSelecionado).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao);
 
             if (cidadeSelecionado) {
               query = query.where("cidade", "==", cidadeSelecionado);
-            } // debugger
-
-
-            if (servicoId) {
-              query = query.where("servicoId", "==", servicoId);
             }
+
+            if (bairro) {
+              query = query.where("bairro", "==", bairro);
+            } // if (servicoId) {
+            //     query = query.whereArrayContains("servicos", "array-contains", servicoId);
+            // }
+
 
             query.get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
-                lst.push(doc.data());
+                if (doc.data().servicos) {
+                  var servicosTemp = doc.data().servicos.filter(function (y) {
+                    return y.servicoId == servicoId;
+                  });
+
+                  if (servicosTemp.length > 0) {
+                    var prestador = doc.data();
+
+                    if (igrejaId) {
+                      if (prestador.igrejas.filter(function (y) {
+                        return y.igrejaId == igrejaId;
+                      }).length > 0) {
+                        lst.push(prestador);
+                      }
+                    } else {
+                      lst.push(prestador);
+                    }
+                  }
+                }
               });
               resolve(lst);
             })["catch"](function (err) {
+              console.log(err);
               reject(err);
             });
           });
@@ -2649,13 +2783,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "RecuperaBairroPrestadorDisponiveis",
+        value: function RecuperaBairroPrestadorDisponiveis(uf, cidade) {
+          var _this19 = this;
+
+          return new Promise(function (resolve, reject) {
+            _this19.db.collectionGroup("prestador").where("uf", "==", uf).where("cidade", "==", cidade).where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                if (!lst.includes(doc.data().bairro)) {
+                  lst.push(doc.data().bairro);
+                }
+              });
+              resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
+        }
+      }, {
         key: "AdicionaPrestador",
         value: function AdicionaPrestador(prestador) {
-          var _this19 = this;
+          var _this20 = this;
 
           console.log(prestador);
           return new Promise(function (resolve, reject) {
-            _this19.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador)).then(function (obj) {
+            _this20.db.collection("usuario").doc(prestador.usuarioId).collection("prestador").doc(prestador.usuarioId).set(Object.assign({}, prestador)).then(function (obj) {
               resolve(obj);
             })["catch"](function (err) {
               reject(err);
@@ -2714,13 +2867,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        *
        */
       function BaseRepository() {
-        var _this20 = this;
+        var _this21 = this;
 
         _classCallCheck(this, BaseRepository);
 
         // success
         this.addCollection = function (item) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this21, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
@@ -2737,7 +2890,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.update = function (documentName, item) {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this20, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this21, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -2759,12 +2912,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(BaseRepository, [{
         key: "add",
         value: function add(item, id) {
-          var _this21 = this;
+          var _this22 = this;
 
           var idTemp = id ? id : this.db.collection(this._collectionName).doc().id;
           item.id = idTemp;
           return new Promise(function (resolve, reject) {
-            _this21.db.collection(_this21._collectionName).doc(idTemp).set(Object.assign({}, item)).then(function (obj) {
+            _this22.db.collection(_this22._collectionName).doc(idTemp).set(Object.assign({}, item)).then(function (obj) {
               resolve(obj);
             })["catch"](function (error) {
               reject(error);
@@ -2775,10 +2928,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "find",
         value: function find(filter) {
-          var _this22 = this;
+          var _this23 = this;
 
           return new Promise(function (resolve, reject) {
-            var ref = _this22.db.collection(_this22._collectionName).where(filter.elemento, filter.tipoComparacao, filter.comparacao).get().then(function (result) {
+            var ref = _this23.db.collection(_this23._collectionName).where(filter.elemento, filter.tipoComparacao, filter.comparacao).get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({
@@ -2788,17 +2941,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
               resolve(lst);
             })["catch"](function (error) {
-              console.log("Error getting documents: ", error);
+              reject(error);
             });
           });
         }
       }, {
         key: "findOne",
         value: function findOne(id) {
-          var _this23 = this;
+          var _this24 = this;
 
           return new Promise(function (resolve, reject) {
-            _this23.db.collection(_this23._collectionName).doc(id).get().then(function (result) {
+            _this24.db.collection(_this24._collectionName).doc(id).get().then(function (result) {
               resolve(result.data());
             });
           });
@@ -2886,13 +3039,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super2 = _createSuper(UsuarioRepService);
 
       function UsuarioRepService() {
-        var _this24;
+        var _this25;
 
         _classCallCheck(this, UsuarioRepService);
 
-        _this24 = _super2.call(this);
-        _this24._collectionName = "usuario";
-        return _this24;
+        _this25 = _super2.call(this);
+        _this25._collectionName = "usuario";
+        return _this25;
       }
 
       return UsuarioRepService;

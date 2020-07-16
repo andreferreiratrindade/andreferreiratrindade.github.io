@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Dados Iniciais \n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n\n  <form [formGroup]=\"form1\" (ngSubmit)=\"SalvarForm1()\">\n    <ion-list  lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Razão Social <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"text\"  formControlName=\"razaoSocial\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.razaoSocial\" [form]=\"form1\"\n      [nomeCampo]=\"'razaoSocial'\"></app-mensagem-validacao>\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">CPF / CNPJ <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"number\" [brmasker]=\"{person: true}\" formControlName=\"cpfcnpj\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cpfcnpj\" [form]=\"form1\"\n      [nomeCampo]=\"'cpfcnpj'\"></app-mensagem-validacao>\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\" >Telefone <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"number\"  [brmasker]=\"{phone: true}\" formControlName=\"telefone\" clearInput autocapitalize=\"off\" ></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.telefone\" [form]=\"form1\"\n      [nomeCampo]=\"'telefone'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep <ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-input type=\"number\" maxlength=\"8\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"form1\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n       \n        <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n          <ion-label>Buscar Endereço</ion-label>\n          <ion-icon name=\"search-outline\"></ion-icon>\n        </ion-chip>\n        <ion-item class=\"input-item\">\n          <ion-label class=\"ion-text-wrap\" *ngIf=\"prestador.logradouro\">\n            <p>{{prestador.logradouro}}, {{prestador.bairro}} -  {{prestador.cidade}}  / {{prestador.uf}}</p>\n          </ion-label>\n        </ion-item>\n        <!-- <ion-button class=\"ion-align-self-end\" position=\"right\" color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [disabled]=\"!form1.value['cep']\">Buscar endereço</ion-button> -->\n    \n      <ion-item>\n        <ion-label>Igreja Vinculo <ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-select class=\"ion-text-end\" name=\"igrejaVinculo\" formControlName=\"igrejaVinculo\"  [disabled]=\"!igrejas.length>0\"  interface=\"action-sheet\">\n          <ion-select-option *ngFor=\"let item of igrejas\" value=\"{{item.id}}\">\n              {{ item.nomeIgreja }}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.igrejaVinculo\" [form]=\"form1\"\n      [nomeCampo]=\"'igrejaVinculo'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Membro da Igreja vinculada</ion-label>\n        <ion-toggle  name=\"staMembro\" formControlName=\"staMembro\" \n         checked [disabled]=\"!form1.value['igrejaVinculo']\"></ion-toggle>\n      </ion-item>\n    </ion-list>\n\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" >Prosseguir</ion-button>\n  </form>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Dados Iniciais \n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content fullscreen>\n\n  <form [formGroup]=\"form1\" (ngSubmit)=\"SalvarForm1()\">\n    <ion-list  lines=\"full\" class=\"ion-no-margin ion-no-padding\">\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Razão Social <ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"text\"  formControlName=\"razaoSocial\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.razaoSocial\" [form]=\"form1\"\n      [nomeCampo]=\"'razaoSocial'\"></app-mensagem-validacao>\n     \n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\" >Telefone<ion-text color=\"danger\">*</ion-text></ion-label>\n\n        <ion-input type=\"number\"  [brmasker]=\"{phone: true}\" formControlName=\"telefone\" clearInput autocapitalize=\"off\" ></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.telefone\" [form]=\"form1\"\n      [nomeCampo]=\"'telefone'\"></app-mensagem-validacao>\n\n      <ion-item class=\"input-item\">\n        <ion-label position=\"floating\">Cep<ion-text color=\"danger\">*</ion-text></ion-label>\n        <ion-input type=\"number\" maxlength=\"8\" formControlName=\"cep\" clearInput autocapitalize=\"off\"></ion-input>\n      </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.cep\" [form]=\"form1\"\n        [nomeCampo]=\"'cep'\"></app-mensagem-validacao>\n       \n        <ion-chip color=\"tertiary\" (click)=\"submitError='';buscarEnderecoPorCEP()\" size=\"6\">\n          <ion-label>Buscar Endereço</ion-label>\n          <ion-icon name=\"search-outline\"></ion-icon>\n        </ion-chip>\n        <ion-item class=\"input-item\">\n          <ion-label class=\"ion-text-wrap\" *ngIf=\"prestador.logradouro\">\n            <p>{{prestador.logradouro}}, {{prestador.bairro}} -  {{prestador.cidade}}  / {{prestador.uf}}</p>\n          </ion-label>\n        </ion-item>\n        <!-- <ion-button class=\"ion-align-self-end\" position=\"right\" color=\"tertiary\" type=\"button\" (click)=\"submitError='';buscarEnderecoPorCEP()\" [disabled]=\"!form1.value['cep']\">Buscar endereço</ion-button> -->\n    \n        <ion-item (click)=\"abrirModalIgreja()\" detail [disabled]=\"!prestador.cidade\">\n          <ion-label>Igreja<ion-text color=\"danger\">*</ion-text>\n           \n          </ion-label>\n          <ion-note slot=\"end\" color=\"primary\">  {{form1.value.nomeIgreja}}</ion-note>\n  \n        </ion-item>\n      <app-mensagem-validacao [validation_messages_object]=\"validation_messages.igrejaId\" [form]=\"form1\"\n      [nomeCampo]=\"'igrejaId'\"></app-mensagem-validacao>\n\n      <ion-item>\n        <ion-label>Membro da Igreja vinculada</ion-label>\n        <ion-toggle  name=\"staMembro\" formControlName=\"staMembro\" \n          [disabled]=\"!form1.value.igrejaId\"></ion-toggle>\n      </ion-item>\n    </ion-list>\n\n    <ion-button class=\"sign-up-btn\" type=\"submit\" expand=\"block\" >Prosseguir</ion-button>\n  </form>\n</ion-content>");
 
 /***/ }),
 
@@ -139,6 +139,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
 /* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
+/* harmony import */ var src_app_pages_igreja_modal_igreja_modal_igreja_page__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/pages/igreja/modal-igreja/modal-igreja.page */ "./src/app/pages/igreja/modal-igreja/modal-igreja.page.ts");
+
 
 
 
@@ -154,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
-    constructor(usuarioService, igrejaService, router, toastCtrl, ngZone, prestadorService, buscarCEPService, loadingContr) {
+    constructor(usuarioService, igrejaService, router, toastCtrl, ngZone, prestadorService, buscarCEPService, loadingContr, modalCtrl) {
         this.usuarioService = usuarioService;
         this.igrejaService = igrejaService;
         this.router = router;
@@ -163,15 +165,13 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
         this.prestadorService = prestadorService;
         this.buscarCEPService = buscarCEPService;
         this.loadingContr = loadingContr;
+        this.modalCtrl = modalCtrl;
         this.prestador = {};
         this.validation_messages = {
-            'cpfcnpj': [
-                { type: 'required', message: 'Campo de preenchimento obrigatório.' },
-            ],
             'telefone': [
                 { type: 'required', message: 'Campo de preenchimento obrigatório.' },
             ],
-            'igrejaVinculo': [
+            'igrejaId': [
                 { type: 'required', message: 'Campo de preenchimento obrigatório.' },
             ],
             'cep': [
@@ -182,9 +182,6 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
             ]
         };
         this.form1 = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            'cpfcnpj': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
-            ])),
             'telefone': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
             ])),
@@ -194,14 +191,16 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
             'razaoSocial': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
             ])),
-            'igrejaVinculo': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+            'igrejaId': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
             ])),
-            'staMembro': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([]))
+            'nomeIgreja': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
+            ])),
+            'staMembro': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({ value: false }, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([]))
         });
         this.igrejas = [];
-        this.form1.value.staMembro = true;
-        this.form1.value["staMembro"] = true;
+        this.form1.controls['staMembro'].setValue(true);
     }
     ngOnInit() {
     }
@@ -258,7 +257,7 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
             return false;
         }
         this.loadingContr.showLoader();
-        this.prestador.igrejas = [{ igrejaId: this.form1.value['igrejaVinculo'], staMembro: this.form1.value['staMembro'] }];
+        this.prestador.igrejas = [{ igrejaId: this.form1.value['igrejaId'], staMembro: this.form1.value['staMembro'] }];
         this.prestador.usuarioId = src_app_config__WEBPACK_IMPORTED_MODULE_9__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId;
         this.prestador.situacaoPrestador = src_app_utils_constants__WEBPACK_IMPORTED_MODULE_11__["Constants"].TipoSituacaoPrestador.Form2;
         let obj = this.MontaPrestadorParaSalvar(this.prestador, this.form1);
@@ -277,13 +276,33 @@ let PrestadorCadastroForm1Page = class PrestadorCadastroForm1Page {
     }
     MontaPrestadorParaSalvar(prestador, formulario) {
         let obj = prestador;
-        obj.cpfcnpj = formulario.value['cpfcnpj'];
         obj.telefone = formulario.value['telefone'];
         obj.razaoSocial = formulario.value['razaoSocial'];
         return obj;
     }
     updateToggleSet(obj) {
         console.log(this.form1.value['staMembro'].value);
+    }
+    abrirModalIgreja() {
+        const modal = this.modalCtrl.create({
+            component: src_app_pages_igreja_modal_igreja_modal_igreja_page__WEBPACK_IMPORTED_MODULE_14__["ModalIgrejaPage"],
+            componentProps: {
+                uf: this.prestador.uf,
+                cidade: this.prestador.cidade,
+                bairro: this.prestador.bairro
+            },
+            backdropDismiss: false,
+        }).then((modal) => {
+            modal.present();
+            modal.onWillDismiss().then(resultModal => {
+                if (resultModal) {
+                    this.form1.controls['nomeIgreja'].setValue(resultModal.data.nomeIgreja);
+                    this.form1.controls['igrejaId'].setValue(resultModal.data.id);
+                    // this.form1.value.nomeIgreja = resultModal.data.nomeIgreja;
+                    // this.form1.value.igrejaId = resultModal.data.id;
+                }
+            });
+        });
     }
 };
 PrestadorCadastroForm1Page.ctorParameters = () => [
@@ -294,7 +313,8 @@ PrestadorCadastroForm1Page.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
     { type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_10__["PrestadorService"] },
     { type: src_app_providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_5__["BuscarCEPService"] },
-    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_12__["LoadingContr"] }
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_12__["LoadingContr"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"] }
 ];
 PrestadorCadastroForm1Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

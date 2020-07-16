@@ -248,33 +248,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _modal_dominio_servicos_modal_dominio_servicos_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ../modal-dominio-servicos/modal-dominio-servicos.page */
-    "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.ts");
-    /* harmony import */
-
-
-    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/helpers/handlerError */
     "./src/app/helpers/handlerError.ts");
     /* harmony import */
 
 
-    var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/helpers/toastCustom */
     "./src/app/helpers/toastCustom.ts");
     /* harmony import */
 
 
-    var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! src/app/utils/constants */
     "./src/app/utils/constants.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! src/app/pages/servico/modal-servicos/modal-servicos.page */
+    "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts");
 
     var PrestadorCadastroForm2Page = /*#__PURE__*/function () {
       function PrestadorCadastroForm2Page(dominioServicoService, loadingContr, prestadorService, modalCtrl, toastCtrl, alertController, ngZone, router) {
@@ -300,6 +300,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.prestadorServicos = result;
 
             _this.dominioServicoService.recuperaDominioServico().then(function (x) {
+              _this.dominioServicos = x;
+
               _this.prestadorServicos.map(function (listItem) {
                 var _a;
 
@@ -312,142 +314,102 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
 
               _this.loadingContr.hideLoader();
+
+              if (_this.prestadorServicos.length == 0) {
+                _this.abreModalSelecionaServico();
+              }
             });
           })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this.toastCtrl);
 
             _this.loadingContr.hideLoader();
           });
         }
       }, {
-        key: "recuperaListagemDominioService",
-        value: function recuperaListagemDominioService() {
-          var _this2 = this;
-
-          this.loadingContr.showLoader();
-          this.dominioServicoService.recuperaDominioServico().then(function (x) {
-            _this2.dominioServicos = x;
-
-            _this2.loadingContr.hideLoader();
-          })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this2.toastCtrl);
-
-            _this2.loadingContr.hideLoader();
-          });
-        }
-      }, {
         key: "abreModalSelecionaServico",
         value: function abreModalSelecionaServico() {
-          var _this3 = this;
+          var _this2 = this;
 
-          this.loadingContr.showLoader();
-          this.dominioServicoService.recuperaDominioServico().then(function (x) {
-            _this3.loadingContr.hideLoader();
+          var modal = this.modalCtrl.create({
+            component: src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__["ModalServicosPage"],
+            componentProps: {
+              servicos: this.dominioServicos
+            },
+            backdropDismiss: false
+          }).then(function (modal) {
+            modal.present();
+            modal.onWillDismiss().then(function (resultModal) {
+              _this2.servicoAdicionado = resultModal.data;
 
-            var modal = _this3.modalCtrl.create({
-              component: _modal_dominio_servicos_modal_dominio_servicos_page__WEBPACK_IMPORTED_MODULE_7__["ModalDominioServicosPage"],
-              componentProps: {
-                servicos: x
-              },
-              backdropDismiss: false
-            }).then(function (modal) {
-              modal.present();
-              modal.onWillDismiss().then(function (resultModal) {
-                _this3.loadingContr.showLoader();
+              if (_this2.servicoAdicionado) {
+                _this2.loadingContr.showLoader();
 
-                _this3.servicoAdicionado = resultModal.data;
+                _this2.prestadorService.AdicionaServicoAoPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, {
+                  servicoId: _this2.servicoAdicionado.servicoId,
+                  usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId
+                }).then(function (result) {
+                  _this2.prestadorServicos.push(_this2.servicoAdicionado);
 
-                if (resultModal) {
-                  _this3.prestadorService.AdicionaServicoAoPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, {
-                    servicoId: _this3.servicoAdicionado.servicoId,
-                    usuarioId: src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId
-                  }).then(function (result) {
-                    _this3.servicoAdicionado.expanded = false;
+                  _this2.loadingContr.hideLoader();
 
-                    _this3.prestadorServicos.push(_this3.servicoAdicionado);
+                  src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(_this2.toastCtrl);
+                })["catch"](function (err) {
+                  src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this2.toastCtrl);
 
-                    _this3.loadingContr.hideLoader();
-
-                    src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(_this3.toastCtrl);
-                  })["catch"](function (err) {
-                    src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this3.toastCtrl);
-
-                    _this3.loadingContr.hideLoader();
-                  });
-                }
-              });
-            })["catch"](function (err) {
-              src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this3.toastCtrl);
-
-              _this3.loadingContr.hideLoader();
+                  _this2.loadingContr.hideLoader();
+                });
+              }
             });
           })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this3.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this2.toastCtrl);
 
-            _this3.loadingContr.hideLoader();
+            _this2.loadingContr.hideLoader();
           });
-        }
-      }, {
-        key: "expandItem",
-        value: function expandItem(item) {
-          if (item.expanded) {
-            item.expanded = false;
-          } else {
-            this.prestadorServicos.map(function (listItem) {
-              if (item == listItem) {
-                listItem.expanded = !listItem.expanded;
-              } else {
-                listItem.expanded = false;
-              }
-
-              return listItem;
-            });
-          }
         }
       }, {
         key: "salvarBreveDescricao",
         value: function salvarBreveDescricao(item) {
-          var _this4 = this;
+          var _this3 = this;
 
           var servico = {
             servicoId: item.servicoId,
             breveDescricao: item.breveDescricao
           };
           this.prestadorService.AdicionaServicoAoPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, servico).then(function (result) {
-            _this4.loadingContr.hideLoader();
+            _this3.loadingContr.hideLoader();
 
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(_this4.toastCtrl);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(_this3.toastCtrl);
           })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this4.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this3.toastCtrl);
 
-            _this4.loadingContr.hideLoader();
+            _this3.loadingContr.hideLoader();
           });
         }
       }, {
         key: "excluirServico",
         value: function excluirServico(item) {
-          var _this5 = this;
+          var _this4 = this;
 
           this.loadingContr.showLoader();
           this.prestadorService.ExcluirServico(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, item.servicoId).then(function (result) {
-            _this5.prestadorServicos = _this5.prestadorServicos.filter(function (y) {
+            _this4.prestadorServicos = _this4.prestadorServicos.filter(function (y) {
               return y.servicoId != item.servicoId;
             });
 
-            _this5.loadingContr.hideLoader();
+            _this4.loadingContr.hideLoader();
 
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(_this5.toastCtrl);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(_this4.toastCtrl);
           })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this5.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this4.toastCtrl);
 
-            _this5.loadingContr.hideLoader();
+            _this4.loadingContr.hideLoader();
           });
         }
       }, {
         key: "excluirButtonClick",
         value: function excluirButtonClick(item) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-            var _this6 = this;
+            var _this5 = this;
 
             var alert;
             return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -461,9 +423,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       buttons: [{
                         text: 'Não'
                       }, {
-                        text: 'Okay',
+                        text: 'Sim',
                         handler: function handler() {
-                          _this6.excluirServico(item);
+                          _this5.excluirServico(item);
                         }
                       }]
                     });
@@ -484,29 +446,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "Prosseguir",
         value: function Prosseguir() {
-          var _this7 = this;
+          var _this6 = this;
 
           if (this.prestadorServicos.length == 0) {
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].CustomToast(this.toastCtrl, "Favor adicionar serviço, antes de continuar", "danger", 4000);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].CustomToast(this.toastCtrl, "Favor adicionar serviço, antes de continuar", "danger", 4000);
             return false;
           }
 
           this.loadingContr.showLoader();
           var obj = {
-            situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_10__["Constants"].TipoSituacaoPrestador.Form3
+            situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].TipoSituacaoPrestador.Form3
           };
           this.prestadorService.AtualizaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, obj).then(function () {
-            _this7.loadingContr.hideLoader();
+            _this6.loadingContr.hideLoader();
 
-            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].SucessoToast(_this7.toastCtrl);
+            src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__["ToastCustom"].SucessoToast(_this6.toastCtrl);
 
-            _this7.ngZone.run(function () {
-              _this7.router.navigate(['prestador-Form3']);
+            _this6.ngZone.run(function () {
+              _this6.router.navigate(['prestador-Form3']);
             });
           })["catch"](function (err) {
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_8__["HandlerError"].handler(err, _this7.toastCtrl);
+            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__["HandlerError"].handler(err, _this6.toastCtrl);
 
-            _this7.loadingContr.hideLoader();
+            _this6.loadingContr.hideLoader();
           });
         }
       }]);
@@ -530,7 +492,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
       }];
     };
 

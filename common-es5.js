@@ -677,22 +677,102 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html":
-  /*!*************************************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html ***!
-    \*************************************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/UF/modal-uf/modal-uf.page.html":
+  /*!********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/UF/modal-uf/modal-uf.page.html ***!
+    \********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppPagesPrestadorPrestadorCadastroModalDominioServicosModalDominioServicosPageHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesUFModalUfModalUfPageHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-content>\n  <ion-list>\n    <ion-radio-group allow-empty-selection=\"true\" name=\"radio-group\" (ionChange)=\"radioSelect($event)\" #radioGroup>\n      <ion-list-header>\n        <ion-label>Serviços</ion-label>\n      </ion-list-header>\n      <ion-item *ngFor=\"let item of servicos\" >\n        <ion-label>{{item.nomeServico}}</ion-label>\n        <ion-radio slot=\"start\" color=\"success\"  value=\"{{item.servicoId}}\" >\n  \n        </ion-radio>\n      </ion-item>\n  </ion-radio-group>\n  </ion-list>\n</ion-content>\n\n\n<ion-footer>\n  <ion-toolbar>\n\n    <ion-button tyep=\"button\" color=\"light\" (click)=\"closeModal()\" >Voltar</ion-button>\n    <ion-button tyep=\"button\" color=\"primary\" (click)=\"salvar()\" >Salvar</ion-button>\n  </ion-toolbar>\n</ion-footer>";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/bairro/modal-bairro/modal-bairro.page.html":
+  /*!********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/bairro/modal-bairro/modal-bairro.page.html ***!
+    \********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesBairroModalBairroModalBairroPageHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Bairros</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/cidade/modal-cidade/modal-cidade.page.html":
+  /*!********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/cidade/modal-cidade/modal-cidade.page.html ***!
+    \********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesCidadeModalCidadeModalCidadePageHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Cidades</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/igreja/modal-igreja/modal-igreja.page.html":
+  /*!********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/igreja/modal-igreja/modal-igreja.page.html ***!
+    \********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesIgrejaModalIgrejaModalIgrejaPageHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Igrejas</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.nomeIgreja}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/servico/modal-servicos/modal-servicos.page.html":
+  /*!*************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/servico/modal-servicos/modal-servicos.page.html ***!
+    \*************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesServicoModalServicosModalServicosPageHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Serviços</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-searchbar type=\"text\" \n    debounce = 1\n    placeholder=\"Pesquisar\"\n    animated\n    (ionChange)=\"recuperaServicos($event)\" animated></ion-searchbar>\n  <ion-list>\n      <ion-item *ngFor=\"let item of servicos\" (click)=\"selecionarServico(item)\" detail>\n        <ion-label>{{item.nomeServico}}</ion-label>\n      </ion-item>\n  </ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -744,43 +824,671 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss":
-  /*!***********************************************************************************************************!*\
-    !*** ./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss ***!
-    \***********************************************************************************************************/
+  "./src/app/pages/UF/modal-uf/modal-uf.page.scss":
+  /*!******************************************************!*\
+    !*** ./src/app/pages/UF/modal-uf/modal-uf.page.scss ***!
+    \******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppPagesPrestadorPrestadorCadastroModalDominioServicosModalDominioServicosPageScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesUFModalUfModalUfPageScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3ByZXN0YWRvci9wcmVzdGFkb3JDYWRhc3Ryby9tb2RhbC1kb21pbmlvLXNlcnZpY29zL21vZGFsLWRvbWluaW8tc2Vydmljb3MucGFnZS5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL1VGL21vZGFsLXVmL21vZGFsLXVmLnBhZ2Uuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.ts":
-  /*!*********************************************************************************************************!*\
-    !*** ./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.ts ***!
-    \*********************************************************************************************************/
+  "./src/app/pages/UF/modal-uf/modal-uf.page.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/pages/UF/modal-uf/modal-uf.page.ts ***!
+    \****************************************************/
 
-  /*! exports provided: ModalDominioServicosPage */
+  /*! exports provided: ModalUFPage */
 
   /***/
-  function srcAppPagesPrestadorPrestadorCadastroModalDominioServicosModalDominioServicosPageTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesUFModalUfModalUfPageTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ModalDominioServicosPage", function () {
-      return ModalDominioServicosPage;
+    __webpack_require__.d(__webpack_exports__, "ModalUFPage", function () {
+      return ModalUFPage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/helpers/handlerError */
+    "./src/app/helpers/handlerError.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/providers/prestador/prestador.service */
+    "./src/app/providers/prestador/prestador.service.ts");
+
+    var ModalUFPage = /*#__PURE__*/function () {
+      function ModalUFPage(loadingContr, toastCtrl, prestadorService, modalController) {
+        var _this = this;
+
+        _classCallCheck(this, ModalUFPage);
+
+        this.loadingContr = loadingContr;
+        this.toastCtrl = toastCtrl;
+        this.prestadorService = prestadorService;
+        this.modalController = modalController;
+        this.dominioUF = [];
+        this.itens = [];
+        this.loadingContr.showLoader();
+        this.prestadorService.RecuperaUfPrestadorDisponiveis().then(function (result) {
+          _this.dominioUF = result;
+          _this.itens = result;
+
+          _this.loadingContr.hideLoader();
+        })["catch"](function (x) {
+          _this.loadingContr.hideLoader();
+
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__["HandlerError"].handler(x, _this.toastCtrl);
+        });
+      }
+
+      _createClass(ModalUFPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "recuperaItens",
+        value: function recuperaItens(ev) {
+          var val = ev.target.value;
+
+          if (val && val.trim() !== '') {
+            this.itens = this.dominioUF.filter(function (item) {
+              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.itens = this.dominioUF;
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.modalController.dismiss(null, 'cancel');
+        }
+      }, {
+        key: "selecionar",
+        value: function selecionar(item) {
+          this.modalController.dismiss(item, 'success');
+        }
+      }]);
+
+      return ModalUFPage;
+    }();
+
+    ModalUFPage.ctorParameters = function () {
+      return [{
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]
+      }, {
+        type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__["PrestadorService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"]
+      }];
+    };
+
+    ModalUFPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-uf',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./modal-uf.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/UF/modal-uf/modal-uf.page.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./modal-uf.page.scss */
+      "./src/app/pages/UF/modal-uf/modal-uf.page.scss"))["default"]]
+    })], ModalUFPage);
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/bairro/modal-bairro/modal-bairro.page.scss":
+  /*!******************************************************************!*\
+    !*** ./src/app/pages/bairro/modal-bairro/modal-bairro.page.scss ***!
+    \******************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppPagesBairroModalBairroModalBairroPageScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2JhaXJyby9tb2RhbC1iYWlycm8vbW9kYWwtYmFpcnJvLnBhZ2Uuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/bairro/modal-bairro/modal-bairro.page.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/pages/bairro/modal-bairro/modal-bairro.page.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ModalBairroPage */
+
+  /***/
+  function srcAppPagesBairroModalBairroModalBairroPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModalBairroPage", function () {
+      return ModalBairroPage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/providers/prestador/prestador.service */
+    "./src/app/providers/prestador/prestador.service.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/helpers/handlerError */
+    "./src/app/helpers/handlerError.ts");
+
+    var ModalBairroPage = /*#__PURE__*/function () {
+      function ModalBairroPage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
+        var _this2 = this;
+
+        _classCallCheck(this, ModalBairroPage);
+
+        this.loadingContr = loadingContr;
+        this.toastCtrl = toastCtrl;
+        this.prestadorService = prestadorService;
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.dominioBairro = [];
+        this.itens = [];
+        this.uf = this.navParams.data.uf;
+        this.cidade = this.navParams.data.cidade;
+        this.loadingContr.showLoader();
+        this.prestadorService.RecuperaBairroPrestadorDisponiveis(this.navParams.data.uf, this.navParams.data.cidade).then(function (result) {
+          _this2.dominioBairro = result;
+          _this2.itens = result;
+
+          _this2.loadingContr.hideLoader();
+        })["catch"](function (x) {
+          _this2.loadingContr.hideLoader();
+
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this2.toastCtrl);
+        });
+      }
+
+      _createClass(ModalBairroPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "recuperaItens",
+        value: function recuperaItens(ev) {
+          var val = ev.target.value;
+
+          if (val && val.trim() !== '') {
+            this.itens = this.dominioBairro.filter(function (item) {
+              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.itens = this.dominioBairro;
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.modalController.dismiss(null, 'cancel');
+        }
+      }, {
+        key: "selecionar",
+        value: function selecionar(item) {
+          this.modalController.dismiss(item, 'success');
+        }
+      }]);
+
+      return ModalBairroPage;
+    }();
+
+    ModalBairroPage.ctorParameters = function () {
+      return [{
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
+      }, {
+        type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__["PrestadorService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"]
+      }];
+    };
+
+    ModalBairroPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-bairro',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./modal-bairro.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/bairro/modal-bairro/modal-bairro.page.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./modal-bairro.page.scss */
+      "./src/app/pages/bairro/modal-bairro/modal-bairro.page.scss"))["default"]]
+    })], ModalBairroPage);
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/cidade/modal-cidade/modal-cidade.page.scss":
+  /*!******************************************************************!*\
+    !*** ./src/app/pages/cidade/modal-cidade/modal-cidade.page.scss ***!
+    \******************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppPagesCidadeModalCidadeModalCidadePageScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NpZGFkZS9tb2RhbC1jaWRhZGUvbW9kYWwtY2lkYWRlLnBhZ2Uuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/cidade/modal-cidade/modal-cidade.page.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/pages/cidade/modal-cidade/modal-cidade.page.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ModalCidadePage */
+
+  /***/
+  function srcAppPagesCidadeModalCidadeModalCidadePageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModalCidadePage", function () {
+      return ModalCidadePage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/providers/prestador/prestador.service */
+    "./src/app/providers/prestador/prestador.service.ts");
+    /* harmony import */
+
+
+    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/helpers/handlerError */
+    "./src/app/helpers/handlerError.ts");
+
+    var ModalCidadePage = /*#__PURE__*/function () {
+      function ModalCidadePage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
+        var _this3 = this;
+
+        _classCallCheck(this, ModalCidadePage);
+
+        this.loadingContr = loadingContr;
+        this.toastCtrl = toastCtrl;
+        this.prestadorService = prestadorService;
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.dominioCidade = [];
+        this.itens = [];
+        this.loadingContr.showLoader();
+        this.uf = this.navParams.data.uf;
+        this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.navParams.data.uf).then(function (result) {
+          _this3.dominioCidade = result;
+          _this3.itens = result;
+
+          _this3.loadingContr.hideLoader();
+        })["catch"](function (x) {
+          _this3.loadingContr.hideLoader();
+
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this3.toastCtrl);
+        });
+      }
+
+      _createClass(ModalCidadePage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "recuperaItens",
+        value: function recuperaItens(ev) {
+          var val = ev.target.value;
+
+          if (val && val.trim() !== '') {
+            this.itens = this.dominioCidade.filter(function (item) {
+              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.itens = this.dominioCidade;
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.modalController.dismiss(null, 'cancel');
+        }
+      }, {
+        key: "selecionar",
+        value: function selecionar(item) {
+          this.modalController.dismiss(item, 'success');
+        }
+      }]);
+
+      return ModalCidadePage;
+    }();
+
+    ModalCidadePage.ctorParameters = function () {
+      return [{
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
+      }, {
+        type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__["PrestadorService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"]
+      }];
+    };
+
+    ModalCidadePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-cidade',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./modal-cidade.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/cidade/modal-cidade/modal-cidade.page.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./modal-cidade.page.scss */
+      "./src/app/pages/cidade/modal-cidade/modal-cidade.page.scss"))["default"]]
+    })], ModalCidadePage);
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/igreja/modal-igreja/modal-igreja.page.scss":
+  /*!******************************************************************!*\
+    !*** ./src/app/pages/igreja/modal-igreja/modal-igreja.page.scss ***!
+    \******************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppPagesIgrejaModalIgrejaModalIgrejaPageScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2lncmVqYS9tb2RhbC1pZ3JlamEvbW9kYWwtaWdyZWphLnBhZ2Uuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/igreja/modal-igreja/modal-igreja.page.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/pages/igreja/modal-igreja/modal-igreja.page.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ModalIgrejaPage */
+
+  /***/
+  function srcAppPagesIgrejaModalIgrejaModalIgrejaPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModalIgrejaPage", function () {
+      return ModalIgrejaPage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/providers/igreja/igreja.service */
+    "./src/app/providers/igreja/igreja.service.ts");
+
+    var ModalIgrejaPage = /*#__PURE__*/function () {
+      function ModalIgrejaPage(loadingContr, toastCtrl, igrejaService, modalController, navParams) {
+        var _this4 = this;
+
+        _classCallCheck(this, ModalIgrejaPage);
+
+        this.loadingContr = loadingContr;
+        this.toastCtrl = toastCtrl;
+        this.igrejaService = igrejaService;
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.itens = [];
+        this.dominioIgrejas = [];
+        loadingContr.showLoader();
+        this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(function (result) {
+          _this4.itens = result;
+          _this4.dominioIgrejas = result;
+          loadingContr.hideLoader();
+        })["catch"](function (err) {
+          loadingContr.hideLoader();
+          console.log(err);
+        });
+      }
+
+      _createClass(ModalIgrejaPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "recuperaItens",
+        value: function recuperaItens(ev) {
+          var val = ev.target.value;
+
+          if (val && val.trim() !== '') {
+            this.itens = this.dominioIgrejas.filter(function (item) {
+              return item.nomeIgreja.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.itens = this.dominioIgrejas;
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.modalController.dismiss(null, 'cancel');
+        }
+      }, {
+        key: "selecionar",
+        value: function selecionar(item) {
+          this.modalController.dismiss(item, 'success');
+        }
+      }]);
+
+      return ModalIgrejaPage;
+    }();
+
+    ModalIgrejaPage.ctorParameters = function () {
+      return [{
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
+      }, {
+        type: src_app_providers_igreja_igreja_service__WEBPACK_IMPORTED_MODULE_4__["IgrejaService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"]
+      }];
+    };
+
+    ModalIgrejaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-igreja',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./modal-igreja.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/igreja/modal-igreja/modal-igreja.page.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./modal-igreja.page.scss */
+      "./src/app/pages/igreja/modal-igreja/modal-igreja.page.scss"))["default"]]
+    })], ModalIgrejaPage);
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/servico/modal-servicos/modal-servicos.page.scss":
+  /*!***********************************************************************!*\
+    !*** ./src/app/pages/servico/modal-servicos/modal-servicos.page.scss ***!
+    \***********************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppPagesServicoModalServicosModalServicosPageScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3NlcnZpY28vbW9kYWwtc2Vydmljb3MvbW9kYWwtc2Vydmljb3MucGFnZS5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/pages/servico/modal-servicos/modal-servicos.page.ts ***!
+    \*********************************************************************/
+
+  /*! exports provided: ModalServicosPage */
+
+  /***/
+  function srcAppPagesServicoModalServicosModalServicosPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModalServicosPage", function () {
+      return ModalServicosPage;
     });
     /* harmony import */
 
@@ -800,25 +1508,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
 
-    var ModalDominioServicosPage = /*#__PURE__*/function () {
-      function ModalDominioServicosPage(navParams, modalController) {
-        _classCallCheck(this, ModalDominioServicosPage);
 
-        this.navParams = navParams;
+    var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/helpers/loadingContr */
+    "./src/app/helpers/loadingContr.ts");
+
+    var ModalServicosPage = /*#__PURE__*/function () {
+      function ModalServicosPage(toast, loadControl, modalController, navParams) {
+        _classCallCheck(this, ModalServicosPage);
+
+        this.toast = toast;
+        this.loadControl = loadControl;
         this.modalController = modalController;
-        this.servicos = this.navParams.data.servicos;
+        this.navParams = navParams;
+        this.dominioServicos = [];
+        this.servicos = [];
+        this.dominioServicos = this.navParams.data.servicos;
+        this.servicos = this.dominioServicos;
       }
 
-      _createClass(ModalDominioServicosPage, [{
-        key: "salvar",
-        value: function salvar() {
-          var _this = this;
+      _createClass(ModalServicosPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "recuperaServicos",
+        value: function recuperaServicos(ev) {
+          var val = ev.target.value;
 
-          var servico = this.servicos.filter(function (y) {
-            return y.servicoId == _this.servicoSelecionado;
-          })[0];
-          this.modalController.dismiss(servico, 'confirm');
+          if (val && val.trim() !== '') {
+            this.servicos = this.dominioServicos.filter(function (item) {
+              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.servicos = this.dominioServicos;
+          }
         }
       }, {
         key: "closeModal",
@@ -826,34 +1551,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           this.modalController.dismiss(null, 'cancel');
         }
       }, {
-        key: "radioSelect",
-        value: function radioSelect(event) {
-          this.servicoSelecionado = event.detail.value;
+        key: "selecionarServico",
+        value: function selecionarServico(item) {
+          this.modalController.dismiss(item, 'success');
         }
       }]);
 
-      return ModalDominioServicosPage;
+      return ModalServicosPage;
     }();
 
-    ModalDominioServicosPage.ctorParameters = function () {
+    ModalServicosPage.ctorParameters = function () {
       return [{
-        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]
+      }, {
+        type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ModalDominioServicosPage.prototype, "servicos", void 0);
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('radioGroup')], ModalDominioServicosPage.prototype, "radioGroup", void 0);
-    ModalDominioServicosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-modal-dominio-servicos',
+    ModalServicosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-servicos',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! raw-loader!./modal-dominio-servicos.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.html"))["default"],
+      /*! raw-loader!./modal-servicos.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/servico/modal-servicos/modal-servicos.page.html"))["default"],
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-      /*! ./modal-dominio-servicos.page.scss */
-      "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.page.scss"))["default"]]
-    })], ModalDominioServicosPage);
+      /*! ./modal-servicos.page.scss */
+      "./src/app/pages/servico/modal-servicos/modal-servicos.page.scss"))["default"]]
+    })], ModalServicosPage);
     /***/
   },
 
@@ -903,6 +1630,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       _createClass(DominioServicoService, [{
+        key: "recuperaServicoAutoComplete",
+        value: function recuperaServicoAutoComplete(ev) {
+          return this.dominioServico.recuperaServicoAutoComplete(ev);
+        }
+      }, {
         key: "recuperaDominioServico",
         value: function recuperaDominioServico() {
           return this.dominioServico.recuperaDominioServico();
@@ -985,6 +1717,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return this.igrejaRepService.RecuperaIgrejasPorCidade(cidade);
         }
       }, {
+        key: "RecuperaIgrejasPorEndereco",
+        value: function RecuperaIgrejasPorEndereco(uf, cidade, bairro) {
+          return this.igrejaRepService.RecuperaIgrejasPorEndereco(uf, cidade, bairro);
+        }
+      }, {
         key: "RecuperaNomeIgreja",
         value: function RecuperaNomeIgreja(igrejas) {
           return this.igrejaRepService.RecuperaNomeIgreja(igrejas);
@@ -1053,22 +1790,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        *
        */
       function DominioServicoRepositoryService() {
-        var _this2;
+        var _this5;
 
         _classCallCheck(this, DominioServicoRepositoryService);
 
-        _this2 = _super.call(this);
-        _this2._collectionName = "dominioServico";
-        return _this2;
+        _this5 = _super.call(this);
+        _this5.servicoConverter = {
+          toFirestore: function toFirestore(servico) {
+            return {
+              servicoId: servico.servicoId,
+              nomeServico: servico.nomeServico
+            };
+          }
+        };
+        _this5._collectionName = "dominioServico";
+        return _this5;
       }
 
       _createClass(DominioServicoRepositoryService, [{
-        key: "recuperaDominioServico",
-        value: function recuperaDominioServico() {
-          var _this3 = this;
+        key: "recuperaServicoAutoComplete",
+        value: function recuperaServicoAutoComplete(query) {
+          var _this6 = this;
 
           return new Promise(function (response, resp) {
-            _this3.db.collection("dominioServico").get().then(function (result) {
+            var endText = query + "\uF8FF";
+
+            _this6.db.collection("dominioServico").orderBy("nomeServico").limit(10).where("nomeServico", ">=", query).where("nomeServico", "<=", endText) // .startAt(query)
+            // .endAt(endText)
+            .get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push({
+                  nomeServico: doc.data().nomeServico,
+                  servicoId: doc.id
+                });
+              });
+              response(lst);
+            })["catch"](function (err) {
+              resp(err);
+            });
+          });
+        }
+      }, {
+        key: "recuperaDominioServico",
+        value: function recuperaDominioServico() {
+          var _this7 = this;
+
+          return new Promise(function (response, resp) {
+            _this7.db.collection("dominioServico").get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({
@@ -1135,22 +1904,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _super2 = _createSuper(IgrejaRepService);
 
       function IgrejaRepService() {
-        var _this4;
+        var _this8;
 
         _classCallCheck(this, IgrejaRepService);
 
-        _this4 = _super2.call(this);
-        _this4._collectionName = "igreja";
-        return _this4;
+        _this8 = _super2.call(this);
+        _this8._collectionName = "igreja";
+        return _this8;
       }
 
       _createClass(IgrejaRepService, [{
-        key: "RecuperaIgrejaPorAdministrador",
-        value: function RecuperaIgrejaPorAdministrador(usuarioId) {
-          var _this5 = this;
+        key: "RecuperaIgrejasPorEndereco",
+        value: function RecuperaIgrejasPorEndereco(uf, cidade, bairro) {
+          var _this9 = this;
 
           return new Promise(function (resolve, reject) {
-            _this5.db.collection('igreja').where("administradores", "array-contains", usuarioId).get().then(function (result) {
+            var query = _this9.db.collection('igreja').where("uf", "==", uf);
+
+            if (cidade) {
+              query = query.where("cidade", "==", cidade);
+            }
+
+            if (bairro) {
+              query = query.where("bairro", "==", bairro);
+            }
+
+            query.get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push(doc.data());
+              });
+              resolve(lst);
+            })["catch"](function (err) {
+              reject(err);
+            });
+          });
+        }
+      }, {
+        key: "RecuperaIgrejaPorAdministrador",
+        value: function RecuperaIgrejaPorAdministrador(usuarioId) {
+          var _this10 = this;
+
+          return new Promise(function (resolve, reject) {
+            _this10.db.collection('igreja').where("administradores", "array-contains", usuarioId).get().then(function (result) {
               resolve(result);
             })["catch"](function (err) {
               reject(err);

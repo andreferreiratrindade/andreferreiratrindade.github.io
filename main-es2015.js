@@ -555,7 +555,7 @@ const routes = [
     },
     {
         path: 'modal-dominio-servicos',
-        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(m => m.ModalDominioServicosPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */ "pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module").then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(m => m.ModalDominioServicosPageModule)
     },
     {
         path: 'visualizar-prestador',
@@ -564,6 +564,26 @@ const routes = [
     {
         path: 'consultar-prestador-adm',
         loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module */ "./src/app/pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module.ts")).then(m => m.ConsultarPrestadorAdmPageModule)
+    },
+    {
+        path: 'modal-servicos',
+        loadChildren: () => Promise.all(/*! import() | pages-servico-modal-servicos-modal-servicos-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-servico-modal-servicos-modal-servicos-module")]).then(__webpack_require__.bind(null, /*! ./pages/servico/modal-servicos/modal-servicos.module */ "./src/app/pages/servico/modal-servicos/modal-servicos.module.ts")).then(m => m.ModalServicosPageModule)
+    },
+    {
+        path: 'modal-cidade',
+        loadChildren: () => Promise.all(/*! import() | pages-cidade-modal-cidade-modal-cidade-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-cidade-modal-cidade-modal-cidade-module")]).then(__webpack_require__.bind(null, /*! ./pages/cidade/modal-cidade/modal-cidade.module */ "./src/app/pages/cidade/modal-cidade/modal-cidade.module.ts")).then(m => m.ModalCidadePageModule)
+    },
+    {
+        path: 'modal-bairro',
+        loadChildren: () => Promise.all(/*! import() | pages-bairro-modal-bairro-modal-bairro-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-bairro-modal-bairro-modal-bairro-module")]).then(__webpack_require__.bind(null, /*! ./pages/bairro/modal-bairro/modal-bairro.module */ "./src/app/pages/bairro/modal-bairro/modal-bairro.module.ts")).then(m => m.ModalBairroPageModule)
+    },
+    {
+        path: 'modal-uf',
+        loadChildren: () => Promise.all(/*! import() | pages-UF-modal-uf-modal-uf-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-UF-modal-uf-modal-uf-module")]).then(__webpack_require__.bind(null, /*! ./pages/UF/modal-uf/modal-uf.module */ "./src/app/pages/UF/modal-uf/modal-uf.module.ts")).then(m => m.ModalUFPageModule)
+    },
+    {
+        path: 'modal-igreja',
+        loadChildren: () => Promise.all(/*! import() | pages-igreja-modal-igreja-modal-igreja-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-igreja-modal-igreja-modal-igreja-module")]).then(__webpack_require__.bind(null, /*! ./pages/igreja/modal-igreja/modal-igreja.module */ "./src/app/pages/igreja/modal-igreja/modal-igreja.module.ts")).then(m => m.ModalIgrejaPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -732,6 +752,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_19__);
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! firebase */ "./node_modules/firebase/dist/index.cjs.js");
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
+
 
 
 
@@ -777,6 +799,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             _providers_buscaCEP_buscar_cep_service__WEBPACK_IMPORTED_MODULE_16__["BuscarCEPService"],
+            _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_21__["CallNumber"],
             _providers_base_provider_base_provider__WEBPACK_IMPORTED_MODULE_15__["BaseProvider"],
             _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_12__["FirebaseAuthService"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
@@ -1599,14 +1622,17 @@ let PrestadorService = class PrestadorService {
     RecuperaPrestador(usuarioId) {
         return this.prestadorRepService.RecuperaPrestador(usuarioId);
     }
+    RecuperaBairroPrestadorDisponiveis(uf, cidade) {
+        return this.prestadorRepService.RecuperaBairroPrestadorDisponiveis(uf, cidade);
+    }
     RecuperaUfPrestadorDisponiveis() {
         return this.prestadorRepService.recuperaUfPrestadorDisponiveis();
     }
     AdicionarNovoPrestador(prestador) {
         return this.prestadorRepService.AdicionaPrestador(prestador);
     }
-    RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
-        return this.prestadorRepService.RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId);
+    RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId) {
+        return this.prestadorRepService.RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId);
     }
     RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
         return this.prestadorRepService.RecuperaCidadePrestadorDisponiveis(ufSelecionado);
@@ -1655,6 +1681,9 @@ let UsuarioService = class UsuarioService {
     constructor(usuarioRepository, firebaseAutentication) {
         this.usuarioRepository = usuarioRepository;
         this.firebaseAutentication = firebaseAutentication;
+    }
+    RecuperaUsuarioPorEmail(emailAdministrador) {
+        return this.usuarioRepository.find({ elemento: "email", tipoComparacao: "==", comparacao: emailAdministrador });
     }
     AdicionarUsuario(item) {
         return this.usuarioRepository.add(item, item.usuarioId);
@@ -1742,14 +1771,21 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         });
     }
     ExcluirServico(usuarioId, servicoId) {
+        let ref = this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId);
         return new Promise((retorno, reject) => {
-            return this.db.collection("usuario").doc(usuarioId)
-                .collection("prestador").doc(usuarioId)
-                .collection("servico").doc(servicoId)
-                .delete().then((result) => {
-                retorno(result);
-            }).catch(err => {
-                reject(err);
+            this.db.runTransaction(transaction => {
+                // This code may get re-run multiple times if there are conflicts.
+                return transaction.get(ref).then(doc => {
+                    let servicos = [];
+                    servicos = doc.data().servicos;
+                    servicos = servicos.filter(y => { return y.servicoId != servicoId; });
+                    transaction.update(ref, { servicos: servicos });
+                });
+            }).then(function () {
+                retorno();
+            }).catch(function (error) {
+                reject(error);
             });
         });
     }
@@ -1765,14 +1801,29 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         });
     }
     AdicionaServicoAoPrestador(usuarioId, servico) {
+        let ref = this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId);
         return new Promise((retorno, reject) => {
-            return this.db.collection("usuario").doc(usuarioId)
-                .collection("prestador").doc(usuarioId)
-                .collection("servico").doc(servico.servicoId)
-                .set(Object.assign({}, servico), { merge: true }).then((result) => {
-                retorno(result);
-            }).catch(err => {
-                reject(err);
+            this.db.runTransaction(transaction => {
+                // This code may get re-run multiple times if there are conflicts.
+                return transaction.get(ref).then(doc => {
+                    let prestador = doc.data();
+                    if (!prestador.servicos) {
+                        prestador.servicos = [servico];
+                        transaction.set(ref, prestador);
+                    }
+                    else {
+                        debugger;
+                        let prestador = doc.data();
+                        prestador.servicos = prestador.servicos.filter(y => { return y.servicoId != servico.servicoId; });
+                        prestador.servicos.push(servico);
+                        transaction.update(ref, prestador);
+                    }
+                });
+            }).then(function () {
+                retorno();
+            }).catch(function (error) {
+                reject(error);
             });
         });
     }
@@ -1807,37 +1858,55 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         return new Promise((resolve, reject) => {
             this.db.collection("usuario").doc(usuarioId).collection("prestador")
                 .doc(usuarioId)
-                .collection("servico")
                 .get().then(result => {
                 let lst = [];
-                result.forEach(function (doc) {
-                    lst.push(doc.data());
-                });
+                if (result.data().servicos && result.data().servicos.length > 0) {
+                    result.data().servicos.forEach(function (doc) {
+                        lst.push(doc);
+                    });
+                }
                 resolve(lst);
             }).catch(err => {
                 reject(err);
             });
         });
     }
-    RecuperaPestadoresPorCidadeEhUFEhServico(ufSelecionado, cidadeSelecionado, servicoId) {
+    RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId) {
         return new Promise((resolve, reject) => {
-            var query = this.db.collectionGroup("servico")
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
-                .where("uf", "==", ufSelecionado);
+            let query = this.db.collectionGroup("prestador")
+                .where("uf", "==", ufSelecionado)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao);
             if (cidadeSelecionado) {
                 query = query.where("cidade", "==", cidadeSelecionado);
             }
-            // debugger
-            if (servicoId) {
-                query = query.where("servicoId", "==", servicoId);
+            if (bairro) {
+                query = query.where("bairro", "==", bairro);
             }
+            // if (servicoId) {
+            //     query = query.whereArrayContains("servicos", "array-contains", servicoId);
+            // }
             query.get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
-                    lst.push(doc.data());
+                    if (doc.data().servicos) {
+                        let servicosTemp = doc.data().servicos.filter(y => { return y.servicoId == servicoId; });
+                        if (servicosTemp.length > 0) {
+                            let prestador = doc.data();
+                            if (igrejaId) {
+                                if (prestador.igrejas
+                                    .filter(y => { return y.igrejaId == igrejaId; }).length > 0) {
+                                    lst.push(prestador);
+                                }
+                            }
+                            else {
+                                lst.push(prestador);
+                            }
+                        }
+                    }
                 });
                 resolve(lst);
             }).catch(err => {
+                console.log(err);
                 reject(err);
             });
         });
@@ -1869,6 +1938,25 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
                 result.forEach(function (doc) {
                     if (!lst.includes(doc.data().uf)) {
                         lst.push(doc.data().uf);
+                    }
+                });
+                resolve(lst);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+    RecuperaBairroPrestadorDisponiveis(uf, cidade) {
+        return new Promise((resolve, reject) => {
+            this.db.collectionGroup("prestador")
+                .where("uf", "==", uf)
+                .where("cidade", "==", cidade)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
+                .get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    if (!lst.includes(doc.data().bairro)) {
+                        lst.push(doc.data().bairro);
                     }
                 });
                 resolve(lst);
@@ -1974,7 +2062,7 @@ class BaseRepository {
                 resolve(lst);
             })
                 .catch(function (error) {
-                console.log("Error getting documents: ", error);
+                reject(error);
             });
         });
     }
