@@ -943,7 +943,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           if (val && val.trim() !== '') {
             this.itens = this.dominioUF.filter(function (item) {
-              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+              return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
           } else {
             this.itens = this.dominioUF;
@@ -1112,7 +1112,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           if (val && val.trim() !== '') {
             this.itens = this.dominioBairro.filter(function (item) {
-              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+              return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
           } else {
             this.itens = this.dominioBairro;
@@ -1282,7 +1282,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
           if (val && val.trim() !== '') {
             this.itens = this.dominioCidade.filter(function (item) {
-              return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1;
+              return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
           } else {
             this.itens = this.dominioCidade;

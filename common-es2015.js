@@ -589,7 +589,7 @@ let ModalUFPage = class ModalUFPage {
     recuperaItens(ev) {
         const val = ev.target.value;
         if (val && val.trim() !== '') {
-            this.itens = this.dominioUF.filter(item => { return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1; });
+            this.itens = this.dominioUF.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
         }
         else {
             this.itens = this.dominioUF;
@@ -690,7 +690,7 @@ let ModalBairroPage = class ModalBairroPage {
     recuperaItens(ev) {
         const val = ev.target.value;
         if (val && val.trim() !== '') {
-            this.itens = this.dominioBairro.filter(item => { return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1; });
+            this.itens = this.dominioBairro.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
         }
         else {
             this.itens = this.dominioBairro;
@@ -791,7 +791,7 @@ let ModalCidadePage = class ModalCidadePage {
     recuperaItens(ev) {
         const val = ev.target.value;
         if (val && val.trim() !== '') {
-            this.itens = this.dominioCidade.filter(item => { return item.nomeServico.toLowerCase().indexOf(val.toLowerCase()) > -1; });
+            this.itens = this.dominioCidade.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
         }
         else {
             this.itens = this.dominioCidade;
