@@ -260,19 +260,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/utils/constants */
-    "./src/app/utils/constants.ts");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! src/app/pages/servico/modal-servicos/modal-servicos.page */
     "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts");
 
@@ -331,7 +325,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this2 = this;
 
           var modal = this.modalCtrl.create({
-            component: src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__["ModalServicosPage"],
+            component: src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_10__["ModalServicosPage"],
             componentProps: {
               servicos: this.dominioServicos
             },
@@ -455,7 +449,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.loadingContr.showLoader();
           var obj = {
-            situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].TipoSituacaoPrestador.Form3
+            situacaoPrestador: 2
           };
           this.prestadorService.AtualizaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, obj).then(function () {
             _this6.loadingContr.hideLoader();
@@ -492,7 +486,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]
       }];
     };
 

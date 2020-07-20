@@ -12,6 +12,18 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -692,7 +704,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"  \n  animated (ionChange)=\"recuperaItens($event)\" #searchbar></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n";
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"  \n  animated (ionChange)=\"recuperaItens($event)\" #searchbar></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.nome}} / {{item.sigla}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n";
     /***/
   },
 
@@ -733,6 +745,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
     __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Cidades</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html":
+  /*!**********************************************************************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html ***!
+    \**********************************************************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesGerenciarIgrejaManterPrestadoresModalSituacaoPrestadorModalSituacaoPrestadorModalSituacaoPrestadorPageHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Situação Prestador</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.descricao}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n";
     /***/
   },
 
@@ -812,6 +844,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         value: function handler(err, toastCtrl) {
           var data = err;
           var message = data.error ? data.error.message : data;
+          console.log(message);
 
           _toastCustom__WEBPACK_IMPORTED_MODULE_0__["ToastCustom"].errorToast(message, toastCtrl);
         }
@@ -883,54 +916,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony import */
 
 
-    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/helpers/handlerError */
-    "./src/app/helpers/handlerError.ts");
-    /* harmony import */
-
-
-    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
     /* harmony import */
 
 
-    var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/providers/prestador/prestador.service */
     "./src/app/providers/prestador/prestador.service.ts");
 
     var ModalUFPage = /*#__PURE__*/function () {
-      function ModalUFPage(loadingContr, toastCtrl, prestadorService, modalController) {
-        var _this = this;
-
+      function ModalUFPage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
         _classCallCheck(this, ModalUFPage);
 
         this.loadingContr = loadingContr;
         this.toastCtrl = toastCtrl;
         this.prestadorService = prestadorService;
         this.modalController = modalController;
+        this.navParams = navParams;
         this.dominioUF = [];
         this.itens = [];
-        this.loadingContr.showLoader();
-        this.prestadorService.RecuperaUfPrestadorDisponiveis().then(function (result) {
-          _this.dominioUF = result;
-          _this.itens = result;
-
-          _this.loadingContr.hideLoader();
-        })["catch"](function (x) {
-          _this.loadingContr.hideLoader();
-
-          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__["HandlerError"].handler(x, _this.toastCtrl);
-        });
+        this.dominioUF = this.navParams.data.UFs;
+        this.recuperaItens(null);
       }
 
       _createClass(ModalUFPage, [{
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this2 = this;
+          var _this = this;
 
           setTimeout(function () {
-            _this2.inputElement.setFocus();
+            _this.inputElement.setFocus();
           }, 800);
         }
       }, {
@@ -939,15 +956,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "recuperaItens",
         value: function recuperaItens(ev) {
-          var val = ev.target.value;
+          var val = "";
+
+          if (ev && ev.target) {
+            val = ev.target.value;
+          }
 
           if (val && val.trim() !== '') {
             this.itens = this.dominioUF.filter(function (item) {
-              return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
+              return item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.sigla.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
           } else {
-            this.itens = this.dominioUF;
+            this.itens = _toConsumableArray(this.dominioUF);
           }
+
+          if (this.itens.length > 10) this.itens.length = 10;
         }
       }, {
         key: "closeModal",
@@ -968,11 +991,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return [{
         type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"]
       }, {
-        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]
       }, {
-        type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__["PrestadorService"]
+        type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__["PrestadorService"]
       }, {
-        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"]
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"]
       }];
     };
 
@@ -1067,7 +1092,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var ModalBairroPage = /*#__PURE__*/function () {
       function ModalBairroPage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
-        var _this3 = this;
+        var _this2 = this;
 
         _classCallCheck(this, ModalBairroPage);
 
@@ -1082,14 +1107,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.cidade = this.navParams.data.cidade;
         this.loadingContr.showLoader();
         this.prestadorService.RecuperaBairroPrestadorDisponiveis(this.navParams.data.uf, this.navParams.data.cidade).then(function (result) {
-          _this3.dominioBairro = result;
-          _this3.itens = result;
+          _this2.dominioBairro = result;
+          _this2.itens = result;
 
-          _this3.loadingContr.hideLoader();
+          _this2.loadingContr.hideLoader();
         })["catch"](function (x) {
-          _this3.loadingContr.hideLoader();
+          _this2.loadingContr.hideLoader();
 
-          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this3.toastCtrl);
+          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this2.toastCtrl);
         });
       }
 
@@ -1099,10 +1124,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this4 = this;
+          var _this3 = this;
 
           setTimeout(function () {
-            _this4.inputElement.setFocus();
+            _this3.inputElement.setFocus();
           }, 800);
         }
       }, {
@@ -1229,17 +1254,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/providers/prestador/prestador.service */
     "./src/app/providers/prestador/prestador.service.ts");
-    /* harmony import */
-
-
-    var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/helpers/handlerError */
-    "./src/app/helpers/handlerError.ts");
 
     var ModalCidadePage = /*#__PURE__*/function () {
       function ModalCidadePage(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
-        var _this5 = this;
-
         _classCallCheck(this, ModalCidadePage);
 
         this.loadingContr = loadingContr;
@@ -1249,18 +1266,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.navParams = navParams;
         this.dominioCidade = [];
         this.itens = [];
-        this.loadingContr.showLoader();
-        this.uf = this.navParams.data.uf;
-        this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.navParams.data.uf).then(function (result) {
-          _this5.dominioCidade = result;
-          _this5.itens = result;
-
-          _this5.loadingContr.hideLoader();
-        })["catch"](function (x) {
-          _this5.loadingContr.hideLoader();
-
-          src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, _this5.toastCtrl);
-        });
+        this.dominioCidade = this.navParams.data.cidades;
+        this.recuperaItens(null); // this.prestadorService.RecuperaCidadePrestadorDisponiveis( this.navParams.data.uf)
+        //   .then(result => {
+        //     this.dominioCidade = result;
+        //     this.itens = result;
+        //     this.loadingContr.hideLoader();
+        //   }).catch(x => {
+        //     this.loadingContr.hideLoader();
+        //     HandlerError.handler(x, this.toastCtrl);
+        //   });
       }
 
       _createClass(ModalCidadePage, [{
@@ -1269,24 +1284,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this6 = this;
+          var _this4 = this;
 
           setTimeout(function () {
-            _this6.inputElement.setFocus();
+            _this4.inputElement.setFocus();
           }, 800);
         }
       }, {
         key: "recuperaItens",
         value: function recuperaItens(ev) {
-          var val = ev.target.value;
+          var val = "";
+
+          if (ev && ev.target) {
+            val = ev.target.value;
+          }
 
           if (val && val.trim() !== '') {
             this.itens = this.dominioCidade.filter(function (item) {
               return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
             });
           } else {
-            this.itens = this.dominioCidade;
+            this.itens = _toConsumableArray(this.dominioCidade);
           }
+
+          this.itens = this.itens.slice(0, 10);
         }
       }, {
         key: "closeModal",
@@ -1327,6 +1348,137 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       /*! ./modal-cidade.page.scss */
       "./src/app/pages/cidade/modal-cidade/modal-cidade.page.scss"))["default"]]
     })], ModalCidadePage);
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss":
+  /*!********************************************************************************************************************************************!*\
+    !*** ./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss ***!
+    \********************************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppPagesGerenciarIgrejaManterPrestadoresModalSituacaoPrestadorModalSituacaoPrestadorModalSituacaoPrestadorPageScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dlcmVuY2lhcklncmVqYS9tYW50ZXJQcmVzdGFkb3Jlcy9tb2RhbFNpdHVhY2FvUHJlc3RhZG9yL21vZGFsLXNpdHVhY2FvLXByZXN0YWRvci9tb2RhbC1zaXR1YWNhby1wcmVzdGFkb3IucGFnZS5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.ts":
+  /*!******************************************************************************************************************************************!*\
+    !*** ./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.ts ***!
+    \******************************************************************************************************************************************/
+
+  /*! exports provided: ModalSituacaoPrestadorPage */
+
+  /***/
+  function srcAppPagesGerenciarIgrejaManterPrestadoresModalSituacaoPrestadorModalSituacaoPrestadorModalSituacaoPrestadorPageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModalSituacaoPrestadorPage", function () {
+      return ModalSituacaoPrestadorPage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+
+    var ModalSituacaoPrestadorPage = /*#__PURE__*/function () {
+      function ModalSituacaoPrestadorPage(modalController, navParams) {
+        _classCallCheck(this, ModalSituacaoPrestadorPage);
+
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.dominioSituacoes = [];
+        this.itens = [];
+        this.itens = this.navParams.data.situacoes;
+        this.dominioSituacoes = this.navParams.data.situacoes;
+      }
+
+      _createClass(ModalSituacaoPrestadorPage, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this5 = this;
+
+          setTimeout(function () {
+            _this5.inputElement.setFocus();
+          }, 800);
+        }
+      }, {
+        key: "recuperaItens",
+        value: function recuperaItens(ev) {
+          var val = ev.target.value;
+
+          if (val && val.trim() !== '') {
+            this.itens = this.dominioSituacoes.filter(function (item) {
+              return item.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
+          } else {
+            this.itens = this.dominioSituacoes;
+          }
+        }
+      }, {
+        key: "closeModal",
+        value: function closeModal() {
+          this.modalController.dismiss(null, 'cancel');
+        }
+      }, {
+        key: "selecionar",
+        value: function selecionar(item) {
+          this.modalController.dismiss(item, 'success');
+        }
+      }]);
+
+      return ModalSituacaoPrestadorPage;
+    }();
+
+    ModalSituacaoPrestadorPage.ctorParameters = function () {
+      return [{
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')], ModalSituacaoPrestadorPage.prototype, "inputElement", void 0);
+    ModalSituacaoPrestadorPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-modal-situacao-prestador',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./modal-situacao-prestador.page.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./modal-situacao-prestador.page.scss */
+      "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss"))["default"]]
+    })], ModalSituacaoPrestadorPage);
     /***/
   },
 
@@ -1402,7 +1554,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var ModalIgrejaPage = /*#__PURE__*/function () {
       function ModalIgrejaPage(loadingContr, toastCtrl, igrejaService, modalController, navParams) {
-        var _this7 = this;
+        var _this6 = this;
 
         _classCallCheck(this, ModalIgrejaPage);
 
@@ -1413,15 +1565,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.navParams = navParams;
         this.itens = [];
         this.dominioIgrejas = [];
-        loadingContr.showLoader();
-        this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(function (result) {
-          _this7.itens = result;
-          _this7.dominioIgrejas = result;
-          loadingContr.hideLoader();
-        })["catch"](function (err) {
-          loadingContr.hideLoader();
-          console.log(err);
-        });
+
+        if (this.navParams.data.igrejas) {
+          this.dominioIgrejas = this.navParams.data.igrejas;
+          this.itens = this.navParams.data.igrejas;
+        } else {
+          loadingContr.showLoader();
+          this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(function (result) {
+            _this6.itens = result;
+            _this6.dominioIgrejas = result;
+            loadingContr.hideLoader();
+          })["catch"](function (err) {
+            loadingContr.hideLoader();
+            console.log(err);
+          });
+        }
       }
 
       _createClass(ModalIgrejaPage, [{
@@ -1430,10 +1588,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this8 = this;
+          var _this7 = this;
 
           setTimeout(function () {
-            _this8.inputElement.setFocus();
+            _this7.inputElement.setFocus();
           }, 800);
         }
       }, {
@@ -1575,10 +1733,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this9 = this;
+          var _this8 = this;
 
           setTimeout(function () {
-            _this9.inputElement.setFocus();
+            _this8.inputElement.setFocus();
           }, 800);
         }
       }, {
@@ -1840,12 +1998,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
        *
        */
       function DominioServicoRepositoryService() {
-        var _this10;
+        var _this9;
 
         _classCallCheck(this, DominioServicoRepositoryService);
 
-        _this10 = _super.call(this);
-        _this10.servicoConverter = {
+        _this9 = _super.call(this);
+        _this9.servicoConverter = {
           toFirestore: function toFirestore(servico) {
             return {
               servicoId: servico.servicoId,
@@ -1853,19 +2011,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             };
           }
         };
-        _this10._collectionName = "dominioServico";
-        return _this10;
+        _this9._collectionName = "dominioServico";
+        return _this9;
       }
 
       _createClass(DominioServicoRepositoryService, [{
         key: "recuperaServicoAutoComplete",
         value: function recuperaServicoAutoComplete(query) {
-          var _this11 = this;
+          var _this10 = this;
 
           return new Promise(function (response, resp) {
             var endText = query + "\uF8FF";
 
-            _this11.db.collection("dominioServico").orderBy("nomeServico").limit(10).where("nomeServico", ">=", query).where("nomeServico", "<=", endText) // .startAt(query)
+            _this10.db.collection("dominioServico").orderBy("nomeServico").limit(10).where("nomeServico", ">=", query).where("nomeServico", "<=", endText) // .startAt(query)
             // .endAt(endText)
             .get().then(function (result) {
               var lst = [];
@@ -1884,10 +2042,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "recuperaDominioServico",
         value: function recuperaDominioServico() {
-          var _this12 = this;
+          var _this11 = this;
 
           return new Promise(function (response, resp) {
-            _this12.db.collection("dominioServico").get().then(function (result) {
+            _this11.db.collection("dominioServico").get().then(function (result) {
               var lst = [];
               result.forEach(function (doc) {
                 lst.push({
@@ -1954,22 +2112,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _super2 = _createSuper(IgrejaRepService);
 
       function IgrejaRepService() {
-        var _this13;
+        var _this12;
 
         _classCallCheck(this, IgrejaRepService);
 
-        _this13 = _super2.call(this);
-        _this13._collectionName = "igreja";
-        return _this13;
+        _this12 = _super2.call(this);
+        _this12._collectionName = "igreja";
+        return _this12;
       }
 
       _createClass(IgrejaRepService, [{
         key: "RecuperaIgrejasPorEndereco",
         value: function RecuperaIgrejasPorEndereco(uf, cidade, bairro) {
-          var _this14 = this;
+          var _this13 = this;
 
           return new Promise(function (resolve, reject) {
-            var query = _this14.db.collection('igreja').where("uf", "==", uf);
+            var query = _this13.db.collection('igreja').where("uf", "==", uf);
 
             if (cidade) {
               query = query.where("cidade", "==", cidade);
@@ -1993,11 +2151,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "RecuperaIgrejaPorAdministrador",
         value: function RecuperaIgrejaPorAdministrador(usuarioId) {
-          var _this15 = this;
+          var _this14 = this;
 
           return new Promise(function (resolve, reject) {
-            _this15.db.collection('igreja').where("administradores", "array-contains", usuarioId).get().then(function (result) {
-              resolve(result);
+            _this14.db.collection('igreja').where("administradores", "array-contains", {
+              usuarioId: usuarioId
+            }).get().then(function (result) {
+              var lst = [];
+              result.forEach(function (doc) {
+                lst.push(doc.data());
+              });
+              resolve(lst);
             })["catch"](function (err) {
               reject(err);
             });

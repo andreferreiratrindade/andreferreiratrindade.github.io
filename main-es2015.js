@@ -436,7 +436,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"overlay\" menuId=\"mainContent\" side=\"start\">\n      <ion-content class=\"background\">\n        <ion-list id=\"inbox-list\">\n\n          <span *ngIf=\"usuarioLogado\">\n            <ion-list-header>\n              <h3>\n                {{recuperaDadosUsuario.nome.split(' ')[0]}}</h3>\n            </ion-list-header>\n            <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n            <ion-chip color=\"tertiary\" (click)=\"logoff()\" slot=\"close\" routerDirection=\"root\" \n              [routerLink]=\"prestador-consultar\" size=\"6\">\n              <ion-label>Sair</ion-label>\n              <ion-icon name=\"log-out-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"login()\" size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"true\" *ngFor=\"let p of paginas; let i = index\">\n            <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n              detail=\"false\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"main-content\">\n    <ion-menu contentId=\"main-content\" type=\"push\" menuId=\"mainContent\" side=\"start\" >\n      <ion-header>\n        <ion-toolbar color=\"default\">\n          <ion-title>Menu</ion-title>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content >\n        <ion-list >\n\n          <span *ngIf=\"usuarioLogado\">\n            <ion-list-header>\n              <h3>\n                {{recuperaDadosUsuario.nome.split(' ')[0]}}</h3>\n            </ion-list-header>\n            <ion-note>{{recuperaDadosUsuario.email}}</ion-note>\n\n            <ion-chip color=\"tertiary\" (click)=\"logoff()\" slot=\"close\" routerDirection=\"root\" \n              [routerLink]=\"prestador-consultar\" size=\"6\">\n              <ion-label>Sair</ion-label>\n              <ion-icon name=\"log-out-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n\n          <span *ngIf=\"!usuarioLogado\" class=\"row justify-content-md-center\">\n            <ion-chip color=\"tertiary\" (click)=\"login()\" size=\"6\">\n              <ion-label>Login</ion-label>\n              <ion-icon name=\"log-in-outline\"></ion-icon>\n            </ion-chip>\n          </span>\n          <ion-menu-toggle auto-hide=\"true\" *ngFor=\"let p of paginas\">\n            <ion-item  routerDirection=\"root\" [routerLink]=\"[p.url]\" \n              detail=\"false\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n      \n        </ion-list>\n        <ion-footer class=\"ion-no-border\">\n          <ion-toolbar>\n            <ion-label>{{ version }}</ion-label>\n          </ion-toolbar>\n        </ion-footer>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>");
 
 /***/ }),
 
@@ -507,6 +507,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers/AuthGuard/PrestadorSituacaoValidation */ "./src/app/providers/AuthGuard/PrestadorSituacaoValidation.ts");
 /* harmony import */ var _providers_AuthGuard_PerfilValidation_AdministradorSistema__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./providers/AuthGuard/PerfilValidation_AdministradorSistema */ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts");
+/* harmony import */ var _providers_AuthGuard_PerfilValidation_AdministradorIgreja__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./providers/AuthGuard/PerfilValidation_AdministradorIgreja */ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorIgreja.ts");
+
 
 
 
@@ -567,15 +569,12 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-form4-prestador-cadastro-form4-module */ "pages-prestador-prestadorCadastro-prestador-cadastro-form4-prestador-cadastro-form4-module").then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-form4/prestador-cadastro-form4.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-form4/prestador-cadastro-form4.module.ts")).then(m => m.PrestadorCadastroForm4PageModule)
     },
     {
-        path: 'modal-dominio-servicos',
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module */ "pages-prestador-prestadorCadastro-modal-dominio-servicos-modal-dominio-servicos-module").then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module */ "./src/app/pages/prestador/prestadorCadastro/modal-dominio-servicos/modal-dominio-servicos.module.ts")).then(m => m.ModalDominioServicosPageModule)
-    },
-    {
         path: 'visualizar-prestador',
         loadChildren: () => Promise.all(/*! import() | pages-prestador-visualizar-prestador-visualizar-prestador-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-visualizar-prestador-visualizar-prestador-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/visualizar-prestador/visualizar-prestador.module */ "./src/app/pages/prestador/visualizar-prestador/visualizar-prestador.module.ts")).then(m => m.VisualizarPrestadorPageModule)
     },
     {
         path: 'consultar-prestador-adm',
+        canActivate: [_providers_AuthGuard_PerfilValidation_AdministradorIgreja__WEBPACK_IMPORTED_MODULE_5__["PerfilValidation_AdministradorIgreja"]],
         loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-consultar-prestador-adm-consultar-prestador-adm-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module */ "./src/app/pages/gerenciarIgreja/manterPrestadores/consultar-prestador-adm/consultar-prestador-adm.module.ts")).then(m => m.ConsultarPrestadorAdmPageModule)
     },
     {
@@ -597,6 +596,36 @@ const routes = [
     {
         path: 'modal-igreja',
         loadChildren: () => Promise.all(/*! import() | pages-igreja-modal-igreja-modal-igreja-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-igreja-modal-igreja-modal-igreja-module")]).then(__webpack_require__.bind(null, /*! ./pages/igreja/modal-igreja/modal-igreja.module */ "./src/app/pages/igreja/modal-igreja/modal-igreja.module.ts")).then(m => m.ModalIgrejaPageModule)
+    },
+    {
+        path: 'modal-situacao-prestador',
+        loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-manterPrestadores-modalSituacaoPrestador-modal-situacao-prestador-modal-situacao-prestador-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-modalSituacaoPrestador-modal-situacao-prestador-modal-situacao-prestador-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.module */ "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.module.ts")).then(m => m.ModalSituacaoPrestadorPageModule)
+    },
+    {
+        path: 'manter-prestador',
+        canActivate: [_providers_AuthGuard_PerfilValidation_AdministradorIgreja__WEBPACK_IMPORTED_MODULE_5__["PerfilValidation_AdministradorIgreja"]],
+        loadChildren: () => Promise.all(/*! import() | pages-gerenciarIgreja-manterPrestadores-manter-prestador-manter-prestador-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gerenciarIgreja-manterPrestadores-manter-prestador-manter-prestador-module")]).then(__webpack_require__.bind(null, /*! ./pages/gerenciarIgreja/manterPrestadores/manter-prestador/manter-prestador.module */ "./src/app/pages/gerenciarIgreja/manterPrestadores/manter-prestador/manter-prestador.module.ts")).then(m => m.ManterPrestadorPageModule)
+    },
+    {
+        path: 'dados-empresa',
+        canActivate: [_providers_AuthGuard_PrestadorSituacaoValidation__WEBPACK_IMPORTED_MODULE_3__["PrestadorSituacaoValidation"]],
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-dados-empresa-dados-empresa-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-dados-empresa-dados-empresa-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/dados-empresa/dados-empresa.module */ "./src/app/pages/prestador/prestadorCadastro/dados-empresa/dados-empresa.module.ts")).then(m => m.DadosEmpresaPageModule)
+    },
+    {
+        path: 'prestador-local-atendimento',
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-local-atendimento-local-atendimento-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-local-atendimento-local-atendimento-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/local-atendimento/local-atendimento.module */ "./src/app/pages/prestador/prestadorCadastro/local-atendimento/local-atendimento.module.ts")).then(m => m.LocalAtendimentoPageModule)
+    },
+    {
+        path: 'prestador-cadastro-servico',
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-servico-prestador-cadastro-servico-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-servico-prestador-cadastro-servico-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-servico/prestador-cadastro-servico.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-servico/prestador-cadastro-servico.module.ts")).then(m => m.PrestadorCadastroServicoPageModule)
+    },
+    {
+        path: 'prestador-cadastro-igreja-vinculo',
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-igreja-vinculo-prestador-cadastro-igreja-vinculo-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-igreja-vinculo-prestador-cadastro-igreja-vinculo-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-igreja-vinculo/prestador-cadastro-igreja-vinculo.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-igreja-vinculo/prestador-cadastro-igreja-vinculo.module.ts")).then(m => m.PrestadorCadastroIgrejaVinculoPageModule)
+    },
+    {
+        path: 'prestador-cadastro-finalizar',
+        loadChildren: () => Promise.all(/*! import() | pages-prestador-prestadorCadastro-prestador-cadastro-finalizar-prestador-cadastro-finalizar-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-prestador-prestadorCadastro-prestador-cadastro-finalizar-prestador-cadastro-finalizar-module")]).then(__webpack_require__.bind(null, /*! ./pages/prestador/prestadorCadastro/prestador-cadastro-finalizar/prestador-cadastro-finalizar.module */ "./src/app/pages/prestador/prestadorCadastro/prestador-cadastro-finalizar/prestador-cadastro-finalizar.module.ts")).then(m => m.PrestadorCadastroFinalizarPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -647,6 +676,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _providers_base_provider_firebase_auth_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./providers/base-provider/firebase-auth-service.service */ "./src/app/providers/base-provider/firebase-auth-service.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/constants */ "./src/app/utils/constants.ts");
+/* harmony import */ var src_environments_appVersion__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/environments/appVersion */ "./src/environments/appVersion.ts");
+
 
 
 
@@ -666,7 +697,7 @@ let AppComponent = class AppComponent {
         this.router = router;
         this.usuarioService = usuarioService;
         this.selectedIndex = 0;
-        this.paginas = [];
+        this.version = src_environments_appVersion__WEBPACK_IMPORTED_MODULE_10__["appVersion"].version;
         this.labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
         this.initializeApp();
     }
@@ -678,11 +709,10 @@ let AppComponent = class AppComponent {
     }
     ngOnInit() {
         this.usuarioService.recuperaUsuarioLogado().then(() => {
-            this.inicializaPaginas();
         });
     }
-    inicializaPaginas() {
-        this.paginas = this.RecuperaPaginasMenuLateral().filter(page => {
+    get paginas() {
+        return this.RecuperaPaginasMenuLateral().filter(page => {
             let retorno = true;
             if (page.perfil) {
                 retorno = page.perfil.filter(x => {
@@ -700,6 +730,7 @@ let AppComponent = class AppComponent {
             }
             return retorno;
         });
+        console.log(this.paginas);
     }
     get recuperaDadosUsuario() {
         var _a;
@@ -711,7 +742,6 @@ let AppComponent = class AppComponent {
     logoff() {
         this.firebaseAuthService.signOut();
         this.router.navigate(['/home']);
-        this.inicializaPaginas();
     }
     login() {
         this.router.navigate(['sign-in']);
@@ -725,7 +755,7 @@ let AppComponent = class AppComponent {
             },
             {
                 title: 'Seja um Prestador',
-                url: 'prestador-Form1',
+                url: 'dados-empresa',
                 icon: 'people'
             },
             {
@@ -736,7 +766,7 @@ let AppComponent = class AppComponent {
             },
             {
                 title: 'Manter Prestadores',
-                url: 'manter-prestador',
+                url: 'consultar-prestador-adm',
                 icon: 'business',
                 perfil: [_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].PerfilUsuario.AdministradorIgreja]
             }
@@ -1362,6 +1392,66 @@ class ProfileModel {
 
 /***/ }),
 
+/***/ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorIgreja.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/providers/AuthGuard/PerfilValidation_AdministradorIgreja.ts ***!
+  \*****************************************************************************/
+/*! exports provided: PerfilValidation_AdministradorIgreja */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilValidation_AdministradorIgreja", function() { return PerfilValidation_AdministradorIgreja; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
+/* harmony import */ var _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../usuario/usuario.service */ "./src/app/providers/usuario/usuario.service.ts");
+/* harmony import */ var src_app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/config */ "./src/app/config.ts");
+/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
+
+
+
+
+
+
+
+let PerfilValidation_AdministradorIgreja = class PerfilValidation_AdministradorIgreja {
+    constructor(router, usuarioService, loadingControll) {
+        this.router = router;
+        this.usuarioService = usuarioService;
+        this.loadingControll = loadingControll;
+    }
+    canActivate(route, state) {
+        this.loadingControll.showLoader();
+        return this.usuarioService.recuperaUsuarioLogado().then(x => {
+            this.loadingControll.hideLoader();
+            if (x == null && !src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario()) {
+                this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
+            }
+            else {
+                let perfisUsuario = src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().perfis;
+                if (!perfisUsuario || perfisUsuario.filter(x => { return x == src_app_utils_constants__WEBPACK_IMPORTED_MODULE_6__["Constants"].PerfilUsuario.AdministradorIgreja; }).length == 0) {
+                    this.router.navigate(['/sign-in'], { queryParams: { returnUrl: state.url } });
+                }
+            }
+            return true;
+        }).catch(() => { this.loadingControll.hideLoader(); return true; });
+    }
+};
+PerfilValidation_AdministradorIgreja.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _usuario_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"] },
+    { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_3__["LoadingContr"] }
+];
+PerfilValidation_AdministradorIgreja = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
+], PerfilValidation_AdministradorIgreja);
+
+
+
+/***/ }),
+
 /***/ "./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts":
 /*!******************************************************************************!*\
   !*** ./src/app/providers/AuthGuard/PerfilValidation_AdministradorSistema.ts ***!
@@ -1485,14 +1575,20 @@ let PrestadorSituacaoValidation = class PrestadorSituacaoValidation {
                         situacaoPrestador = result.situacaoPrestador;
                     }
                     switch (situacaoPrestador) {
-                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form1:
-                            redirectStr = "prestador-Form1";
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.CadastroDadosEmpresa:
+                            redirectStr = "dados-empresa";
                             break;
-                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form2:
-                            redirectStr = "prestador-Form2";
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.CadastroServicos:
+                            redirectStr = "prestador-cadastro-servico";
                             break;
-                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.Form3:
-                            redirectStr = "prestador-Form3";
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.CadastroLocalAtendimento:
+                            redirectStr = "prestador-local-atendimento";
+                            break;
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.CadastroIgrejaVinculo:
+                            redirectStr = "prestador-cadastro-igreja-vinculo";
+                            break;
+                        case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.FinalizarCadastro:
+                            redirectStr = "prestador-cadastro-finalizar";
                             break;
                         case src_app_utils_constants__WEBPACK_IMPORTED_MODULE_7__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao:
                             src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_9__["ToastCustom"].CustomToast(this.toast, "Anteção. Existe uma solicitação de aprovação deste prestador para o adiministrador da igreja.", "danger", 5000);
@@ -1546,6 +1642,7 @@ let BaseProvider = class BaseProvider {
         this.http = http;
     }
     apiGet(url) {
+        console.log(url);
         return this.http.get(url)
             .toPromise()
             .then(data => {
@@ -1564,9 +1661,9 @@ let BaseProvider = class BaseProvider {
     }
     getRequestOptions() {
         let headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]();
-        headers.append('Content-Type', 'application/json');
         headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
+        headers.append('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        headers.append('Access-Control-Allow-Methods', 'GET');
         // headers.append('Authentication', Config.token);
         return new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
     }
@@ -1761,6 +1858,17 @@ let BuscarCEPService = class BuscarCEPService {
     RecuperaEnderecoCompleto(item) {
         return item.logradouro + ", " + item.bairro + " - " + item.cidade + "/" + item.uf + " - " + item.cep;
     }
+    buscarMunicipiosPorUF(uf) {
+        return new Promise((result, reject) => {
+            this.baseProvider.apiGet("https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + uf + "/municipios")
+                .then(retornoApi => {
+                let list = retornoApi.map(x => { return x.nome; });
+                result(list);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
 };
 BuscarCEPService.ctorParameters = () => [
     { type: _base_provider_base_provider__WEBPACK_IMPORTED_MODULE_2__["BaseProvider"] }
@@ -1792,6 +1900,15 @@ __webpack_require__.r(__webpack_exports__);
 let PrestadorService = class PrestadorService {
     constructor(prestadorRepService) {
         this.prestadorRepService = prestadorRepService;
+    }
+    AdicionaLocalAtendimento(localidade, usuarioId) {
+        return this.prestadorRepService.AdicionaLocalAtendimento(localidade, usuarioId);
+    }
+    ExcluirLocalAtendimento(usuarioId, localidade) {
+        return this.prestadorRepService.ExcluirLocalAtendimento(usuarioId, localidade);
+    }
+    RecuperaPestadoresPesquisarPorAdministrador(situacaoPrestador, igrejaId, usuarioId, igrejasDoAdmin) {
+        return this.prestadorRepService.RecuperaPestadoresPesquisarPorAdministrador(situacaoPrestador, igrejaId, usuarioId, igrejasDoAdmin);
     }
     recuperaPrestadoresPorIgreja(igrejaId) {
         return this.prestadorRepService.recuperaPrestadoresPorIgreja(igrejaId);
@@ -1944,10 +2061,77 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrestadorRepServiceService = class PrestadorRepServiceService extends _repository_interface_Repository_Base__WEBPACK_IMPORTED_MODULE_2__["BaseRepository"] {
+    AdicionaLocalAtendimento(localidade, usuarioId) {
+        let ref = this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId);
+        return new Promise((retorno, reject) => {
+            this.db.runTransaction(transaction => {
+                return transaction.get(ref).then(doc => {
+                    let prestador = doc.data();
+                    if (!prestador.locaisAtendimento) {
+                        prestador.locaisAtendimento = [localidade];
+                        transaction.set(ref, prestador);
+                    }
+                    else {
+                        prestador.locaisAtendimento = prestador.locaisAtendimento
+                            .filter(y => { return y.uf != localidade.uf && y.cidade != localidade.cidade; });
+                        prestador.locaisAtendimento.push(localidade);
+                        transaction.update(ref, prestador);
+                    }
+                });
+            }).then(function () {
+                retorno();
+            }).catch(function (error) {
+                reject(error);
+            });
+        });
+    }
+    ExcluirLocalAtendimento(usuarioId, localidade) {
+        let ref = this.db.collection("usuario").doc(usuarioId)
+            .collection("prestador").doc(usuarioId);
+        return new Promise((retorno, reject) => {
+            this.db.runTransaction(transaction => {
+                return transaction.get(ref).then(doc => {
+                    let locaisAtendimento = [];
+                    locaisAtendimento = doc.data().locaisAtendimento;
+                    locaisAtendimento = locaisAtendimento
+                        .filter(y => { return y.uf != localidade.uf && y.cidade != localidade.cidade; });
+                    transaction.update(ref, { locaisAtendimento: locaisAtendimento });
+                });
+            }).then(function () {
+                retorno();
+            }).catch(function (error) {
+                reject(error);
+            });
+        });
+    }
+    RecuperaPestadoresPesquisarPorAdministrador(situacaoPrestador, igrejaId, usuarioId, igrejasDoAdmin) {
+        return new Promise((retorno, reject) => {
+            let query = this.db.collectionGroup("prestador");
+            if (igrejaId) {
+                query = query.where("igrejaId", "==", igrejaId);
+            }
+            else {
+                query = query.where("igrejaId", "in", igrejasDoAdmin);
+            }
+            if (situacaoPrestador) {
+                query = query.where("situacaoPrestador", "==", situacaoPrestador);
+            }
+            query.get().then(result => {
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                retorno(lst);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
     recuperaPrestadoresPorIgreja(igrejaId) {
         return new Promise((retorno, reject) => {
             this.db.collectionGroup("prestador")
-                .where("igrejas", "array-contains", igrejaId)
+                .where("igreja", "==", igrejaId)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
@@ -2062,14 +2246,14 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
     RecuperaPestadoresPesquisar(ufSelecionado, cidadeSelecionado, bairro, servicoId, igrejaId) {
         return new Promise((resolve, reject) => {
             let query = this.db.collectionGroup("prestador")
-                .where("uf", "==", ufSelecionado)
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao);
-            if (cidadeSelecionado) {
-                query = query.where("cidade", "==", cidadeSelecionado);
-            }
-            if (bairro) {
-                query = query.where("bairro", "==", bairro);
-            }
+                .where("locaisAtendimento", "array-contains", { uf: ufSelecionado })
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Ativo);
+            // if (cidadeSelecionado) {
+            //     query = query.where("cidade", "==", cidadeSelecionado);
+            // }
+            // if (bairro) {
+            //     query = query.where("bairro", "==", bairro);
+            // }
             // if (servicoId) {
             //     query = query.whereArrayContains("servicos", "array-contains", servicoId);
             // }
@@ -2100,10 +2284,11 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
         });
     }
     RecuperaCidadePrestadorDisponiveis(ufSelecionado) {
+        debugger;
         return new Promise((resolve, reject) => {
             this.db.collectionGroup("prestador")
-                .where("uf", "==", ufSelecionado)
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
+                .where("locaisAtendimento", "array-contains", { uf: ufSelecionado })
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Ativo)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
@@ -2120,13 +2305,16 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
     recuperaUfPrestadorDisponiveis() {
         return new Promise((resolve, reject) => {
             this.db.collectionGroup("prestador")
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Ativo)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
-                    if (!lst.includes(doc.data().uf)) {
-                        lst.push(doc.data().uf);
-                    }
+                    let ufs = doc.data().locaisAtendimento;
+                    ufs.forEach(localAtendimento => {
+                        if (!lst.includes(localAtendimento.uf)) {
+                            lst.push(localAtendimento.uf);
+                        }
+                    });
                 });
                 resolve(lst);
             }).catch(err => {
@@ -2139,7 +2327,7 @@ let PrestadorRepServiceService = class PrestadorRepServiceService extends _repos
             this.db.collectionGroup("prestador")
                 .where("uf", "==", uf)
                 .where("cidade", "==", cidade)
-                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.PendenteAutorizacao)
+                .where("situacaoPrestador", "==", src_app_utils_constants__WEBPACK_IMPORTED_MODULE_3__["Constants"].TipoSituacaoPrestador.Ativo)
                 .get().then(result => {
                 let lst = [];
                 result.forEach(function (doc) {
@@ -2360,9 +2548,9 @@ var Constants;
     class ListTipoSituacaoPrestador {
         static RecuperaListagem() {
             return [
-                { valor: TipoSituacaoPrestador.Form1, descricao: "Informações Iniciais" },
-                { valor: TipoSituacaoPrestador.Form2, descricao: "Serviços" },
-                { valor: TipoSituacaoPrestador.Form3, descricao: "Confirmar Dados" },
+                { valor: TipoSituacaoPrestador.CadastroDadosEmpresa, descricao: "Informações Iniciais" },
+                { valor: TipoSituacaoPrestador.CadastroServicos, descricao: "Serviços" },
+                { valor: TipoSituacaoPrestador.CadastroIgrejaVinculo, descricao: "Igreja Vinculada" },
                 { valor: TipoSituacaoPrestador.PendenteAutorizacao, descricao: "Pendente de Autorização" },
                 { valor: TipoSituacaoPrestador.Ativo, descricao: "Ativo" },
                 { valor: TipoSituacaoPrestador.Suspenso, descricao: "Suspenso" }
@@ -2375,13 +2563,15 @@ var Constants;
     Constants.ListTipoSituacaoPrestador = ListTipoSituacaoPrestador;
     class TipoSituacaoPrestador {
     }
-    TipoSituacaoPrestador.Form1 = 0;
-    TipoSituacaoPrestador.Form2 = 1;
-    TipoSituacaoPrestador.Form3 = 2;
-    TipoSituacaoPrestador.PendenteAutorizacao = 3;
-    TipoSituacaoPrestador.Ativo = 4;
-    TipoSituacaoPrestador.Suspenso = 5;
-    TipoSituacaoPrestador.Cancelado = 6;
+    TipoSituacaoPrestador.CadastroDadosEmpresa = 0;
+    TipoSituacaoPrestador.CadastroLocalAtendimento = 1;
+    TipoSituacaoPrestador.CadastroServicos = 2;
+    TipoSituacaoPrestador.CadastroIgrejaVinculo = 3;
+    TipoSituacaoPrestador.FinalizarCadastro = 4;
+    TipoSituacaoPrestador.PendenteAutorizacao = 5;
+    TipoSituacaoPrestador.Ativo = 6;
+    TipoSituacaoPrestador.Suspenso = 7;
+    TipoSituacaoPrestador.Cancelado = 8;
     Constants.TipoSituacaoPrestador = TipoSituacaoPrestador;
     class TipoMinisterio {
     }
@@ -2435,7 +2625,65 @@ var Constants;
     TipoPeriodoMinistracao.tarde = 2;
     TipoPeriodoMinistracao.noite = 3;
     Constants.TipoPeriodoMinistracao = TipoPeriodoMinistracao;
+    class ListagemUF {
+        static RecuperaListagem() {
+            return [
+                { "nome": "Acre", "sigla": "AC" },
+                { "nome": "Alagoas", "sigla": "AL" },
+                { "nome": "Amapá", "sigla": "AP" },
+                { "nome": "Amazonas", "sigla": "AM" },
+                { "nome": "Bahia", "sigla": "BA" },
+                { "nome": "Ceará", "sigla": "CE" },
+                { "nome": "Distrito Federal", "sigla": "DF" },
+                { "nome": "Espírito Santo", "sigla": "ES" },
+                { "nome": "Goiás", "sigla": "GO" },
+                { "nome": "Maranhão", "sigla": "MA" },
+                { "nome": "Mato Grosso", "sigla": "MT" },
+                { "nome": "Mato Grosso do Sul", "sigla": "MS" },
+                { "nome": "Minas Gerais", "sigla": "MG" },
+                { "nome": "Pará", "sigla": "PA" },
+                { "nome": "Paraíba", "sigla": "PB" },
+                { "nome": "Paraná", "sigla": "PR" },
+                { "nome": "Pernambuco", "sigla": "PE" },
+                { "nome": "Piauí", "sigla": "PI" },
+                { "nome": "Rio de Janeiro", "sigla": "RJ" },
+                { "nome": "Rio Grande do Norte", "sigla": "RN" },
+                { "nome": "Rio Grande do Sul", "sigla": "RS" },
+                { "nome": "Rondônia", "sigla": "RO" },
+                { "nome": "Roraima", "sigla": "RR" },
+                { "nome": "Santa Catarina", "sigla": "SC" },
+                { "nome": "São Paulo", "sigla": "SP" },
+                { "nome": "Sergipe", "sigla": "SE" },
+                { "nome": "Tocantins", "sigla": "TO" }
+            ];
+        }
+        static RecuperaObjetoPorUF(uf) {
+            return this.RecuperaListagem().filter(y => y.sigla == uf)[0];
+        }
+        static RecuperaDescricaoPorUF(uf) {
+            let obj = this.RecuperaObjetoPorUF(uf);
+            return obj.nome + " / " + obj.sigla;
+        }
+    }
+    Constants.ListagemUF = ListagemUF;
 })(Constants || (Constants = {}));
+
+
+/***/ }),
+
+/***/ "./src/environments/appVersion.ts":
+/*!****************************************!*\
+  !*** ./src/environments/appVersion.ts ***!
+  \****************************************/
+/*! exports provided: appVersion */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appVersion", function() { return appVersion; });
+const appVersion = {
+    version: "1.0.0.1"
+};
 
 
 /***/ }),
@@ -2455,6 +2703,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
+    version: "1.0.0.1",
     firebase: {
         apiKey: "AIzaSyD0NntaNdFAWPCa4Ekodz05XQoxKS2DP6Q",
         authDomain: "igrejaapp-842f7.firebaseapp.com",

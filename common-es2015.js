@@ -446,7 +446,7 @@ const openURL = async (url, ev, direction, animation) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"  \n  animated (ionChange)=\"recuperaItens($event)\" #searchbar></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>UF</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\"  \n  animated (ionChange)=\"recuperaItens($event)\" #searchbar></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.nome}} / {{item.sigla}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n\n");
 
 /***/ }),
 
@@ -473,6 +473,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Cidades</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header translucent={true}>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"\" (click)=\"closeModal()\" text=\"Voltar\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Situação Prestador</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-searchbar type=\"text\"  debounce = 1\n  placeholder=\"Pesquisar\" #searchbar\n  animated (ionChange)=\"recuperaItens($event)\"></ion-searchbar>\n<ion-list>\n    <ion-item *ngFor=\"let item of itens\" (click)=\"selecionar(item)\" detail>\n      <ion-label>{{item.descricao}}</ion-label>\n    </ion-item>\n</ion-list>\n</ion-content>\n");
 
 /***/ }),
 
@@ -518,6 +531,7 @@ class HandlerError {
     static handler(err, toastCtrl) {
         var data = err;
         let message = data.error ? data.error.message : data;
+        console.log(message);
         _toastCustom__WEBPACK_IMPORTED_MODULE_0__["ToastCustom"].errorToast(message, toastCtrl);
     }
 }
@@ -551,33 +565,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
-/* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/providers/prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
-
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/providers/prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
 
 
 
 
 
 let ModalUFPage = class ModalUFPage {
-    constructor(loadingContr, toastCtrl, prestadorService, modalController) {
+    constructor(loadingContr, toastCtrl, prestadorService, modalController, navParams) {
         this.loadingContr = loadingContr;
         this.toastCtrl = toastCtrl;
         this.prestadorService = prestadorService;
         this.modalController = modalController;
+        this.navParams = navParams;
         this.dominioUF = [];
         this.itens = [];
-        this.loadingContr.showLoader();
-        this.prestadorService.RecuperaUfPrestadorDisponiveis()
-            .then(result => {
-            this.dominioUF = result;
-            this.itens = result;
-            this.loadingContr.hideLoader();
-        }).catch(x => {
-            this.loadingContr.hideLoader();
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_3__["HandlerError"].handler(x, this.toastCtrl);
-        });
+        this.dominioUF = this.navParams.data.UFs;
+        this.recuperaItens(null);
     }
     ngAfterViewInit() {
         setTimeout(() => {
@@ -587,13 +592,20 @@ let ModalUFPage = class ModalUFPage {
     ngOnInit() {
     }
     recuperaItens(ev) {
-        const val = ev.target.value;
+        let val = "";
+        if (ev && ev.target) {
+            val = ev.target.value;
+        }
         if (val && val.trim() !== '') {
-            this.itens = this.dominioUF.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
+            this.itens = this.dominioUF.filter(item => {
+                return item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1 || item.sigla.toLowerCase().indexOf(val.toLowerCase()) > -1;
+            });
         }
         else {
-            this.itens = this.dominioUF;
+            this.itens = [...this.dominioUF];
         }
+        if (this.itens.length > 10)
+            this.itens.length = 10;
     }
     closeModal() {
         this.modalController.dismiss(null, 'cancel');
@@ -604,9 +616,10 @@ let ModalUFPage = class ModalUFPage {
 };
 ModalUFPage.ctorParameters = () => [
     { type: src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__["LoadingContr"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
-    { type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_5__["PrestadorService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] },
+    { type: src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__["PrestadorService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavParams"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')
@@ -753,8 +766,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_helpers_loadingContr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/helpers/loadingContr */ "./src/app/helpers/loadingContr.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var src_app_providers_prestador_prestador_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/providers/prestador/prestador.service */ "./src/app/providers/prestador/prestador.service.ts");
-/* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
-
 
 
 
@@ -769,17 +780,17 @@ let ModalCidadePage = class ModalCidadePage {
         this.navParams = navParams;
         this.dominioCidade = [];
         this.itens = [];
-        this.loadingContr.showLoader();
-        this.uf = this.navParams.data.uf;
-        this.prestadorService.RecuperaCidadePrestadorDisponiveis(this.navParams.data.uf)
-            .then(result => {
-            this.dominioCidade = result;
-            this.itens = result;
-            this.loadingContr.hideLoader();
-        }).catch(x => {
-            this.loadingContr.hideLoader();
-            src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_5__["HandlerError"].handler(x, this.toastCtrl);
-        });
+        this.dominioCidade = this.navParams.data.cidades;
+        this.recuperaItens(null);
+        // this.prestadorService.RecuperaCidadePrestadorDisponiveis( this.navParams.data.uf)
+        //   .then(result => {
+        //     this.dominioCidade = result;
+        //     this.itens = result;
+        //     this.loadingContr.hideLoader();
+        //   }).catch(x => {
+        //     this.loadingContr.hideLoader();
+        //     HandlerError.handler(x, this.toastCtrl);
+        //   });
     }
     ngOnInit() {
     }
@@ -789,13 +800,17 @@ let ModalCidadePage = class ModalCidadePage {
         }, 800);
     }
     recuperaItens(ev) {
-        const val = ev.target.value;
+        let val = "";
+        if (ev && ev.target) {
+            val = ev.target.value;
+        }
         if (val && val.trim() !== '') {
             this.itens = this.dominioCidade.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
         }
         else {
-            this.itens = this.dominioCidade;
+            this.itens = [...this.dominioCidade];
         }
+        this.itens = this.itens.slice(0, 10);
     }
     closeModal() {
         this.modalController.dismiss(null, 'cancel');
@@ -821,6 +836,86 @@ ModalCidadePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./modal-cidade.page.scss */ "./src/app/pages/cidade/modal-cidade/modal-cidade.page.scss")).default]
     })
 ], ModalCidadePage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss":
+/*!********************************************************************************************************************************************!*\
+  !*** ./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dlcmVuY2lhcklncmVqYS9tYW50ZXJQcmVzdGFkb3Jlcy9tb2RhbFNpdHVhY2FvUHJlc3RhZG9yL21vZGFsLXNpdHVhY2FvLXByZXN0YWRvci9tb2RhbC1zaXR1YWNhby1wcmVzdGFkb3IucGFnZS5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.ts":
+/*!******************************************************************************************************************************************!*\
+  !*** ./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.ts ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: ModalSituacaoPrestadorPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalSituacaoPrestadorPage", function() { return ModalSituacaoPrestadorPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+
+
+
+let ModalSituacaoPrestadorPage = class ModalSituacaoPrestadorPage {
+    constructor(modalController, navParams) {
+        this.modalController = modalController;
+        this.navParams = navParams;
+        this.dominioSituacoes = [];
+        this.itens = [];
+        this.itens = this.navParams.data.situacoes;
+        this.dominioSituacoes = this.navParams.data.situacoes;
+    }
+    ngOnInit() {
+    }
+    ngAfterViewInit() {
+        setTimeout(() => {
+            this.inputElement.setFocus();
+        }, 800);
+    }
+    recuperaItens(ev) {
+        const val = ev.target.value;
+        if (val && val.trim() !== '') {
+            this.itens = this.dominioSituacoes.filter(item => { return item.toLowerCase().indexOf(val.toLowerCase()) > -1; });
+        }
+        else {
+            this.itens = this.dominioSituacoes;
+        }
+    }
+    closeModal() {
+        this.modalController.dismiss(null, 'cancel');
+    }
+    selecionar(item) {
+        this.modalController.dismiss(item, 'success');
+    }
+};
+ModalSituacaoPrestadorPage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('searchbar')
+], ModalSituacaoPrestadorPage.prototype, "inputElement", void 0);
+ModalSituacaoPrestadorPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-modal-situacao-prestador',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./modal-situacao-prestador.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./modal-situacao-prestador.page.scss */ "./src/app/pages/gerenciarIgreja/manterPrestadores/modalSituacaoPrestador/modal-situacao-prestador/modal-situacao-prestador.page.scss")).default]
+    })
+], ModalSituacaoPrestadorPage);
 
 
 
@@ -868,15 +963,21 @@ let ModalIgrejaPage = class ModalIgrejaPage {
         this.navParams = navParams;
         this.itens = [];
         this.dominioIgrejas = [];
-        loadingContr.showLoader();
-        this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(result => {
-            this.itens = result;
-            this.dominioIgrejas = result;
-            loadingContr.hideLoader();
-        }).catch(err => {
-            loadingContr.hideLoader();
-            console.log(err);
-        });
+        if (this.navParams.data.igrejas) {
+            this.dominioIgrejas = this.navParams.data.igrejas;
+            this.itens = this.navParams.data.igrejas;
+        }
+        else {
+            loadingContr.showLoader();
+            this.igrejaService.RecuperaIgrejasPorEndereco(this.navParams.data.uf, this.navParams.data.cidade, this.navParams.data.bairro).then(result => {
+                this.itens = result;
+                this.dominioIgrejas = result;
+                loadingContr.hideLoader();
+            }).catch(err => {
+                loadingContr.hideLoader();
+                console.log(err);
+            });
+        }
     }
     ngOnInit() {
     }
@@ -1221,10 +1322,14 @@ let IgrejaRepService = class IgrejaRepService extends _repository_interface_Repo
     RecuperaIgrejaPorAdministrador(usuarioId) {
         return new Promise((resolve, reject) => {
             this.db.collection('igreja')
-                .where("administradores", "array-contains", usuarioId)
+                .where("administradores", "array-contains", { usuarioId: usuarioId })
                 .get()
                 .then((result) => {
-                resolve(result);
+                let lst = [];
+                result.forEach(function (doc) {
+                    lst.push(doc.data());
+                });
+                resolve(lst);
             })
                 .catch((err) => {
                 reject(err);

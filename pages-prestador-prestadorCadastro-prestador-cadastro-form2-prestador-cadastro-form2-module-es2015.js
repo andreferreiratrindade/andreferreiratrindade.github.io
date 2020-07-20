@@ -128,10 +128,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var src_app_helpers_handlerError__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/helpers/handlerError */ "./src/app/helpers/handlerError.ts");
 /* harmony import */ var src_app_helpers_toastCustom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/helpers/toastCustom */ "./src/app/helpers/toastCustom.ts");
-/* harmony import */ var src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/utils/constants */ "./src/app/utils/constants.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/pages/servico/modal-servicos/modal-servicos.page */ "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/pages/servico/modal-servicos/modal-servicos.page */ "./src/app/pages/servico/modal-servicos/modal-servicos.page.ts");
 
 
 
@@ -180,7 +178,7 @@ let PrestadorCadastroForm2Page = class PrestadorCadastroForm2Page {
     }
     abreModalSelecionaServico() {
         const modal = this.modalCtrl.create({
-            component: src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_11__["ModalServicosPage"],
+            component: src_app_pages_servico_modal_servicos_modal_servicos_page__WEBPACK_IMPORTED_MODULE_10__["ModalServicosPage"],
             componentProps: { servicos: this.dominioServicos },
             backdropDismiss: false,
         }).then((modal) => {
@@ -263,7 +261,7 @@ let PrestadorCadastroForm2Page = class PrestadorCadastroForm2Page {
             return false;
         }
         this.loadingContr.showLoader();
-        let obj = { situacaoPrestador: src_app_utils_constants__WEBPACK_IMPORTED_MODULE_9__["Constants"].TipoSituacaoPrestador.Form3 };
+        let obj = { situacaoPrestador: 2 };
         this.prestadorService
             .AtualizaPrestador(src_app_config__WEBPACK_IMPORTED_MODULE_5__["Config"].RecuperaInstancia().recuperaUsuario().usuarioId, obj).then(() => {
             this.loadingContr.hideLoader();
@@ -285,7 +283,7 @@ PrestadorCadastroForm2Page.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] }
 ];
 PrestadorCadastroForm2Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
